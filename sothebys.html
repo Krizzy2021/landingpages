@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Sotheby's International Realty Partnership Overview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+    
+    body { 
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      letter-spacing: -0.011em;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      letter-spacing: -0.022em;
+    }
+
+    /* RESPONSIVE HERO ORBITAL STAGE CONTAINER */
+    .hero-orbit-stage {
+      position: relative;
+      width: 100%;
+      max-width: 460px;
+      height: 380px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 640px) {
+      .hero-orbit-stage {
+        height: 460px;
+      }
+    }
+
+    /* CONTINUOUS DYNAMICALLY BLENDED HERO CARDS */
+    .orbit-icon-card {
+      position: absolute;
+      width: 120px;
+      height: 95px;
+      border-radius: 16px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border-style: solid;
+      border-width: 1.5px;
+      will-change: transform, opacity, background, border-color, box-shadow, color;
+      pointer-events: auto;
+      touch-action: manipulation;
+    }
+
+    @media (min-width: 640px) {
+      .orbit-icon-card {
+        width: 140px;
+        height: 110px;
+        border-radius: 20px;
+        padding: 12px;
+      }
+    }
+
+    .orbit-card-title {
+      margin-top: 6px;
+      font-size: 10.5px;
+      line-height: 1.2;
+      will-change: color, font-weight;
+    }
+
+    @media (min-width: 640px) {
+      .orbit-card-title {
+        margin-top: 8px;
+        font-size: 11.5px;
+        line-height: 1.25;
+      }
+    }
+
+    /* BROKERAGE SECTION ENLARGED CIRCULAR ORBIT STAGE */
+    .brokerage-orbit-stage {
+      position: relative;
+      width: 100%;
+      height: 420px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    @media (min-width: 640px) {
+      .brokerage-orbit-stage {
+        height: 480px;
+      }
+    }
+
+    .brokerage-orbit-card {
+      position: absolute;
+      width: 290px;
+      border-radius: 16px;
+      padding: 20px 18px;
+      border-style: solid;
+      border-width: 1.5px;
+      cursor: pointer;
+      will-change: transform, opacity, background, border-color, box-shadow;
+      pointer-events: auto;
+      touch-action: manipulation;
+    }
+
+    @media (min-width: 640px) {
+      .brokerage-orbit-card {
+        width: 340px;
+        border-radius: 20px;
+        padding: 28px 24px;
+      }
+    }
+
+    .brokerage-orbit-card:hover {
+      border-color: #00aeef !important;
+      box-shadow: 0 0 25px rgba(0, 174, 239, 0.4), 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    /* RISK MITIGATION (SECURITY) POP-UP CARDS */
+    .security-pop-card {
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform, background, border-color, box-shadow, color;
+      touch-action: manipulation;
+    }
+
+    .security-pop-card p,
+    .security-pop-card h3,
+    .security-pop-card i,
+    .security-pop-card svg {
+      transition: color 0.8s cubic-bezier(0.16, 1, 0.3, 1), stroke 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .security-pop-card.active-pop {
+      background: linear-gradient(135deg, #00aeef 0%, #0081cf 100%) !important;
+      border-color: #ffffff !important;
+      color: #ffffff !important;
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 15px 35px rgba(0, 174, 239, 0.45), 0 8px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .security-pop-card.active-pop p,
+    .security-pop-card.active-pop h3,
+    .security-pop-card.active-pop i,
+    .security-pop-card.active-pop svg {
+      color: #ffffff !important;
+      stroke: #ffffff !important;
+    }
+
+    /* 3D CIRCULAR CAROUSEL STYLES */
+    .carousel-perspective {
+      perspective: 1000px;
+      position: relative;
+      height: 420px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      touch-action: pan-y;
+    }
+
+    @media (min-width: 640px) {
+      .carousel-perspective {
+        perspective: 1200px;
+        height: 480px;
+      }
+    }
+
+    .carousel-card {
+      position: absolute;
+      width: 290px;
+      background: linear-gradient(135deg, #00aeef 0%, #0081cf 100%);
+      transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.8s ease, border-color 0.8s ease, box-shadow 0.8s ease;
+      will-change: transform, opacity;
+      transform-style: preserve-3d;
+      touch-action: manipulation;
+    }
+
+    @media (min-width: 640px) {
+      .carousel-card {
+        width: 340px;
+      }
+    }
+
+    .carousel-card.highlighted-front {
+      border-color: #ffffff !important;
+      box-shadow: 0 20px 40px -5px rgba(0, 174, 239, 0.45), 0 10px 20px -5px rgba(0, 0, 0, 0.15);
+    }
+  </style>
+</head>
+<body class="bg-white text-slate-800 antialiased selection:bg-[#00aeef] selection:text-white">
+
+  <section class="relative bg-[#2b353f] text-white py-16 sm:py-24 lg:py-32 overflow-hidden border-b border-[#36424e]">
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,#36424e_1px,transparent_1px),linear-gradient(to_bottom,#36424e_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-30"></div>
+    <div class="absolute top-1/4 -right-20 w-72 sm:w-96 h-72 sm:h-96 bg-[#00aeef]/15 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        
+        <div class="lg:col-span-7 text-center lg:text-left">
+          <div class="inline-flex items-center space-x-2 bg-[#00aeef]/10 border border-[#00aeef]/30 text-[#00aeef] text-xs sm:text-sm font-semibold tracking-wider uppercase px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full mb-6">
+            <i data-lucide="shield-check" class="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#00aeef]"></i>
+            <span>Sotheby's International Realty Partnership Overview</span>
+          </div>
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15] mb-6">
+            Brokerage-Grade Real Estate Operations Support
+          </h1>
+          <p class="text-base sm:text-xl text-slate-300 mb-8 leading-relaxed font-normal">
+            A disciplined support model designed to plug underneath Sotheby's internal agent-support teams as an office-based execution layer — extending capacity, improving turnaround time, and ensuring seamless continuity during technology transitions.
+          </p>
+          <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+            <a href="#contact" class="inline-flex items-center justify-center px-6 py-3.5 sm:px-7 sm:py-4 text-sm sm:text-base font-semibold tracking-wide text-white bg-[#00aeef] hover:bg-transparent border-2 border-[#00aeef] rounded-lg transition-all duration-300 shadow-lg shadow-[#00aeef]/25 hover:shadow-none">
+              Schedule Partnership Consultation
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 flex justify-center items-center relative py-4 sm:py-6">
+          <div class="hero-orbit-stage" id="hero-orbit-stage">
+            <div class="absolute w-[240px] sm:w-[330px] h-[240px] sm:h-[330px] rounded-full border border-dashed border-[#00aeef]/25 pointer-events-none"></div>
+            <div class="absolute w-[160px] sm:w-[220px] h-[160px] sm:h-[220px] rounded-full bg-[#00aeef]/10 blur-2xl pointer-events-none"></div>
+
+            <div class="orbit-icon-card">
+              <i data-lucide="calendar-check-2" class="w-5 h-5 sm:w-7 sm:h-7"></i>
+              <span class="orbit-card-title">Calendar Management</span>
+            </div>
+
+            <div class="orbit-icon-card">
+              <i data-lucide="mail-check" class="w-5 h-5 sm:w-7 sm:h-7"></i>
+              <span class="orbit-card-title">Email Management</span>
+            </div>
+
+            <div class="orbit-icon-card">
+              <i data-lucide="file-badge-2" class="w-5 h-5 sm:w-7 sm:h-7"></i>
+              <span class="orbit-card-title">Transaction Coordination</span>
+            </div>
+
+            <div class="orbit-icon-card">
+              <i data-lucide="megaphone" class="w-5 h-5 sm:w-7 sm:h-7"></i>
+              <span class="orbit-card-title">Marketing</span>
+            </div>
+
+            <div class="orbit-icon-card">
+              <i data-lucide="database-zap" class="w-5 h-5 sm:w-7 sm:h-7"></i>
+              <span class="orbit-card-title">CRM Management</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mt-16 sm:mt-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 pt-12 sm:pt-16 border-t border-[#36424e]">
+        
+        <div class="group relative bg-[#323d49] border border-[#3c4a58] hover:border-[#00aeef] rounded-xl p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-[#00aeef]/20 cursor-pointer overflow-hidden">
+          <div class="absolute -right-4 -bottom-4 w-20 h-20 bg-[#00aeef] rounded-full blur-xl opacity-10 group-hover:opacity-35 transition-all"></div>
+          <p class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white group-hover:text-[#00aeef] transition-colors tracking-tight">100%</p>
+          <p class="text-sm sm:text-base font-medium text-slate-300 mt-1 sm:mt-2">U.S. Real Estate Specialization</p>
+          <span class="inline-block mt-2 sm:mt-3 text-xs sm:text-sm text-[#00aeef] sm:opacity-0 group-hover:opacity-100 transition-opacity font-semibold">Dedicated domain expertise &rarr;</span>
+        </div>
+
+        <div class="group relative bg-[#323d49] border border-[#3c4a58] hover:border-[#00aeef] rounded-xl p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-[#00aeef]/20 cursor-pointer overflow-hidden">
+          <div class="absolute -right-4 -bottom-4 w-20 h-20 bg-[#00aeef] rounded-full blur-xl opacity-10 group-hover:opacity-35 transition-all"></div>
+          <p class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white group-hover:text-[#00aeef] transition-colors tracking-tight">Office-Based</p>
+          <p class="text-sm sm:text-base font-medium text-slate-300 mt-1 sm:mt-2">Located in Davao City, PH</p>
+          <span class="inline-block mt-2 sm:mt-3 text-xs sm:text-sm text-[#00aeef] sm:opacity-0 group-hover:opacity-100 transition-opacity font-semibold">Controlled facility security &rarr;</span>
+        </div>
+
+        <div class="group relative bg-[#323d49] border border-[#3c4a58] hover:border-[#00aeef] rounded-xl p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-[#00aeef]/20 cursor-pointer overflow-hidden">
+          <div class="absolute -right-4 -bottom-4 w-20 h-20 bg-[#00aeef] rounded-full blur-xl opacity-10 group-hover:opacity-35 transition-all"></div>
+          <p class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white group-hover:text-[#00aeef] transition-colors tracking-tight">3-Week</p>
+          <p class="text-sm sm:text-base font-medium text-slate-300 mt-1 sm:mt-2">Structured VA Training <span class="block text-xs text-slate-400 font-normal mt-0.5">(40-45% Pass Rate)</span></p>
+          <span class="inline-block mt-2 sm:mt-3 text-xs sm:text-sm text-[#00aeef] sm:opacity-0 group-hover:opacity-100 transition-opacity font-semibold">Rigorous vetting process &rarr;</span>
+        </div>
+
+        <div class="group relative bg-[#323d49] border border-[#3c4a58] hover:border-[#00aeef] rounded-xl p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-[#00aeef]/20 cursor-pointer overflow-hidden">
+          <div class="absolute -right-4 -bottom-4 w-20 h-20 bg-[#00aeef] rounded-full blur-xl opacity-10 group-hover:opacity-35 transition-all"></div>
+          <p class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white group-hover:text-[#00aeef] transition-colors tracking-tight">$1,995<span class="text-lg sm:text-xl text-slate-400 font-normal">/mo</span></p>
+          <p class="text-sm sm:text-base font-medium text-slate-300 mt-1 sm:mt-2">Monthly Full-Time Dedicated VA</p>
+          <span class="inline-block mt-2 sm:mt-3 text-xs sm:text-sm text-[#00aeef] sm:opacity-0 group-hover:opacity-100 transition-opacity font-semibold">Flat predictable pricing &rarr;</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 sm:py-20 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-gradient-to-br from-slate-50 to-[#00aeef]/5 border border-[#00aeef]/20 rounded-2xl p-6 sm:p-8 lg:p-12 relative overflow-hidden shadow-sm">
+        <div class="w-full relative">
+          <div class="inline-flex items-center space-x-2 bg-[#00aeef]/10 text-[#00aeef] text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">
+            <span class="w-1.5 h-1.5 bg-[#00aeef] rounded-full"></span>
+            <span>Strategic Alignment</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 mb-4 tracking-tight">Uniquely Positioned for Sotheby's Technology Transition</h2>
+          <p class="text-base sm:text-lg text-slate-600 mb-6 sm:mb-8 leading-relaxed font-normal w-full">
+            In connection with the Compass and Anywhere Real Estate combination, Sotheby's agents are expected to transition onto Compass technology under the Compass International Holdings (CIH) structure while maintaining the Sotheby's brand. Existing support experience covers Compass agents, teams, and brokerage workflows.
+          </p>
+          <div class="grid sm:grid-cols-2 gap-3 sm:gap-4 text-sm sm:text-base font-medium text-slate-700">
+            <div class="flex items-start space-x-3 bg-white p-3.5 sm:p-4 rounded-lg border border-[#00aeef]/20 shadow-xs">
+              <i data-lucide="check-circle-2" class="w-5 h-5 sm:w-5.5 sm:h-5.5 text-[#00aeef] shrink-0 mt-0.5"></i>
+              <span>Practical expertise across Compass systems & tools</span>
+            </div>
+            <div class="flex items-start space-x-3 bg-white p-3.5 sm:p-4 rounded-lg border border-[#00aeef]/20 shadow-xs">
+              <i data-lucide="check-circle-2" class="w-5 h-5 sm:w-5.5 sm:h-5.5 text-[#00aeef] shrink-0 mt-0.5"></i>
+              <span>Established CRM & listing management workflows</span>
+            </div>
+            <div class="flex items-start space-x-3 bg-white p-3.5 sm:p-4 rounded-lg border border-[#00aeef]/20 shadow-xs">
+              <i data-lucide="check-circle-2" class="w-5 h-5 sm:w-5.5 sm:h-5.5 text-[#00aeef] shrink-0 mt-0.5"></i>
+              <span>Zero learning curve on platform integration</span>
+            </div>
+            <div class="flex items-start space-x-3 bg-white p-3.5 sm:p-4 rounded-lg border border-[#00aeef]/20 shadow-xs">
+              <i data-lucide="check-circle-2" class="w-5 h-5 sm:w-5.5 sm:h-5.5 text-[#00aeef] shrink-0 mt-0.5"></i>
+              <span>Built-in Management Pod oversight on every account</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 sm:py-24 bg-[#f8fafc] border-b border-slate-200 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
+        <div class="inline-flex items-center space-x-2 bg-[#00aeef]/10 text-[#00aeef] text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">
+          <span>Agent Solutions</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">Core Agent & Team Support Functions</h2>
+        <p class="text-slate-600 mt-2 sm:mt-3 text-base sm:text-lg leading-relaxed">Freeing local full-time employees and top producers to focus on agent success and relationship management.</p>
+      </div>
+
+      <div class="carousel-perspective" id="3d-carousel-container">
+        <div class="carousel-card p-6 sm:p-7 rounded-2xl border border-white/30 cursor-pointer shadow-lg text-white">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 text-white rounded-lg flex items-center justify-center mb-4 sm:mb-5 border border-white/30">
+            <i data-lucide="home" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+          </div>
+          <h3 class="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3 tracking-tight">Listing Support</h3>
+          <ul class="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-white/90 font-normal">
+            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-white rounded-full"></span><span>MLS Input Preparation</span></li>
+            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-white rounded-full"></span><span>Listing Checklists & Workflows</span></li>
+            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-white rounded-full"></span><span>Seller Disclosure Coordination</span></li>
+            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-white rounded-full"></span><span>DocuSign / SkySlope Admin</span></li>
+          </ul>
+        </div>
+
+        <div class="carousel-card p-6 sm:p-7 rounded-2xl border border-white/30 cursor-pointer shadow-lg text-white">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 text-white rounded-lg flex items-center justify-center mb-4 sm:mb-5 border border-white/30">
+            <i data-lucide="database" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+          </div>
+          <h3 class="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3 tracking-tight">CRM & Database</h3>
+          <ul class="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-white/90 font-normal">
+            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-white rounded-full"></span><span>CRM Setup & Tagging Structure</span></li>
+            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-white rounded-full"></span><span>Database Segmentation & Cleanup</span></li>
+            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-white rounded-full"></span><span>Follow-Up Lists & Hygiene</span></li>
+          </ul>
+        </div>
+
+        <div class="carousel-card p-6 sm:p-7 rounded-2xl border border-white/30 cursor-pointer shadow-lg text-white">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 text-white rounded-lg flex items-center justify-center mb-4 sm:mb-5 border border-white/30">
+            <i data-lucide="megaphone" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+          </div>
+          <h3 class="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3 tracking-tight">Marketing Coordination</h3>
+          <ul class="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-white/90 font-normal">
+            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-white rounded-full"></span><span>Social & Email Campaigns</span></li>
+            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-white rounded-full"></span><span>Print Collateral Requests</span></li>
+            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-white rounded-full"></span><span>Open House & Video Prep</span></li>
+          </ul>
+        </div>
+
+        <div class="carousel-card p-6 sm:p-7 rounded-2xl border border-white/30 cursor-pointer shadow-lg text-white">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 text-white rounded-lg flex items-center justify-center mb-4 sm:mb-5 border border-white/30">
+            <i data-lucide="file-check" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+          </div>
+          <h3 class="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3 tracking-tight">Transaction Admin</h3>
+          <ul class="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-white/90 font-normal">
+            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-white rounded-full"></span><span>Document Coordination</span></li>
+            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-white rounded-full"></span><span>Status Tracking & Milestones</span></li>
+            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-white rounded-full"></span><span>Compliance Preparation Support</span></li>
+          </ul>
+        </div>
+
+        <div class="carousel-card p-6 sm:p-7 rounded-2xl border border-white/30 cursor-pointer shadow-lg text-white">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 text-white rounded-lg flex items-center justify-center mb-4 sm:mb-5 border border-white/30">
+            <i data-lucide="mail" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+          </div>
+          <h3 class="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3 tracking-tight">Inbox & Calendar</h3>
+          <ul class="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-white/90 font-normal">
+            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-white rounded-full"></span><span>Email Triage & Management</span></li>
+            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-white rounded-full"></span><span>Scheduling & Appointments</span></li>
+            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-white rounded-full"></span><span>Vendor & Client Follow-Ups</span></li>
+          </ul>
+        </div>
+
+        <div class="carousel-card p-6 sm:p-7 rounded-2xl border border-white/30 cursor-pointer shadow-lg text-white">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 text-white rounded-lg flex items-center justify-center mb-4 sm:mb-5 border border-white/30">
+            <i data-lucide="bar-chart-3" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+          </div>
+          <h3 class="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3 tracking-tight">Reporting & Analytics</h3>
+          <ul class="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-white/90 font-normal">
+            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-white rounded-full"></span><span>CMA Support & Market Data</span></li>
+            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-white rounded-full"></span><span>Deal Trackers & Dashboards</span></li>
+            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-white rounded-full"></span><span>Commissions & Expense Logs</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 sm:py-24 bg-white border-b border-slate-200 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-8">
+        <div class="inline-flex items-center space-x-2 bg-[#00aeef]/10 text-[#00aeef] text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">
+          <span>Scale Infrastructure</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 mt-2 tracking-tight">Brokerage & Corporate Office Support</h2>
+        <p class="text-slate-600 mt-2 sm:mt-3 text-base sm:text-lg leading-relaxed">Extending disciplined office-based support across corporate administration, agent services, and shared-service workflows.</p>
+      </div>
+
+      <div class="brokerage-orbit-stage" id="brokerage-orbit-stage">
+        <div class="absolute w-[320px] sm:w-[680px] h-[160px] sm:h-[240px] rounded-full border border-dashed border-[#00aeef]/30 pointer-events-none"></div>
+        <div class="absolute w-[220px] sm:w-[460px] h-[100px] sm:h-[160px] rounded-full bg-[#00aeef]/5 blur-3xl pointer-events-none"></div>
+
+        <div class="brokerage-orbit-card">
+          <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3 flex items-center space-x-2.5 tracking-tight">
+            <i data-lucide="user-plus" class="w-5 h-5 sm:w-6 sm:h-6 shrink-0"></i>
+            <span>Agent Onboarding</span>
+          </h3>
+          <p class="text-xs sm:text-sm mb-3 sm:mb-4 opacity-80 leading-relaxed">Standardized onboarding & offboarding management.</p>
+          <ul class="space-y-2 text-xs sm:text-sm font-normal">
+            <li>• New agent system setup</li>
+            <li>• Training coordination & follow-ups</li>
+            <li>• Offboarding access removal & cleanup</li>
+          </ul>
+        </div>
+
+        <div class="brokerage-orbit-card">
+          <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3 flex items-center space-x-2.5 tracking-tight">
+            <i data-lucide="line-chart" class="w-5 h-5 sm:w-6 sm:h-6 shrink-0"></i>
+            <span>Reporting & Analytics</span>
+          </h3>
+          <p class="text-xs sm:text-sm mb-3 sm:mb-4 opacity-80 leading-relaxed">High-level production tracking & metrics.</p>
+          <ul class="space-y-2 text-xs sm:text-sm font-normal">
+            <li>• Agent production & activity tracking</li>
+            <li>• Transaction volume & pipeline reports</li>
+            <li>• Google Sheets / CRM dashboards</li>
+          </ul>
+        </div>
+
+        <div class="brokerage-orbit-card">
+          <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3 flex items-center space-x-2.5 tracking-tight">
+            <i data-lucide="settings" class="w-5 h-5 sm:w-6 sm:h-6 shrink-0"></i>
+            <span>Systems Admin</span>
+          </h3>
+          <p class="text-xs sm:text-sm mb-3 sm:mb-4 opacity-80 leading-relaxed">Platform management & SOP enforcement.</p>
+          <ul class="space-y-2 text-xs sm:text-sm font-normal">
+            <li>• CRM & MLS data management</li>
+            <li>• DocuSign & Workspace support</li>
+            <li>• Workflow documentation & enforcement</li>
+          </ul>
+        </div>
+
+        <div class="brokerage-orbit-card">
+          <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3 flex items-center space-x-2.5 tracking-tight">
+            <i data-lucide="folder-lock" class="w-5 h-5 sm:w-6 sm:h-6 shrink-0"></i>
+            <span>Back-Office Admin</span>
+          </h3>
+          <p class="text-xs sm:text-sm mb-3 sm:mb-4 opacity-80 leading-relaxed">Centralized compliance & operations overflow.</p>
+          <ul class="space-y-2 text-xs sm:text-sm font-normal">
+            <li>• File auditing & compliance prep</li>
+            <li>• Transaction coordination overflow</li>
+            <li>• Commission processing support</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 sm:py-20 bg-[#2b353f] text-white relative overflow-hidden">
+    <div class="absolute -bottom-20 -left-20 w-72 sm:w-96 h-72 sm:h-96 bg-[#00aeef]/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="max-w-3xl mb-12 sm:mb-16">
+        <div class="inline-flex items-center space-x-2 bg-[#00aeef]/10 border border-[#00aeef]/30 text-[#00aeef] text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">
+          <span>Risk Mitigation</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mt-2 tracking-tight">Office-Based Security & Operational Controls</h2>
+        <p class="text-slate-300 mt-2 sm:mt-3 text-base sm:text-lg leading-relaxed font-normal">
+          Reduces unmanaged offshore risk by keeping all production inside a controlled office facility with strict access, device, confidentiality, and supervision protocols.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6" id="security-pop-grid">
+        <div class="security-pop-card bg-[#323d49] p-5 sm:p-6 rounded-xl border border-[#3c4a58] cursor-pointer">
+          <i data-lucide="building" class="w-7 h-7 sm:w-8 sm:h-8 text-[#00aeef] mb-3 sm:mb-4"></i>
+          <h3 class="font-bold text-lg sm:text-xl mb-1.5 sm:mb-2 tracking-tight text-white">Controlled Facilities</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+            All work is performed exclusively from supervised facilities in Davao City — never home-based freelancer environments.
+          </p>
+        </div>
+
+        <div class="security-pop-card bg-[#323d49] p-5 sm:p-6 rounded-xl border border-[#3c4a58] cursor-pointer">
+          <i data-lucide="smartphone" class="w-7 h-7 sm:w-8 sm:h-8 text-[#00aeef] mb-3 sm:mb-4"></i>
+          <h3 class="font-bold text-lg sm:text-xl mb-1.5 sm:mb-2 tracking-tight text-white">No Personal Devices</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+            Personal cell phones are strictly prohibited on active production floors to safeguard confidential client data.
+          </p>
+        </div>
+
+        <div class="security-pop-card bg-[#323d49] p-5 sm:p-6 rounded-xl border border-[#3c4a58] cursor-pointer">
+          <i data-lucide="key-round" class="w-7 h-7 sm:w-8 sm:h-8 text-[#00aeef] mb-3 sm:mb-4"></i>
+          <h3 class="font-bold text-lg sm:text-xl mb-1.5 sm:mb-2 tracking-tight text-white">SOC 2 & Access Scope</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+            Role-based access controls, password manager discipline, client-approved SSO/2FA, and SOC 2 aligned protocols.
+          </p>
+        </div>
+
+        <div class="security-pop-card bg-[#323d49] p-5 sm:p-6 rounded-xl border border-[#3c4a58] cursor-pointer">
+          <i data-lucide="wifi-off" class="w-7 h-7 sm:w-8 sm:h-8 text-[#00aeef] mb-3 sm:mb-4"></i>
+          <h3 class="font-bold text-lg sm:text-xl mb-1.5 sm:mb-2 tracking-tight text-white">Network Continuity</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+            Redundant internet, backup power generators, and local IT support to maintain continuous operations during local outages.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="py-16 sm:py-24 bg-[#f8fafc]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-gradient-to-br from-[#00aeef] via-[#009bd5] to-[#0081cf] rounded-2xl sm:rounded-3xl p-6 sm:p-12 lg:p-16 text-white grid lg:grid-cols-2 gap-8 lg:gap-12 items-center border border-[#ffffff]/20 shadow-2xl relative overflow-hidden">
+        <div class="absolute -bottom-10 -left-10 w-80 h-80 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="relative">
+          <div class="inline-flex items-center space-x-2 bg-white/20 border border-white/30 text-white text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3 backdrop-blur-sm">
+            <span>Commercial Model</span>
+          </div>
+          <h2 class="text-2xl sm:text-4xl font-extrabold mt-2 mb-4 sm:mb-6 tracking-tight text-white">Simple, Predictable Subscription Pricing</h2>
+          <p class="text-base sm:text-lg text-white/95 mb-6 sm:mb-8 leading-relaxed font-normal">
+            Flat monthly rate of <strong>$1,995/mo</strong> per full-time dedicated assistant. Eliminate recruitment fees, local HR burden, payroll setup, equipment acquisition, and employee benefits.
+          </p>
+
+          <div class="space-y-3 sm:space-y-4">
+            <div class="flex items-center space-x-3">
+              <div class="w-5 h-5 sm:w-6 sm:h-6 bg-white/20 rounded-full flex items-center justify-center border border-white/40 shrink-0">
+                <i data-lucide="check" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white"></i>
+              </div>
+              <span class="text-sm sm:text-base text-white font-medium">Flexible scaling by agent, team, office, or centralized function</span>
+            </div>
+            <div class="flex items-center space-x-3">
+              <div class="w-5 h-5 sm:w-6 sm:h-6 bg-white/20 rounded-full flex items-center justify-center border border-white/40 shrink-0">
+                <i data-lucide="check" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white"></i>
+              </div>
+              <span class="text-sm sm:text-base text-white font-medium">Management Pod (Team Leader & Operations Oversight) included</span>
+            </div>
+            <div class="flex items-center space-x-3">
+              <div class="w-5 h-5 sm:w-6 sm:h-6 bg-white/20 rounded-full flex items-center justify-center border border-white/40 shrink-0">
+                <i data-lucide="check" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white"></i>
+              </div>
+              <span class="text-sm sm:text-base text-white font-medium">Zero replacement-search burden or turnover exposure</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white text-slate-900 p-6 sm:p-8 rounded-xl sm:rounded-2xl border border-slate-100 shadow-2xl relative">
+          <h3 class="text-xl sm:text-2xl font-bold text-slate-900 mb-1.5 sm:mb-2 tracking-tight">Tailor a Deployment Plan</h3>
+          <p class="text-xs sm:text-sm text-slate-500 mb-5 sm:mb-6 font-normal">Schedule an operational scoping call for your brokerage or team.</p>
+
+          <form class="space-y-3.5 sm:space-y-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1 tracking-wide">Full Name</label>
+              <input type="text" placeholder="Jane Doe" class="w-full px-3.5 py-2.5 sm:px-4 sm:py-3 text-sm sm:text-base bg-slate-50 border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#00aeef] focus:border-transparent font-normal transition">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1 tracking-wide">Work Email</label>
+              <input type="email" placeholder="jane@sothebysrealty.com" class="w-full px-3.5 py-2.5 sm:px-4 sm:py-3 text-sm sm:text-base bg-slate-50 border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#00aeef] focus:border-transparent font-normal transition">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1 tracking-wide">Office / Market Region</label>
+              <input type="text" placeholder="e.g. Pacific Northwest / Central Office" class="w-full px-3.5 py-2.5 sm:px-4 sm:py-3 text-sm sm:text-base bg-slate-50 border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#00aeef] focus:border-transparent font-normal transition">
+            </div>
+            <button type="button" class="w-full py-3 sm:py-3.5 px-4 text-sm sm:text-base font-semibold tracking-wide text-white bg-[#2b353f] hover:bg-[#1f2730] rounded-lg transition shadow-lg shadow-[#2b353f]/30">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-white border-t border-slate-200 py-6 sm:py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-xs sm:text-sm text-slate-500 font-normal">
+      &copy; 2026 Office-Based Real Estate Operations Support.
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+
+    function lerp(start, end, amt) {
+      return (1 - amt) * start + amt * end;
+    }
+
+    function lerpColor(c1, c2, ratio) {
+      const r = Math.round(lerp(c1.r, c2.r, ratio));
+      const g = Math.round(lerp(c1.g, c2.g, ratio));
+      const b = Math.round(lerp(c1.b, c2.b, ratio));
+      const a = lerp(c1.a, c2.a, ratio).toFixed(3);
+      return `rgba(${r}, ${g}, ${b}, ${a})`;
+    }
+
+    // 1. HERO ORBITAL CARDS SCRIPT (MOBILE RESPONSIVE RADII)
+    document.addEventListener('DOMContentLoaded', () => {
+      const iconCards = document.querySelectorAll('.orbit-icon-card');
+      const totalNodes = iconCards.length;
+      let targetAngle = -(2 * Math.PI) / totalNodes;
+      let currentAngle = 0; 
+
+      function getHeroRadii() {
+        const isMobile = window.innerWidth < 640;
+        return {
+          x: isMobile ? 115 : 160,
+          y: isMobile ? 115 : 160
+        };
+      }
+
+      const slateStart = { r: 50, g: 61, b: 73, a: 1 };   
+      const slateEnd   = { r: 41, g: 50, b: 60, a: 1 };   
+      const cyanStart  = { r: 0,  g: 174, b: 239, a: 1 }; 
+      const cyanEnd    = { r: 0,  g: 129, b: 207, a: 1 }; 
+
+      const slateBorder = { r: 60, g: 74, b: 88, a: 1 };  
+      const cyanBorder  = { r: 255, g: 255, b: 255, a: 1 }; 
+
+      const slateIcon   = { r: 0, g: 174, b: 239, a: 1 };  
+      const cyanIcon    = { r: 255, g: 255, b: 255, a: 1 }; 
+
+      const slateText   = { r: 148, g: 163, b: 184, a: 1 }; 
+      const cyanText    = { r: 255, g: 255, b: 255, a: 1 }; 
+
+      function stepOrbit() {
+        targetAngle -= (2 * Math.PI) / totalNodes;
+      }
+
+      function animateHeroOrbit() {
+        currentAngle += (targetAngle - currentAngle) * 0.012; 
+        const angleStep = (2 * Math.PI) / totalNodes;
+        const radii = getHeroRadii();
+
+        iconCards.forEach((card, index) => {
+          const nodeAngle = currentAngle + (index * angleStep);
+          const x = Math.sin(nodeAngle) * radii.x;
+          const y = Math.cos(nodeAngle) * radii.y;
+
+          const normalizedY = (y + radii.y) / (2 * radii.y); 
+          
+          let highlightRatio = 0;
+          if (normalizedY > 0.70) {
+            highlightRatio = (normalizedY - 0.70) / 0.30;
+            highlightRatio = Math.pow(highlightRatio, 2) * (3 - 2 * highlightRatio);
+          }
+
+          const scale = 0.82 + (normalizedY * 0.38); 
+          const opacity = 0.5 + (normalizedY * 0.5);
+
+          const bgGradStart = lerpColor(slateStart, cyanStart, highlightRatio);
+          const bgGradEnd   = lerpColor(slateEnd, cyanEnd, highlightRatio);
+          const borderCol   = lerpColor(slateBorder, cyanBorder, highlightRatio);
+          const iconCol     = lerpColor(slateIcon, cyanIcon, highlightRatio);
+          const textCol     = lerpColor(slateText, cyanText, highlightRatio);
+
+          const glowAlpha   = (highlightRatio * 0.75).toFixed(2);
+          const shadowAlpha = (0.15 + highlightRatio * 0.20).toFixed(2);
+
+          card.style.transform = `translate3d(${x}px, ${y}px, 0) scale(${scale})`;
+          card.style.opacity = opacity;
+          card.style.zIndex = Math.round(normalizedY * 100);
+
+          card.style.background = `linear-gradient(135deg, ${bgGradStart} 0%, ${bgGradEnd} 100%)`;
+          card.style.borderColor = borderCol;
+          card.style.color = iconCol;
+          card.style.boxShadow = `0 0 ${Math.round(highlightRatio * 35)}px rgba(0, 174, 239, ${glowAlpha}), 0 10px 25px rgba(0, 0, 0, ${shadowAlpha})`;
+
+          const titleEl = card.querySelector('.orbit-card-title');
+          if (titleEl) {
+            titleEl.style.color = textCol;
+            titleEl.style.fontWeight = highlightRatio > 0.5 ? '700' : '600';
+          }
+        });
+
+        requestAnimationFrame(animateHeroOrbit);
+      }
+
+      setInterval(stepOrbit, 3200);
+      animateHeroOrbit();
+    });
+
+    // 2. BROKERAGE SECTION ORBIT (MOBILE RESPONSIVE RADII)
+    document.addEventListener('DOMContentLoaded', () => {
+      const bCards = document.querySelectorAll('.brokerage-orbit-card');
+      const bTotal = bCards.length;
+      let bTargetAngle = 0;
+      let bCurrentAngle = 0;
+      let isBPaused = false;
+      let lastBStepTime = performance.now();
+
+      function getBrokerageRadii() {
+        const isMobile = window.innerWidth < 640;
+        return {
+          x: isMobile ? 140 : 380,
+          y: isMobile ? 60 : 90
+        };
+      }
+
+      const defaultBorder = { r: 0, g: 174, b: 239, a: 0.35 };
+      const activeBorder  = { r: 0, g: 174, b: 239, a: 1.00 };
+
+      function animateBrokerageOrbit(now) {
+        if (!isBPaused && now - lastBStepTime > 3200) {
+          bTargetAngle -= (2 * Math.PI) / bTotal;
+          lastBStepTime = now;
+        }
+
+        bCurrentAngle += (bTargetAngle - bCurrentAngle) * 0.008;
+        const angleStep = (2 * Math.PI) / bTotal;
+        const radii = getBrokerageRadii();
+
+        bCards.forEach((card, index) => {
+          const nodeAngle = bCurrentAngle + (index * angleStep);
+          const x = Math.sin(nodeAngle) * radii.x;
+          const y = Math.cos(nodeAngle) * radii.y;
+
+          const normalizedY = (y + radii.y) / (2 * radii.y); 
+          
+          let highlightRatio = 0;
+          if (normalizedY > 0.65) {
+            highlightRatio = (normalizedY - 0.65) / 0.35;
+            highlightRatio = Math.pow(highlightRatio, 2) * (3 - 2 * highlightRatio);
+          }
+
+          const scale = 0.85 + (normalizedY * 0.25); 
+          const opacity = 0.65 + (normalizedY * 0.35); 
+
+          const borderCol = lerpColor(defaultBorder, activeBorder, highlightRatio);
+          const glowAlpha = (highlightRatio * 0.45).toFixed(2);
+
+          card.style.transform = `translate3d(${x}px, ${y}px, 0) scale(${scale})`;
+          card.style.opacity = opacity;
+          card.style.zIndex = Math.round(normalizedY * 100);
+
+          card.style.backgroundColor = highlightRatio > 0.5 ? '#ffffff' : '#f8fafc';
+          card.style.borderColor = borderCol;
+          card.style.boxShadow = `0 ${Math.round(highlightRatio * 18)}px ${Math.round(highlightRatio * 35)}px rgba(0, 174, 239, ${glowAlpha}), 0 4px 12px rgba(0, 0, 0, 0.04)`;
+
+          const iconEl = card.querySelector('i');
+          if (iconEl) iconEl.style.color = '#00aeef';
+        });
+
+        requestAnimationFrame(animateBrokerageOrbit);
+      }
+
+      bCards.forEach((card, index) => {
+        const togglePauseOn = () => { isBPaused = true; };
+        const togglePauseOff = () => { isBPaused = false; lastBStepTime = performance.now(); };
+
+        card.addEventListener('mouseenter', togglePauseOn);
+        card.addEventListener('mouseleave', togglePauseOff);
+        card.addEventListener('touchstart', togglePauseOn, { passive: true });
+        card.addEventListener('touchend', togglePauseOff, { passive: true });
+
+        card.addEventListener('click', () => {
+          isBPaused = true;
+          const angleStep = (2 * Math.PI) / bTotal;
+          const cardTargetRad = -index * angleStep;
+          
+          let diff = (cardTargetRad - (bCurrentAngle % (2 * Math.PI))) % (2 * Math.PI);
+          if (diff < -Math.PI) diff += 2 * Math.PI;
+          if (diff > Math.PI) diff -= 2 * Math.PI;
+
+          bTargetAngle = bCurrentAngle + diff;
+          lastBStepTime = performance.now();
+        });
+      });
+
+      requestAnimationFrame(animateBrokerageOrbit);
+    });
+
+    // 3. RISK MITIGATION POP-UP SCRIPT (TOUCH SENSITIVE)
+    document.addEventListener('DOMContentLoaded', () => {
+      const popCards = document.querySelectorAll('.security-pop-card');
+      let currentPopIndex = 0;
+      let popInterval = null;
+
+      function highlightPopCard(index) {
+        popCards.forEach((card, i) => {
+          if (i === index) {
+            card.classList.add('active-pop');
+          } else {
+            card.classList.remove('active-pop');
+          }
+        });
+      }
+
+      function startPopSequence() {
+        highlightPopCard(currentPopIndex);
+        popInterval = setInterval(() => {
+          currentPopIndex = (currentPopIndex + 1) % popCards.length;
+          highlightPopCard(currentPopIndex);
+        }, 2800);
+      }
+
+      startPopSequence();
+
+      popCards.forEach((card, i) => {
+        const handleEnter = () => {
+          clearInterval(popInterval);
+          currentPopIndex = i;
+          highlightPopCard(currentPopIndex);
+        };
+
+        const handleLeave = () => {
+          clearInterval(popInterval);
+          startPopSequence();
+        };
+
+        card.addEventListener('mouseenter', handleEnter);
+        card.addEventListener('mouseleave', handleLeave);
+        card.addEventListener('touchstart', handleEnter, { passive: true });
+      });
+    });
+
+    // 4. CORE AGENT FUNCTIONS - RESPONSIVE 3D CAROUSEL SCRIPT
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.carousel-card');
+      const totalCards = cards.length;
+
+      let rotationAngle = 0;
+      let targetAngle = 0;
+      let isPaused = false;
+      let lastStepTime = performance.now();
+
+      function getRadius() {
+        return (window.innerWidth || document.documentElement.clientWidth) < 640 ? 220 : 380;
+      }
+
+      function updatePositions(now) {
+        if (!isPaused && now - lastStepTime > 2800) {
+          targetAngle -= 60;
+          lastStepTime = now;
+        }
+
+        rotationAngle += (targetAngle - rotationAngle) * 0.12; 
+        const radius = getRadius();
+        const angleStep = 360 / totalCards;
+
+        cards.forEach((card, index) => {
+          const cardAngle = rotationAngle + (index * angleStep);
+          const radians = (cardAngle * Math.PI) / 180;
+
+          const x = Math.sin(radians) * radius;
+          const z = Math.cos(radians) * radius;
+
+          const normalizedZ = (z + radius) / (2 * radius);
+          const scale = 0.75 + (normalizedZ * 0.35);
+          const opacity = 0.35 + (normalizedZ * 0.65);
+
+          card.style.transform = `translate3d(${x.toFixed(2)}px, 0px, ${z.toFixed(2)}px) scale(${scale.toFixed(3)})`;
+          card.style.opacity = opacity.toFixed(2);
+          card.style.zIndex = Math.round(normalizedZ * 100);
+
+          if (normalizedZ > 0.90) {
+            card.classList.add('highlighted-front');
+          } else {
+            card.classList.remove('highlighted-front');
+          }
+        });
+
+        requestAnimationFrame(updatePositions);
+      }
+
+      cards.forEach((card, index) => {
+        const togglePauseOn = () => { isPaused = true; };
+        const togglePauseOff = () => { isPaused = false; lastStepTime = performance.now(); };
+
+        card.addEventListener('mouseenter', togglePauseOn);
+        card.addEventListener('mouseleave', togglePauseOff);
+        card.addEventListener('touchstart', togglePauseOn, { passive: true });
+        card.addEventListener('touchend', togglePauseOff, { passive: true });
+
+        card.addEventListener('click', () => {
+          isPaused = true;
+          
+          const currentModuloAngle = rotationAngle % 360;
+          const cardTargetModulo = -index * 60;
+          
+          let diff = (cardTargetModulo - currentModuloAngle) % 360;
+          if (diff < -180) diff += 360;
+          if (diff > 180) diff -= 360;
+
+          targetAngle = rotationAngle + diff;
+          lastStepTime = performance.now();
+        });
+      });
+
+      requestAnimationFrame(updatePositions);
+
+      window.addEventListener('resize', () => { updatePositions(performance.now()); });
+    });
+  </script>
+</body>
+</html>
