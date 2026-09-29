@@ -555,10 +555,12 @@
     <div class="max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-20">
       <div class="max-w-6xl mx-auto bg-gradient-to-br from-slate-50 to-[#00aeef]/5 border border-[#00aeef]/20 rounded-3xl p-6 sm:p-10 lg:p-12 relative overflow-hidden shadow-sm">
         <div class="w-full relative">
-          <div class="inline-flex items-center space-x-2 bg-[#00aeef]/10 text-[#00aeef] text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-4">
+          <div class="inline-flex items-center text-[#00aeef] bg-[#00aeef]/10 text-[11px] sm:text-xs font-bold tracking-wider sm:tracking-widest uppercase px-3 py-1 rounded-full mb-3 sm:mb-4 text-center">
             Built Around the Compass Way of Working
           </div>
-          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Your Technology Handles the Platform. Your VA Handles the Work Around It.</h2>
+          <h2 class="text-[1.45rem] sm:text-3xl lg:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight leading-[1.2] sm:leading-tight" style="text-wrap: balance !important;">
+            Your Technology Handles the Platform.<br class="hidden sm:inline"> Your VA Handles the Work Around It.
+          </h2>
           <p class="text-base sm:text-lg text-slate-600 mb-4 leading-relaxed font-normal w-full">Compass continues to expand its technology platform across its brokerage network, bringing CRM, marketing, client service, brokerage services, AI, and other workflows into a connected technology environment. Composite complements that technology with human execution.</p>
           <p class="text-base sm:text-lg text-slate-600 mb-8 leading-relaxed font-normal w-full">Your dedicated VA can help keep information updated, follow up on tasks, maintain databases, coordinate marketing activities, organize transaction documentation, and manage recurring administrative work. The goal isn't to replace the technology—it's to help your team use it more effectively.</p>
           
@@ -1390,15 +1392,30 @@
         const radii = getHeroRadii();
         updateTrackDimensions(radii);
 
+        // Find the single card closest to the bottom to guarantee only ONE card is EVER highlighted
+        let maxY = -Infinity;
+        let activeIndex = -1;
+        const positions = [];
+
         iconCards.forEach((card, index) => {
           const nodeAngle = currentAngle + (index * angleStep);
           const x = Math.sin(nodeAngle) * radii.x;
           const y = Math.cos(nodeAngle) * radii.y;
+          if (y > maxY) {
+            maxY = y;
+            activeIndex = index;
+          }
+          positions.push({ x, y, nodeAngle });
+        });
 
+        iconCards.forEach((card, index) => {
+          const { x, y } = positions[index];
           const normalizedY = (y + radii.y) / (2 * radii.y);
+
+          // Strictly enforce: ONLY the single active card with highest Y gets highlight!
           let highlightRatio = 0;
-          if (normalizedY > 0.70) {
-            highlightRatio = (normalizedY - 0.70) / 0.30;
+          if (index === activeIndex && normalizedY > 0.65) {
+            highlightRatio = (normalizedY - 0.65) / 0.35;
             highlightRatio = Math.pow(highlightRatio, 2) * (3 - 2 * highlightRatio);
           }
 
@@ -1427,7 +1444,7 @@
       }
 
       function animateHeroOrbit() {
-        currentAngle += (targetAngle - currentAngle) * 0.012;
+        currentAngle += (targetAngle - currentAngle) * 0.016;
         renderPositions();
         requestAnimationFrame(animateHeroOrbit);
       }
@@ -1474,6 +1491,8 @@
       });
 
       renderPositions();
+      // Start moving 400ms after opening the page instead of waiting 3.2 seconds
+      setTimeout(stepOrbit, 400);
       setInterval(stepOrbit, 3200);
       animateHeroOrbit();
     }
