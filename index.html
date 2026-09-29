@@ -100,6 +100,23 @@
       font-family: 'Playfair Display', Georgia, serif;
     }
 
+    /* Hero H1 Responsive Typography & Balanced Multi-Device Breakout */
+    .hero-h1-title {
+      font-size: clamp(1.75rem, 4vw, 3.65rem) !important;
+      line-height: 1.15 !important;
+      letter-spacing: -0.025em !important;
+      text-wrap: balance !important;
+      word-break: normal !important;
+      overflow-wrap: break-word !important;
+    }
+
+    /* Keep natural flow on mobile and tablet; enforce 3-line editorial rhythm on desktop */
+    @media (max-width: 1023px) {
+      .hero-h1-title br.desktop-br {
+        display: none !important;
+      }
+    }
+
     /* Full-width breakout for WordPress & Elementor */
     #composite-landing-root {
       position: relative !important;
@@ -191,6 +208,58 @@
 
     .hero-stat-card.active-stat .stat-glow {
       opacity: 0.35 !important;
+    }
+
+    /* Hero Orbit Responsive Card & Track Dimensions */
+    .hero-orbit-stage-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+      height: 380px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 640px) {
+      .hero-orbit-stage-wrapper {
+        height: 440px;
+      }
+    }
+
+    .orbit-icon-card {
+      position: absolute;
+      width: clamp(100px, 27vw, 138px);
+      height: clamp(74px, 19vw, 98px);
+      border-radius: 16px;
+      padding: 8px 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border-style: solid;
+      border-width: 1.5px;
+      cursor: pointer;
+      will-change: transform, opacity, background, border-color, box-shadow;
+      user-select: none;
+      touch-action: manipulation;
+    }
+
+    @media (min-width: 640px) {
+      .orbit-icon-card {
+        width: 140px;
+        height: 105px;
+        border-radius: 18px;
+        padding: 10px;
+      }
+    }
+
+    .orbit-card-title {
+      font-size: clamp(10px, 2.5vw, 11.5px);
+      line-height: 1.2;
+      text-wrap: balance;
     }
 
     /* Brokerage Orbit Stage */
@@ -372,10 +441,10 @@
             COMPOSITE GLOBAL PARTNERS + COMPASS
           </div>
 
-          <!-- Hero H1 Title Formatted into 3 Lines -->
-          <h1 style="font-family: 'Inter', system-ui, -apple-system, sans-serif !important; font-size: clamp(2.1rem, 4.5vw, 3.75rem); font-weight: 800; color: #ffffff !important; line-height: 1.15; letter-spacing: -0.025em; margin: 0 0 24px 0;">
-            Technology-Enabled<br>
-            Real Estate Support for<br>
+          <!-- Hero H1 Title: Natural balanced flow on mobile/tablet, structured 3-line layout on desktop -->
+          <h1 class="hero-h1-title" style="font-family: 'Inter', system-ui, -apple-system, sans-serif !important; font-weight: 800; color: #ffffff !important; margin: 0 0 24px 0;">
+            Technology-Enabled<br class="desktop-br hidden lg:inline">
+            Real Estate Support for<br class="desktop-br hidden lg:inline">
             Compass Agents &amp; Teams
           </h1>
 
@@ -393,37 +462,37 @@
         </div>
 
         <!-- Right Side: Hero Orbital Stage (Pre-rendered inline at exact coordinates) -->
-        <div style="flex: 1 1 440px; display: flex; justify-content: center; align-items: center; min-height: 420px; position: relative;">
+        <div style="flex: 1 1 440px; display: flex; justify-content: center; align-items: center; min-height: 380px; position: relative;">
           
-          <div id="hero-orbit-stage" style="position: relative; width: 100%; max-width: 480px; height: 420px; display: flex; justify-content: center; align-items: center; margin: 0 auto;">
+          <div id="hero-orbit-stage" class="hero-orbit-stage-wrapper">
             
-            <!-- Circular Dashed Track Background -->
-            <div style="position: absolute; width: 340px; height: 340px; border-radius: 50%; border: 1px dashed rgba(0, 174, 239, 0.25); pointer-events: none;"></div>
-            <div style="position: absolute; width: 240px; height: 240px; border-radius: 50%; background-color: rgba(0, 174, 239, 0.08); filter: blur(40px); pointer-events: none;"></div>
+            <!-- Circular Dashed Track Background (Dynamically synced to orbit radius) -->
+            <div id="hero-orbit-track" style="position: absolute; width: 250px; height: 250px; border-radius: 50%; border: 1px dashed rgba(0, 174, 239, 0.35); pointer-events: none; transition: width 0.3s ease, height 0.3s ease;"></div>
+            <div id="hero-orbit-glow" style="position: absolute; width: 190px; height: 190px; border-radius: 50%; background-color: rgba(0, 174, 239, 0.08); filter: blur(35px); pointer-events: none; transition: width 0.3s ease, height 0.3s ease;"></div>
 
             <!-- Card 0 (Bottom Center, Highlighted Active Node) -->
-            <div class="orbit-icon-card" style="position: absolute; width: 140px; height: 105px; border-radius: 18px; padding: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; border: 1.5px solid #ffffff; background: linear-gradient(135deg, rgb(0, 174, 239) 0%, rgb(0, 129, 207) 100%); color: #ffffff; box-shadow: 0 0 35px rgba(0, 174, 239, 0.75), 0 10px 25px rgba(0, 0, 0, 0.35); transform: translate3d(0px, 160px, 0) scale(1.04); z-index: 100; cursor: pointer; user-select: none;">
-              <span class="orbit-card-title" style="color: #ffffff; font-weight: 700; font-size: 11.5px; line-height: 1.25; margin-top: 4px;">CRM &amp; Database</span>
+            <div class="orbit-icon-card" style="border: 1.5px solid #ffffff; background: linear-gradient(135deg, rgb(0, 174, 239) 0%, rgb(0, 129, 207) 100%); color: #ffffff; box-shadow: 0 0 35px rgba(0, 174, 239, 0.75), 0 10px 25px rgba(0, 0, 0, 0.35); z-index: 100;">
+              <span class="orbit-card-title" style="color: #ffffff; font-weight: 700;">CRM &amp; Database</span>
             </div>
 
             <!-- Card 1 (Bottom Right Node) -->
-            <div class="orbit-icon-card" style="position: absolute; width: 140px; height: 105px; border-radius: 18px; padding: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; border: 1.5px solid rgb(60, 74, 88); background: linear-gradient(135deg, rgb(50, 61, 73) 0%, rgb(41, 50, 60) 100%); color: rgb(0, 174, 239); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); transform: translate3d(170px, 48px, 0) scale(0.94); opacity: 0.85; z-index: 65; cursor: pointer; user-select: none;">
-              <span class="orbit-card-title" style="color: rgb(148, 163, 184); font-weight: 600; font-size: 11.5px; line-height: 1.25; margin-top: 4px;">Marketing Coordination</span>
+            <div class="orbit-icon-card" style="border: 1.5px solid rgb(60, 74, 88); background: linear-gradient(135deg, rgb(50, 61, 73) 0%, rgb(41, 50, 60) 100%); color: rgb(0, 174, 239); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); opacity: 0.85; z-index: 65;">
+              <span class="orbit-card-title" style="color: rgb(148, 163, 184); font-weight: 600;">Marketing Coordination</span>
             </div>
 
             <!-- Card 2 (Top Right Node) -->
-            <div class="orbit-icon-card" style="position: absolute; width: 140px; height: 105px; border-radius: 18px; padding: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; border: 1.5px solid rgb(60, 74, 88); background: linear-gradient(135deg, rgb(50, 61, 73) 0%, rgb(41, 50, 60) 100%); color: rgb(0, 174, 239); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); transform: translate3d(105px, -130px, 0) scale(0.78); opacity: 0.55; z-index: 10; cursor: pointer; user-select: none;">
-              <span class="orbit-card-title" style="color: rgb(148, 163, 184); font-weight: 600; font-size: 11.5px; line-height: 1.25; margin-top: 4px;">Listing &amp; Lead Support</span>
+            <div class="orbit-icon-card" style="border: 1.5px solid rgb(60, 74, 88); background: linear-gradient(135deg, rgb(50, 61, 73) 0%, rgb(41, 50, 60) 100%); color: rgb(0, 174, 239); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); opacity: 0.55; z-index: 10;">
+              <span class="orbit-card-title" style="color: rgb(148, 163, 184); font-weight: 600;">Listing &amp; Lead Support</span>
             </div>
 
             <!-- Card 3 (Top Left Node) -->
-            <div class="orbit-icon-card" style="position: absolute; width: 140px; height: 105px; border-radius: 18px; padding: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; border: 1.5px solid rgb(60, 74, 88); background: linear-gradient(135deg, rgb(50, 61, 73) 0%, rgb(41, 50, 60) 100%); color: rgb(0, 174, 239); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); transform: translate3d(-105px, -130px, 0) scale(0.78); opacity: 0.55; z-index: 10; cursor: pointer; user-select: none;">
-              <span class="orbit-card-title" style="color: rgb(148, 163, 184); font-weight: 600; font-size: 11.5px; line-height: 1.25; margin-top: 4px;">Compass One &amp; Client</span>
+            <div class="orbit-icon-card" style="border: 1.5px solid rgb(60, 74, 88); background: linear-gradient(135deg, rgb(50, 61, 73) 0%, rgb(41, 50, 60) 100%); color: rgb(0, 174, 239); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); opacity: 0.55; z-index: 10;">
+              <span class="orbit-card-title" style="color: rgb(148, 163, 184); font-weight: 600;">Compass One &amp; Client</span>
             </div>
 
             <!-- Card 4 (Bottom Left Node) -->
-            <div class="orbit-icon-card" style="position: absolute; width: 140px; height: 105px; border-radius: 18px; padding: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; border: 1.5px solid rgb(60, 74, 88); background: linear-gradient(135deg, rgb(50, 61, 73) 0%, rgb(41, 50, 60) 100%); color: rgb(0, 174, 239); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); transform: translate3d(-170px, 48px, 0) scale(0.94); opacity: 0.85; z-index: 65; cursor: pointer; user-select: none;">
-              <span class="orbit-card-title" style="color: rgb(148, 163, 184); font-weight: 600; font-size: 11.5px; line-height: 1.25; margin-top: 4px;">AI &amp; Tech Workflows</span>
+            <div class="orbit-icon-card" style="border: 1.5px solid rgb(60, 74, 88); background: linear-gradient(135deg, rgb(50, 61, 73) 0%, rgb(41, 50, 60) 100%); color: rgb(0, 174, 239); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); opacity: 0.85; z-index: 65;">
+              <span class="orbit-card-title" style="color: rgb(148, 163, 184); font-weight: 600;">AI &amp; Tech Workflows</span>
             </div>
 
           </div>
@@ -508,8 +577,8 @@
 
         <!-- Header Bar -->
         <div class="flex items-center justify-between text-[10px] sm:text-xs lg:text-sm tracking-wider sm:tracking-widest uppercase font-bold mb-6 sm:mb-8 border-b border-[#3c4a58] pb-4">
-          <span class="text-[#00aeef] flex items-center space-x-1.5 sm:space-x-2 shrink-0">MORE THAN A VA</span>
-          <span class="text-slate-300 font-semibold tracking-wider text-right shrink-0">A MANAGED OPERATIONAL EXTENSION</span>
+          <span class="text-[#00aeef] flex items-center space-x-1.5 sm:space-x-2 shrink-0">ANATOMY OF ONE POD</span>
+          <span class="text-slate-300 font-semibold tracking-wider text-right shrink-0">VA + MANAGED SUPPORT</span>
         </div>
 
         <!-- Center Focal Badge -->
@@ -1265,11 +1334,24 @@
 
       function getHeroRadii() {
         const stageW = stage.clientWidth || window.innerWidth;
-        if (stageW < 360) return { x: 96, y: 92 };
-        if (stageW < 420) return { x: 114, y: 105 };
-        if (stageW < 640) return { x: 135, y: 122 };
-        if (stageW < 1024) return { x: 155, y: 140 };
-        return { x: 170, y: 160 };
+        if (stageW < 360) return { x: 108, y: 108 };
+        if (stageW < 420) return { x: 124, y: 124 };
+        if (stageW < 640) return { x: 138, y: 138 };
+        if (stageW < 1024) return { x: 152, y: 145 };
+        return { x: 168, y: 158 };
+      }
+
+      function updateTrackDimensions(radii) {
+        const track = document.getElementById('hero-orbit-track');
+        const glow = document.getElementById('hero-orbit-glow');
+        if (track) {
+          track.style.width = (radii.x * 2) + 'px';
+          track.style.height = (radii.y * 2) + 'px';
+        }
+        if (glow) {
+          glow.style.width = (radii.x * 1.6) + 'px';
+          glow.style.height = (radii.y * 1.6) + 'px';
+        }
       }
 
       const slateStart = { r: 50, g: 61, b: 73, a: 1 };
@@ -1291,6 +1373,7 @@
       function renderPositions() {
         const angleStep = (2 * Math.PI) / totalNodes;
         const radii = getHeroRadii();
+        updateTrackDimensions(radii);
 
         iconCards.forEach((card, index) => {
           const nodeAngle = currentAngle + (index * angleStep);
@@ -1304,8 +1387,8 @@
             highlightRatio = Math.pow(highlightRatio, 2) * (3 - 2 * highlightRatio);
           }
 
-          const scale = 0.76 + (normalizedY * 0.28);
-          const opacity = 0.5 + (normalizedY * 0.5);
+          const scale = 0.78 + (normalizedY * 0.24);
+          const opacity = 0.55 + (normalizedY * 0.45);
 
           const bgStart = lerpColor(slateStart, cyanStart, highlightRatio);
           const bgEnd   = lerpColor(slateEnd, cyanEnd, highlightRatio);
@@ -1387,6 +1470,7 @@
 
       let currentIndex = 0;
       let timer = null;
+      let resumeTimer = null;
 
       function highlight(idx) {
         statCards.forEach((card, i) => {
@@ -1405,12 +1489,36 @@
         }, 4500);
       }
 
+      function handleInteraction(idx) {
+        clearInterval(timer);
+        clearTimeout(resumeTimer);
+        currentIndex = idx;
+        highlight(idx);
+        // Automatically resume auto-cycling 3.5s after tap/click
+        resumeTimer = setTimeout(() => {
+          start();
+        }, 3500);
+      }
+
       start();
 
       statCards.forEach((card, i) => {
-        card.addEventListener('mouseenter', () => { clearInterval(timer); currentIndex = i; highlight(i); });
-        card.addEventListener('mouseleave', () => { start(); });
-        card.addEventListener('touchstart', () => { clearInterval(timer); currentIndex = i; highlight(i); }, { passive: true });
+        card.addEventListener('mouseenter', () => {
+          clearInterval(timer);
+          clearTimeout(resumeTimer);
+          currentIndex = i;
+          highlight(i);
+        });
+        card.addEventListener('mouseleave', () => {
+          clearTimeout(resumeTimer);
+          start();
+        });
+        card.addEventListener('click', () => {
+          handleInteraction(i);
+        });
+        card.addEventListener('touchend', () => {
+          handleInteraction(i);
+        }, { passive: true });
       });
     }
 
@@ -1531,6 +1639,7 @@
 
       let currentIndex = 0;
       let timer = null;
+      let resumeTimer = null;
 
       function highlight(idx) {
         popCards.forEach((card, i) => {
@@ -1540,7 +1649,6 @@
       }
 
       function start() {
-        highlight(currentIndex);
         clearInterval(timer);
         timer = setInterval(() => {
           if (!document.hidden) {
@@ -1550,12 +1658,36 @@
         }, 2800);
       }
 
+      function handleInteraction(idx) {
+        clearInterval(timer);
+        clearTimeout(resumeTimer);
+        currentIndex = idx;
+        highlight(idx);
+        // Automatically resume auto-cycling 3.5s after tap/click
+        resumeTimer = setTimeout(() => {
+          start();
+        }, 3500);
+      }
+
       start();
 
       popCards.forEach((card, i) => {
-        card.addEventListener('mouseenter', () => { clearInterval(timer); currentIndex = i; highlight(i); });
-        card.addEventListener('mouseleave', () => { start(); });
-        card.addEventListener('touchstart', () => { clearInterval(timer); currentIndex = i; highlight(i); }, { passive: true });
+        card.addEventListener('mouseenter', () => {
+          clearInterval(timer);
+          clearTimeout(resumeTimer);
+          currentIndex = i;
+          highlight(i);
+        });
+        card.addEventListener('mouseleave', () => {
+          clearTimeout(resumeTimer);
+          start();
+        });
+        card.addEventListener('click', () => {
+          handleInteraction(i);
+        });
+        card.addEventListener('touchend', () => {
+          handleInteraction(i);
+        }, { passive: true });
       });
     }
 
