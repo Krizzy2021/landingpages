@@ -3,20 +3,93 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>Composite + Sotheby's | Operations Support Overview</title>
+  <title>Technology-Enabled Real Estate Support for Compass Agents &amp; Teams | Composite</title>
+  
+  <!-- Search Engine Crawling & Indexing Directives -->
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow">
+  <meta name="description" content="Technology-enabled real estate support for Compass agents and teams. Dedicated office-based VAs, Compass CRM & marketing workflows, and fully managed pods for $1,995/mo.">
+  <meta name="keywords" content="Compass virtual assistant, Compass CRM support, Compass real estate operations, real estate VA, Compass transaction coordination, Composite Global Partners">
+  <link rel="canonical" href="https://compositegp.com/compass/">
+
+  <!-- Open Graph & Social Indexing -->
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Technology-Enabled Real Estate Support for Compass Agents &amp; Teams | Composite">
+  <meta property="og:description" content="Your technology handles the platform. Your Composite VA handles the work around it. Dedicated, office-based real estate operations support for $1,995/mo.">
+  <meta property="og:url" content="https://compositegp.com/compass/">
+  <meta property="og:site_name" content="Composite Global Partners">
+  <meta property="og:image" content="https://compositegp.com/wp-content/uploads/2025/12/logo_big-white.png">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Technology-Enabled Real Estate Support for Compass | Composite">
+  <meta name="twitter:description" content="Dedicated office-based VAs, Compass CRM & marketing workflows, and fully managed pods for $1,995/mo.">
+  <meta name="twitter:image" content="https://compositegp.com/wp-content/uploads/2025/12/logo_big-white.png">
+
+  <!-- Schema.org JSON-LD Structured Data for Google Indexing -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Composite Global Partners",
+    "url": "https://compositegp.com/compass/",
+    "logo": "https://compositegp.com/wp-content/uploads/2025/12/logo_big-white.png",
+    "description": "Technology-enabled, office-based real estate operations support and dedicated virtual assistants tailored for Compass agents and teams.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Davao City",
+      "addressCountry": "PH"
+    },
+    "priceRange": "$1995/mo"
+  }
+  </script>
+
+  <!-- Suppress Tailwind CDN console warning -->
+  <script>
+    const originalWarn = console.warn;
+    console.warn = function(...args) {
+      if (args[0] && typeof args[0] === 'string' && args[0].includes('cdn.tailwindcss.com')) return;
+      originalWarn.apply(console, args);
+    };
+  </script>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:wght@600;700&display=swap');
     
+    html, body {
+      margin: 0 !important;
+      padding: 0 !important;
+      width: 100% !important;
+      overflow-x: hidden !important;
+      background-color: #2b353f !important;
+    }
+
+    svg {
+      display: inline-block;
+      vertical-align: middle;
+      max-width: 100%;
+    }
+
+    /* Suppress Google reCAPTCHA floating safeguard shield badge */
+    .grecaptcha-badge,
+    iframe[src*="recaptcha"],
+    div[style*="z-index: 2000000000"] {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+
     body { 
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       letter-spacing: -0.011em;
-      overflow-x: hidden;
+      background-color: #2b353f !important;
+      color: #1e293b;
     }
 
     h1, h2, h3, h4 {
@@ -27,76 +100,79 @@
       font-family: 'Playfair Display', Georgia, serif;
     }
 
-    /* RESPONSIVE HERO ORBITAL STAGE CONTAINER */
-    .hero-orbit-stage {
-      position: relative;
-      width: 100%;
-      max-width: 460px;
-      height: 380px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 0 auto;
+    /* Full-width breakout for WordPress & Elementor */
+    #composite-landing-root {
+      position: relative !important;
+      width: 100vw !important;
+      max-width: 100vw !important;
+      left: 50% !important;
+      right: 50% !important;
+      margin-left: -50vw !important;
+      margin-right: -50vw !important;
+      box-sizing: border-box !important;
+      overflow-x: hidden !important;
+      background-color: #2b353f !important;
     }
 
-    @media (min-width: 640px) {
-      .hero-orbit-stage {
-        height: 460px;
-      }
+    .elementor-section,
+    .elementor-container,
+    .elementor-widget-wrap,
+    .elementor-widget-html,
+    .elementor-widget-html .elementor-widget-container,
+    .entry-content,
+    .site-content,
+    .ast-container,
+    #content {
+      max-width: 100% !important;
+      width: 100% !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
     }
 
-    /* CONTINUOUS DYNAMICALLY BLENDED HERO CARDS */
-    .orbit-icon-card {
-      position: absolute;
-      width: min(115px, 28vw);
-      height: min(90px, 22vw);
-      border-radius: 14px;
-      padding: 8px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      border-style: solid;
-      border-width: 1.5px;
-      will-change: transform, opacity, background, border-color, box-shadow, color;
-      pointer-events: auto;
-      touch-action: manipulation;
+    /* Hero CTA Button Scoped Controls */
+    #composite-landing-root .hero-cta-btn {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      background-color: #00aeef !important;
+      color: #ffffff !important;
+      border: 2px solid #00aeef !important;
+      border-radius: 8px !important;
+      font-weight: 600 !important;
+      text-decoration: none !important;
+      box-shadow: 0 10px 25px rgba(0, 174, 239, 0.3) !important;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
     }
 
-    @media (min-width: 640px) {
-      .orbit-icon-card {
-        width: 140px;
-        height: 110px;
-        border-radius: 20px;
-        padding: 12px;
-      }
+    #composite-landing-root .hero-cta-btn:hover,
+    #composite-landing-root .hero-cta-btn:focus {
+      background-color: transparent !important;
+      color: #00aeef !important;
+      border-color: #00aeef !important;
+      box-shadow: 0 0 25px rgba(0, 174, 239, 0.45) !important;
     }
 
-    .orbit-card-title {
-      margin-top: 4px;
-      font-size: clamp(9px, 2.5vw, 11px);
-      line-height: 1.15;
-      will-change: color, font-weight;
-    }
-
-    @media (min-width: 640px) {
-      .orbit-card-title {
-        margin-top: 8px;
-        font-size: 11.5px;
-        line-height: 1.25;
-      }
-    }
-
-    /* HERO STATS BAR SUBTLE POP-UP STYLES */
+    /* Hero Stats Bar Pop-Up */
     .hero-stat-card {
-      transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 1.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: transform, border-color, box-shadow;
     }
 
-    .hero-stat-card p,
-    .hero-stat-card span {
-      transition: color 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    .hero-stat-card .stat-number {
+      color: #ffffff;
+      transition: color 0.5s ease;
+    }
+
+    .hero-stat-card .stat-arrow {
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .hero-stat-card .stat-glow {
+      opacity: 0.1;
+      transition: opacity 0.5s ease;
     }
 
     .hero-stat-card.active-stat {
@@ -117,11 +193,11 @@
       opacity: 0.35 !important;
     }
 
-    /* BROKERAGE SECTION ENLARGED CIRCULAR ORBIT STAGE */
+    /* Brokerage Orbit Stage */
     .brokerage-orbit-stage {
       position: relative;
       width: 100%;
-      height: 420px;
+      height: 440px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -130,15 +206,15 @@
 
     @media (min-width: 640px) {
       .brokerage-orbit-stage {
-        height: 480px;
+        height: 500px;
       }
     }
 
     .brokerage-orbit-card {
       position: absolute;
-      width: min(275px, 82vw);
+      width: min(285px, 84vw);
       border-radius: 16px;
-      padding: 16px 14px;
+      padding: 18px 16px;
       border-style: solid;
       border-width: 1.5px;
       cursor: pointer;
@@ -149,29 +225,17 @@
 
     @media (min-width: 640px) {
       .brokerage-orbit-card {
-        width: 340px;
+        width: 350px;
         border-radius: 20px;
-        padding: 28px 24px;
+        padding: 24px 22px;
       }
     }
 
-    .brokerage-orbit-card:hover {
-      border-color: #00aeef !important;
-      box-shadow: 0 0 25px rgba(0, 174, 239, 0.4), 0 10px 25px rgba(0, 0, 0, 0.08);
-    }
-
-    /* RISK MITIGATION (SECURITY) POP-UP CARDS */
+    /* Security Pop-up Cards */
     .security-pop-card {
       transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: transform, background, border-color, box-shadow, color;
       touch-action: manipulation;
-    }
-
-    .security-pop-card p,
-    .security-pop-card h3,
-    .security-pop-card i,
-    .security-pop-card svg {
-      transition: color 0.8s cubic-bezier(0.16, 1, 0.3, 1), stroke 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .security-pop-card.active-pop {
@@ -182,19 +246,11 @@
       box-shadow: 0 15px 35px rgba(0, 174, 239, 0.45), 0 8px 20px rgba(0, 0, 0, 0.25);
     }
 
-    .security-pop-card.active-pop p,
-    .security-pop-card.active-pop h3,
-    .security-pop-card.active-pop i,
-    .security-pop-card.active-pop svg {
-      color: #ffffff !important;
-      stroke: #ffffff !important;
-    }
-
-    /* 3D CIRCULAR CAROUSEL STYLES */
+    /* 3D Circular Carousel */
     .carousel-perspective {
       perspective: 1000px;
       position: relative;
-      height: 420px;
+      height: 440px;
       width: 100%;
       display: flex;
       justify-content: center;
@@ -205,23 +261,23 @@
     @media (min-width: 640px) {
       .carousel-perspective {
         perspective: 1200px;
-        height: 480px;
+        height: 500px;
       }
     }
 
     .carousel-card {
       position: absolute;
-      width: min(270px, 78vw);
+      width: min(275px, 80vw);
       background: linear-gradient(135deg, #00aeef 0%, #0081cf 100%);
-      transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.8s ease, border-color 0.8s ease, box-shadow 0.8s ease;
       will-change: transform, opacity;
       transform-style: preserve-3d;
       touch-action: manipulation;
+      transition: border-color 0.4s ease, box-shadow 0.4s ease;
     }
 
     @media (min-width: 640px) {
       .carousel-card {
-        width: 340px;
+        width: 345px;
       }
     }
 
@@ -230,171 +286,214 @@
       box-shadow: 0 20px 40px -5px rgba(0, 174, 239, 0.45), 0 10px 20px -5px rgba(0, 0, 0, 0.15);
     }
 
-    /* INFINITE HORIZONTAL TICKER FOR TESTIMONIALS */
+    /* Lead Form Submit Button Theme Override Shield */
+    #composite-landing-root #lead-submit-btn,
+    #composite-landing-root button#lead-submit-btn,
+    #composite-landing-root form button[type="submit"] {
+      width: auto !important;
+      max-width: fit-content !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      background: #2b353f !important;
+      background-color: #2b353f !important;
+      background-image: none !important;
+      color: #ffffff !important;
+      border-radius: 10px !important;
+      padding: 12px 28px !important;
+      font-size: 14px !important;
+      font-weight: 600 !important;
+      text-transform: none !important;
+      border: 1px solid #2b353f !important;
+      box-shadow: 0 8px 20px rgba(43, 53, 63, 0.3) !important;
+      transition: all 0.2s ease !important;
+      cursor: pointer !important;
+      margin: 8px auto 0 auto !important;
+    }
+
+    #composite-landing-root #lead-submit-btn:hover {
+      background: #1e262f !important;
+      background-color: #1e262f !important;
+      color: #ffffff !important;
+      border-color: #1e262f !important;
+      transform: translateY(-1px) !important;
+    }
+
+    /* Testimonials Continuous Ticker Animation */
+    @-webkit-keyframes testimonialTicker {
+      0% { -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
+      100% { -webkit-transform: translate3d(-50%, 0, 0); transform: translate3d(-50%, 0, 0); }
+    }
+
     @keyframes testimonialTicker {
-      0% {
-        transform: translate3d(0, 0, 0);
-      }
-      100% {
-        transform: translate3d(-50%, 0, 0);
-      }
+      0% { -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
+      100% { -webkit-transform: translate3d(-50%, 0, 0); transform: translate3d(-50%, 0, 0); }
     }
 
     .testimonial-track {
-      display: flex;
-      width: max-content;
-      animation: testimonialTicker 45s linear infinite;
+      display: flex !important;
+      width: max-content !important;
+      -webkit-animation: testimonialTicker 45s linear infinite !important;
+      animation: testimonialTicker 45s linear infinite !important;
       will-change: transform;
     }
 
     .testimonial-track-container:hover .testimonial-track {
-      animation-play-state: paused;
+      -webkit-animation-play-state: paused !important;
+      animation-play-state: paused !important;
     }
   </style>
 </head>
-<body class="bg-white text-slate-800 antialiased selection:bg-[#00aeef] selection:text-white">
+<body style="background-color: #2b353f !important; margin: 0 !important; padding: 0 !important; color: #1e293b; font-family: 'Inter', system-ui, -apple-system, sans-serif !important;">
 
-  <!-- HEADER NAV BAR WITH COMPOSITE LOGO PLACEHOLDER ONLY -->
-  <header class="bg-[#2b353f] border-b border-[#36424e] py-4">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-      
-      <!-- Composite Logo Placeholder -->
-      <div class="flex items-center space-x-3">
-        <!-- REPLACE src WITH YOUR COMPOSITE LOGO URL -->
-        <img src="https://via.placeholder.com/160x40/2b353f/00aeef?text=COMPOSITE" alt="Composite Logo" class="h-8 sm:h-9 w-auto object-contain">
+<div id="composite-landing-root" style="background-color: #2b353f !important;">
+
+  <!-- HEADER NAV BAR WITH LOGO -->
+  <header style="background-color: #2b353f; border-bottom: 1px solid #36424e; padding: 16px 0;">
+    <div style="max-width: 1720px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between;">
+      <div style="display: flex; align-items: center;">
+        <img class="composite-header-logo" style="height: 32px !important; max-height: 32px !important; width: auto !important; max-width: 170px !important; object-fit: contain !important; display: block;" src="https://compositegp.com/wp-content/uploads/2025/12/logo_big-white.png" alt="Composite Logo" />
       </div>
-
     </div>
   </header>
 
-  <!-- HERO SECTION -->
-  <section class="relative bg-[#2b353f] text-white py-16 sm:py-24 lg:py-28 overflow-hidden border-b border-[#36424e]">
-    <div class="absolute inset-0 bg-[linear-gradient(to_right,#36424e_1px,transparent_1px),linear-gradient(to_bottom,#36424e_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-30"></div>
-    <div class="absolute top-1/4 -right-20 w-72 sm:w-96 h-72 sm:h-96 bg-[#00aeef]/15 rounded-full blur-3xl pointer-events-none"></div>
+  <!-- HERO SECTION WITH INLINE STYLES FOR FRAME-0 INSTANT RENDERING -->
+  <section style="position: relative; background-color: #2b353f !important; color: #ffffff !important; padding: 64px 0; overflow: hidden; border-bottom: 1px solid #36424e;">
+    <div style="position: relative; max-width: 1720px; margin: 0 auto; padding: 0 24px;">
 
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Hero 2-Column Responsive Layout -->
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 40px;">
 
-      <!-- Hero Grid -->
-      <div class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-12 items-center text-center lg:text-left">
-        
-        <!-- Left Side Content -->
-        <div class="contents lg:block lg:col-span-7">
-          <div class="order-1 lg:order-none inline-flex items-center space-x-2 bg-[#00aeef]/10 border border-[#00aeef]/30 text-[#00aeef] text-xs sm:text-sm font-semibold tracking-wider uppercase px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full mb-6">
-            <i data-lucide="shield-check" class="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#00aeef]"></i>
-            <span>Composite + Sotheby's | Operations Support Overview</span>
+        <!-- Left Column: Title, Subtitle, CTA -->
+        <div style="flex: 1 1 560px; max-width: 780px;">
+
+          <!-- Pill Badge -->
+          <div style="display: inline-flex; align-items: center; background-color: rgba(0, 174, 239, 0.1); border: 1px solid rgba(0, 174, 239, 0.3); color: #00aeef; font-size: 13px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; padding: 6px 14px; border-radius: 9999px; margin-bottom: 24px;">
+            COMPOSITE GLOBAL PARTNERS + COMPASS
           </div>
-          <h1 class="order-2 lg:order-none text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15] mb-6">
-            Brokerage-Grade Real Estate Operations Support
+
+          <!-- Hero H1 Title Formatted into 3 Lines -->
+          <h1 style="font-family: 'Inter', system-ui, -apple-system, sans-serif !important; font-size: clamp(2.1rem, 4.5vw, 3.75rem); font-weight: 800; color: #ffffff !important; line-height: 1.15; letter-spacing: -0.025em; margin: 0 0 24px 0;">
+            Technology-Enabled<br>
+            Real Estate Support for<br>
+            Compass Agents &amp; Teams
           </h1>
-          <p class="order-3 lg:order-none text-base sm:text-xl text-slate-300 mb-3 sm:mb-5 lg:mb-8 leading-relaxed font-normal">
-            A disciplined support model designed to plug underneath Sotheby's internal agent-support teams as an office-based execution layer — extending capacity, improving turnaround time, and ensuring seamless continuity during technology transitions.
+
+          <!-- Hero Subtitle -->
+          <p style="font-family: 'Inter', system-ui, -apple-system, sans-serif !important; font-size: clamp(1rem, 1.8vw, 1.125rem); color: #cbd5e1 !important; line-height: 1.65; font-weight: 400; margin: 0 0 32px 0;">
+            Compass has built a technology-driven platform designed to help real estate professionals manage their businesses from contact to close. Composite adds a dedicated, office-based operational layer to help agents and teams manage the work that happens around those systems.
           </p>
-          <div class="order-5 lg:order-none flex flex-col sm:flex-row justify-center lg:justify-start gap-4 mt-6 lg:mt-0">
-            <a href="https://meetings-na2.hubspot.com/chris-gerra" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3.5 sm:px-7 sm:py-4 text-sm sm:text-base font-semibold tracking-wide text-white bg-[#00aeef] hover:bg-transparent border-2 border-[#00aeef] rounded-lg transition-all duration-300 shadow-lg shadow-[#00aeef]/25 hover:shadow-none">
-              Schedule Partnership Consultation
+
+          <!-- Hero CTA Button -->
+          <div style="display: flex; gap: 16px;">
+            <a class="hero-cta-btn" style="display: inline-flex !important; align-items: center !important; justify-content: center !important; background-color: #00aeef !important; color: #ffffff !important; border: 2px solid #00aeef !important; border-radius: 8px !important; font-size: 15px !important; font-weight: 600 !important; text-decoration: none !important; padding: 14px 28px !important; box-shadow: 0 10px 25px rgba(0, 174, 239, 0.3) !important;" href="https://compositegp.com/contact-us/" target="_blank" rel="noopener noreferrer">
+              Book A Strategy Call
             </a>
           </div>
         </div>
 
-        <!-- Right Side: Responsive Hero Orbital Stage -->
-        <div class="order-4 lg:order-none lg:col-span-5 flex justify-center items-center relative pt-1 pb-4 sm:py-6">
-          <div class="hero-orbit-stage" id="hero-orbit-stage">
-            <div class="absolute w-[240px] sm:w-[330px] h-[240px] sm:h-[330px] rounded-full border border-dashed border-[#00aeef]/25 pointer-events-none"></div>
-            <div class="absolute w-[160px] sm:w-[220px] h-[160px] sm:h-[220px] rounded-full bg-[#00aeef]/10 blur-2xl pointer-events-none"></div>
+        <!-- Right Side: Hero Orbital Stage (Pre-rendered inline at exact coordinates) -->
+        <div style="flex: 1 1 440px; display: flex; justify-content: center; align-items: center; min-height: 420px; position: relative;">
+          
+          <div id="hero-orbit-stage" style="position: relative; width: 100%; max-width: 480px; height: 420px; display: flex; justify-content: center; align-items: center; margin: 0 auto;">
+            
+            <!-- Circular Dashed Track Background -->
+            <div style="position: absolute; width: 340px; height: 340px; border-radius: 50%; border: 1px dashed rgba(0, 174, 239, 0.25); pointer-events: none;"></div>
+            <div style="position: absolute; width: 240px; height: 240px; border-radius: 50%; background-color: rgba(0, 174, 239, 0.08); filter: blur(40px); pointer-events: none;"></div>
 
-            <div class="orbit-icon-card">
-              <i data-lucide="calendar-check-2" class="w-5 h-5 sm:w-7 sm:h-7"></i>
-              <span class="orbit-card-title">Calendar Management</span>
+            <!-- Card 0 (Bottom Center, Highlighted Active Node) -->
+            <div class="orbit-icon-card" style="position: absolute; width: 140px; height: 105px; border-radius: 18px; padding: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; border: 1.5px solid #ffffff; background: linear-gradient(135deg, rgb(0, 174, 239) 0%, rgb(0, 129, 207) 100%); color: #ffffff; box-shadow: 0 0 35px rgba(0, 174, 239, 0.75), 0 10px 25px rgba(0, 0, 0, 0.35); transform: translate3d(0px, 160px, 0) scale(1.04); z-index: 100; cursor: pointer; user-select: none;">
+              <span class="orbit-card-title" style="color: #ffffff; font-weight: 700; font-size: 11.5px; line-height: 1.25; margin-top: 4px;">CRM &amp; Database</span>
             </div>
 
-            <div class="orbit-icon-card">
-              <i data-lucide="mail-check" class="w-5 h-5 sm:w-7 sm:h-7"></i>
-              <span class="orbit-card-title">Email Management</span>
+            <!-- Card 1 (Bottom Right Node) -->
+            <div class="orbit-icon-card" style="position: absolute; width: 140px; height: 105px; border-radius: 18px; padding: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; border: 1.5px solid rgb(60, 74, 88); background: linear-gradient(135deg, rgb(50, 61, 73) 0%, rgb(41, 50, 60) 100%); color: rgb(0, 174, 239); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); transform: translate3d(170px, 48px, 0) scale(0.94); opacity: 0.85; z-index: 65; cursor: pointer; user-select: none;">
+              <span class="orbit-card-title" style="color: rgb(148, 163, 184); font-weight: 600; font-size: 11.5px; line-height: 1.25; margin-top: 4px;">Marketing Coordination</span>
             </div>
 
-            <div class="orbit-icon-card">
-              <i data-lucide="file-badge-2" class="w-5 h-5 sm:w-7 sm:h-7"></i>
-              <span class="orbit-card-title">Transaction Coordination</span>
+            <!-- Card 2 (Top Right Node) -->
+            <div class="orbit-icon-card" style="position: absolute; width: 140px; height: 105px; border-radius: 18px; padding: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; border: 1.5px solid rgb(60, 74, 88); background: linear-gradient(135deg, rgb(50, 61, 73) 0%, rgb(41, 50, 60) 100%); color: rgb(0, 174, 239); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); transform: translate3d(105px, -130px, 0) scale(0.78); opacity: 0.55; z-index: 10; cursor: pointer; user-select: none;">
+              <span class="orbit-card-title" style="color: rgb(148, 163, 184); font-weight: 600; font-size: 11.5px; line-height: 1.25; margin-top: 4px;">Listing &amp; Lead Support</span>
             </div>
 
-            <div class="orbit-icon-card">
-              <i data-lucide="megaphone" class="w-5 h-5 sm:w-7 sm:h-7"></i>
-              <span class="orbit-card-title">Marketing</span>
+            <!-- Card 3 (Top Left Node) -->
+            <div class="orbit-icon-card" style="position: absolute; width: 140px; height: 105px; border-radius: 18px; padding: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; border: 1.5px solid rgb(60, 74, 88); background: linear-gradient(135deg, rgb(50, 61, 73) 0%, rgb(41, 50, 60) 100%); color: rgb(0, 174, 239); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); transform: translate3d(-105px, -130px, 0) scale(0.78); opacity: 0.55; z-index: 10; cursor: pointer; user-select: none;">
+              <span class="orbit-card-title" style="color: rgb(148, 163, 184); font-weight: 600; font-size: 11.5px; line-height: 1.25; margin-top: 4px;">Compass One &amp; Client</span>
             </div>
 
-            <div class="orbit-icon-card">
-              <i data-lucide="database-zap" class="w-5 h-5 sm:w-7 sm:h-7"></i>
-              <span class="orbit-card-title">CRM Management</span>
+            <!-- Card 4 (Bottom Left Node) -->
+            <div class="orbit-icon-card" style="position: absolute; width: 140px; height: 105px; border-radius: 18px; padding: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; border: 1.5px solid rgb(60, 74, 88); background: linear-gradient(135deg, rgb(50, 61, 73) 0%, rgb(41, 50, 60) 100%); color: rgb(0, 174, 239); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); transform: translate3d(-170px, 48px, 0) scale(0.94); opacity: 0.85; z-index: 65; cursor: pointer; user-select: none;">
+              <span class="orbit-card-title" style="color: rgb(148, 163, 184); font-weight: 600; font-size: 11.5px; line-height: 1.25; margin-top: 4px;">AI &amp; Tech Workflows</span>
             </div>
+
           </div>
+
         </div>
 
       </div>
 
-      <!-- Stats Bar with Gentle Auto-Sequence Pop-Up -->
-      <div class="mt-16 sm:mt-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 pt-12 sm:pt-16 border-t border-[#36424e]">
-        
-        <div class="hero-stat-card group relative bg-[#323d49] border border-[#3c4a58] hover:border-[#00aeef] rounded-xl p-5 sm:p-6 cursor-pointer overflow-hidden">
+      <!-- Stats Bar with BOLD Figures -->
+      <div style="margin-top: 64px; padding-top: 48px; border-top: 1px solid #36424e; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
+        <div class="hero-stat-card active-stat group relative bg-[#323d49] border border-[#3c4a58] hover:border-[#00aeef] rounded-xl p-5 sm:p-6 cursor-pointer overflow-hidden">
           <div class="stat-glow absolute -right-4 -bottom-4 w-20 h-20 bg-[#00aeef] rounded-full blur-xl opacity-10 group-hover:opacity-35 transition-all"></div>
-          <p class="stat-number text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white transition-colors tracking-tight">100%</p>
-          <p class="text-sm sm:text-base font-medium text-slate-300 mt-1 sm:mt-2">U.S. Real Estate Specialization</p>
-          <span class="stat-arrow inline-block mt-2 sm:mt-3 text-xs sm:text-sm text-[#00aeef] opacity-0 group-hover:opacity-100 transition-opacity font-semibold">Dedicated domain expertise &rarr;</span>
+          <p class="stat-number text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white transition-colors tracking-tight">Dedicated</p>
+          <p class="text-sm sm:text-base font-medium text-slate-300 mt-1 sm:mt-2">1-to-1 Full-Time VA Integration</p>
+          <span class="stat-arrow inline-block mt-2 sm:mt-3 text-xs sm:text-sm text-[#00aeef] opacity-0 group-hover:opacity-100 transition-opacity font-semibold">Focused on your business &rarr;</span>
         </div>
 
         <div class="hero-stat-card group relative bg-[#323d49] border border-[#3c4a58] hover:border-[#00aeef] rounded-xl p-5 sm:p-6 cursor-pointer overflow-hidden">
           <div class="stat-glow absolute -right-4 -bottom-4 w-20 h-20 bg-[#00aeef] rounded-full blur-xl opacity-10 group-hover:opacity-35 transition-all"></div>
           <p class="stat-number text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white transition-colors tracking-tight">Office-Based</p>
-          <p class="text-sm sm:text-base font-medium text-slate-300 mt-1 sm:mt-2">Located in Davao City, PH</p>
-          <span class="stat-arrow inline-block mt-2 sm:mt-3 text-xs sm:text-sm text-[#00aeef] opacity-0 group-hover:opacity-100 transition-opacity font-semibold">Controlled facility security &rarr;</span>
+          <p class="text-sm sm:text-base font-medium text-slate-300 mt-1 sm:mt-2">Davao City Facilities, PH</p>
+          <span class="stat-arrow inline-block mt-2 sm:mt-3 text-xs sm:text-sm text-[#00aeef] opacity-0 group-hover:opacity-100 transition-opacity font-semibold">Strict supervision &amp; security &rarr;</span>
         </div>
 
         <div class="hero-stat-card group relative bg-[#323d49] border border-[#3c4a58] hover:border-[#00aeef] rounded-xl p-5 sm:p-6 cursor-pointer overflow-hidden">
           <div class="stat-glow absolute -right-4 -bottom-4 w-20 h-20 bg-[#00aeef] rounded-full blur-xl opacity-10 group-hover:opacity-35 transition-all"></div>
           <p class="stat-number text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white transition-colors tracking-tight">3-Week</p>
-          <p class="text-sm sm:text-base font-medium text-slate-300 mt-1 sm:mt-2">Structured VA Training <span class="block text-xs text-slate-400 font-normal mt-0.5">(40-45% Pass Rate)</span></p>
-          <span class="stat-arrow inline-block mt-2 sm:mt-3 text-xs sm:text-sm text-[#00aeef] opacity-0 group-hover:opacity-100 transition-opacity font-semibold">Rigorous vetting process &rarr;</span>
+          <p class="text-sm sm:text-base font-medium text-slate-300 mt-1 sm:mt-2">Compass-Specific Pre-Training</p>
+          <span class="stat-arrow inline-block mt-2 sm:mt-3 text-xs sm:text-sm text-[#00aeef] opacity-0 group-hover:opacity-100 transition-opacity font-semibold">Pre-trained on Compass workflows &rarr;</span>
         </div>
 
         <div class="hero-stat-card group relative bg-[#323d49] border border-[#3c4a58] hover:border-[#00aeef] rounded-xl p-5 sm:p-6 cursor-pointer overflow-hidden">
           <div class="stat-glow absolute -right-4 -bottom-4 w-20 h-20 bg-[#00aeef] rounded-full blur-xl opacity-10 group-hover:opacity-35 transition-all"></div>
-          <p class="stat-number text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white transition-colors tracking-tight">$1,995<span class="text-lg sm:text-xl text-slate-400 font-normal">/mo</span></p>
-          <p class="text-sm sm:text-base font-medium text-slate-300 mt-1 sm:mt-2">Monthly Full-Time Dedicated VA</p>
-          <span class="stat-arrow inline-block mt-2 sm:mt-3 text-xs sm:text-sm text-[#00aeef] opacity-0 group-hover:opacity-100 transition-opacity font-semibold">Flat predictable pricing &rarr;</span>
+          <p class="stat-number text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white transition-colors tracking-tight">$1,995<span class="text-lg sm:text-xl text-slate-400 font-extrabold">/mo</span></p>
+          <p class="text-sm sm:text-base font-medium text-slate-300 mt-1 sm:mt-2">Per Full-Time Dedicated Assistant</p>
+          <span class="stat-arrow inline-block mt-2 sm:mt-3 text-xs sm:text-sm text-[#00aeef] opacity-0 group-hover:opacity-100 transition-opacity font-semibold">Predictable subscription model &rarr;</span>
         </div>
-
       </div>
+
     </div>
   </section>
 
-  <!-- STRATEGIC ALIGNMENT -->
+  <!-- BUILT AROUND THE COMPASS WAY OF WORKING -->
   <section class="py-16 sm:py-20 bg-white border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="bg-gradient-to-br from-slate-50 to-[#00aeef]/5 border border-[#00aeef]/20 rounded-2xl p-6 sm:p-8 lg:p-12 relative overflow-hidden shadow-sm">
+    <div class="max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-20">
+      <div class="max-w-6xl mx-auto bg-gradient-to-br from-slate-50 to-[#00aeef]/5 border border-[#00aeef]/20 rounded-3xl p-6 sm:p-10 lg:p-12 relative overflow-hidden shadow-sm">
         <div class="w-full relative">
-          <div class="inline-flex items-center space-x-2 bg-[#00aeef]/10 text-[#00aeef] text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">
-            <span class="w-1.5 h-1.5 bg-[#00aeef] rounded-full"></span>
-            <span>Strategic Alignment</span>
+          <div class="inline-flex items-center space-x-2 bg-[#00aeef]/10 text-[#00aeef] text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-4">
+            Built Around the Compass Way of Working
           </div>
-          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 mb-4 tracking-tight">Uniquely Positioned for Sotheby's Technology Transition</h2>
-          <p class="text-base sm:text-lg text-slate-600 mb-6 sm:mb-8 leading-relaxed font-normal w-full">
-            Following the January 2026 combination of Compass and Anywhere Real Estate, Sotheby’s International Realty operates within the broader Compass portfolio while maintaining its distinct brand. As Compass technology continues to expand across its brokerage operations, Composite’s existing experience supporting Compass agents, teams, and brokerage workflows can help reduce the learning curve as technology and processes evolve.
-          </p>
-          <div class="grid sm:grid-cols-2 gap-3 sm:gap-4 text-sm sm:text-base font-medium text-slate-700">
-            <div class="flex items-start space-x-3 bg-white p-3.5 sm:p-4 rounded-lg border border-[#00aeef]/20 shadow-xs">
-              <i data-lucide="check-circle-2" class="w-5 h-5 sm:w-5.5 sm:h-5.5 text-[#00aeef] shrink-0 mt-0.5"></i>
-              <span>Practical expertise across Compass systems & tools</span>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Your Technology Handles the Platform. Your VA Handles the Work Around It.</h2>
+          <p class="text-base sm:text-lg text-slate-600 mb-4 leading-relaxed font-normal w-full">Compass continues to expand its technology platform across its brokerage network, bringing CRM, marketing, client service, brokerage services, AI, and other workflows into a connected technology environment. Composite complements that technology with human execution.</p>
+          <p class="text-base sm:text-lg text-slate-600 mb-8 leading-relaxed font-normal w-full">Your dedicated VA can help keep information updated, follow up on tasks, maintain databases, coordinate marketing activities, organize transaction documentation, and manage recurring administrative work. The goal isn't to replace the technology—it's to help your team use it more effectively.</p>
+          
+          <div class="grid sm:grid-cols-2 gap-4 text-sm sm:text-base font-medium text-slate-700">
+            <div class="flex items-center space-x-3 bg-white p-4 rounded-xl border border-[#00aeef]/25 shadow-xs">
+              <svg class="w-5 h-5 text-[#00aeef] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>Keep your databases and CRM information updated &amp; actionable</span>
             </div>
-            <div class="flex items-start space-x-3 bg-white p-3.5 sm:p-4 rounded-lg border border-[#00aeef]/20 shadow-xs">
-              <i data-lucide="check-circle-2" class="w-5 h-5 sm:w-5.5 sm:h-5.5 text-[#00aeef] shrink-0 mt-0.5"></i>
-              <span>Established CRM & listing management workflows</span>
+            <div class="flex items-center space-x-3 bg-white p-4 rounded-xl border border-[#00aeef]/25 shadow-xs">
+              <svg class="w-5 h-5 text-[#00aeef] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>Coordinate marketing campaigns, social, and print collateral</span>
             </div>
-            <div class="flex items-start space-x-3 bg-white p-3.5 sm:p-4 rounded-lg border border-[#00aeef]/20 shadow-xs">
-              <i data-lucide="check-circle-2" class="w-5 h-5 sm:w-5.5 sm:h-5.5 text-[#00aeef] shrink-0 mt-0.5"></i>
-              <span>Reduced Learning Curve on Platform Integration</span>
+            <div class="flex items-center space-x-3 bg-white p-4 rounded-xl border border-[#00aeef]/25 shadow-xs">
+              <svg class="w-5 h-5 text-[#00aeef] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>Ensure opportunities &amp; leads don't get lost between systems</span>
             </div>
-            <div class="flex items-start space-x-3 bg-white p-3.5 sm:p-4 rounded-lg border border-[#00aeef]/20 shadow-xs">
-              <i data-lucide="check-circle-2" class="w-5 h-5 sm:w-5.5 sm:h-5.5 text-[#00aeef] shrink-0 mt-0.5"></i>
-              <span>Built-in Management Pod oversight on every account</span>
+            <div class="flex items-center space-x-3 bg-white p-4 rounded-xl border border-[#00aeef]/25 shadow-xs">
+              <svg class="w-5 h-5 text-[#00aeef] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>Free up local agents &amp; staff for revenue-producing activities</span>
             </div>
           </div>
         </div>
@@ -402,1075 +501,741 @@
     </div>
   </section>
 
-  <!-- ANATOMY OF ONE POD (RECTANGULAR FORMAT WITH MULTI-LINE WAVE RIBBON BACKGROUND) -->
+  <!-- ANATOMY OF ONE POD (MORE THAN A VA) -->
   <section class="py-16 sm:py-20 bg-[#2b353f] text-white border-b border-[#36424e] relative overflow-hidden">
-    
-    <!-- MAIN BACKGROUND: MULTI-LINE WAVE RIBBON GRAPHIC -->
-    <div class="absolute inset-0 pointer-events-none opacity-25 overflow-hidden flex items-center justify-center">
-      <svg class="w-full h-full min-w-[1200px]" viewBox="0 0 1400 600" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-        <g stroke="#ffffff" stroke-width="0.7" opacity="0.6">
-          <path d="M-100,300 C200,100 400,500 700,200 C1000,-100 1200,450 1500,250" />
-          <path d="M-100,310 C200,110 400,490 700,210 C1000,-90 1200,440 1500,260" />
-          <path d="M-100,320 C200,120 400,480 700,220 C1000,-80 1200,430 1500,270" />
-          <path d="M-100,330 C200,130 400,470 700,230 C1000,-70 1200,420 1500,280" />
-          <path d="M-100,340 C200,140 400,460 700,240 C1000,-60 1200,410 1500,290" />
-          <path d="M-100,350 C200,150 400,450 700,250 C1000,-50 1200,400 1500,300" />
-          <path d="M-100,360 C200,160 400,440 700,260 C1000,-40 1200,390 1500,310" />
-        </g>
-        <g stroke="#00aeef" stroke-width="0.8" opacity="0.8">
-          <path d="M-100,250 C250,450 450,100 750,350 C1050,600 1250,150 1500,350" />
-          <path d="M-100,260 C250,440 450,110 750,340 C1050,590 1250,160 1500,360" />
-          <path d="M-100,270 C250,430 450,120 750,330 C1050,580 1250,170 1500,370" />
-          <path d="M-100,280 C250,420 450,130 750,320 C1050,570 1250,180 1500,380" />
-          <path d="M-100,290 C250,410 450,140 750,310 C1050,560 1250,190 1500,390" />
-        </g>
-      </svg>
-    </div>
-
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      
-      <!-- Sleek Horizontal Rectangular Card Container -->
       <div class="bg-[#323d49] border border-[#3c4a58] rounded-2xl p-6 sm:p-8 shadow-2xl relative overflow-hidden backdrop-blur-md">
-        
-        <!-- Top Header Bar -->
+
+        <!-- Header Bar -->
         <div class="flex items-center justify-between text-[10px] sm:text-xs lg:text-sm tracking-wider sm:tracking-widest uppercase font-bold mb-6 sm:mb-8 border-b border-[#3c4a58] pb-4">
-          <span class="text-[#00aeef] flex items-center space-x-1.5 sm:space-x-2 shrink-0">
-            <i data-lucide="cpu" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#00aeef]"></i>
-            <span>ANATOMY OF ONE POD</span>
-          </span>
-          <span class="text-slate-300 font-semibold tracking-wider text-right shrink-0 translate-x-1.5 sm:translate-x-0">VA + MANAGED SUPPORT</span>
+          <span class="text-[#00aeef] flex items-center space-x-1.5 sm:space-x-2 shrink-0">MORE THAN A VA</span>
+          <span class="text-slate-300 font-semibold tracking-wider text-right shrink-0">A MANAGED OPERATIONAL EXTENSION</span>
         </div>
 
-        <!-- Center Focal Badge: Dedicated Composite VA -->
+        <!-- Center Focal Badge -->
         <div class="text-center mb-6 sm:mb-8">
           <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-2 border-[#00aeef] p-1 mx-auto mb-3 flex items-center justify-center bg-[#2b353f] shadow-lg shadow-[#00aeef]/20 transition-transform duration-300 hover:scale-105">
             <div class="w-full h-full rounded-full border border-[#00aeef]/40 flex flex-col items-center justify-center bg-[#323d49]">
               <span class="font-serif-title text-xl sm:text-2xl font-bold text-[#00aeef] tracking-wide">VA</span>
             </div>
           </div>
-          <h3 class="text-lg sm:text-xl font-extrabold text-white tracking-tight">Dedicated Composite VA</h3>
-          <p class="text-xs text-slate-300 mt-0.5 font-normal">Your single point of execution</p>
+          <p class="pod-main-title font-bold text-white text-xl sm:text-2xl">Dedicated Composite VA</p>
+          <p class="pod-main-subtitle text-xs sm:text-sm text-slate-400 mt-1">Your single point of Compass execution</p>
         </div>
 
-        <!-- Divider Line -->
         <div class="w-full h-px bg-[#3c4a58] my-6"></div>
 
-        <!-- Horizontal Support Node Badges -->
+        <!-- Horizontal Support Nodes -->
         <div class="grid grid-cols-2 sm:grid-cols-5 gap-4 text-center my-6">
-          
-          <!-- TL -->
           <div class="flex flex-col items-center group">
-            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-[#3c4a58] group-hover:border-[#00aeef] bg-[#2b353f] flex items-center justify-center mb-2 transition-colors shadow-sm">
-              <span class="font-serif-title text-sm sm:text-base font-bold text-white">TL</span>
-            </div>
-            <h4 class="text-xs font-bold text-white">Team Leader</h4>
-            <p class="text-[11px] text-slate-400 mt-0.5 leading-tight font-normal">Daily oversight & QA</p>
+            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-[#3c4a58] group-hover:border-[#00aeef] bg-[#2b353f] flex items-center justify-center mb-2 transition-colors shadow-sm"><span class="font-serif-title text-sm sm:text-base font-bold text-white">TL</span></div>
+            <p class="pod-node-title font-bold text-white text-xs sm:text-sm">Team Leader</p>
+            <p class="pod-node-desc text-[11px] text-slate-400">Daily QA &amp; escalation</p>
           </div>
-
-          <!-- OM -->
           <div class="flex flex-col items-center group">
-            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-[#3c4a58] group-hover:border-[#00aeef] bg-[#2b353f] flex items-center justify-center mb-2 transition-colors shadow-sm">
-              <span class="font-serif-title text-sm sm:text-base font-bold text-white">OM</span>
-            </div>
-            <h4 class="text-xs font-bold text-white">Operations Manager</h4>
-            <p class="text-[11px] text-slate-400 mt-0.5 leading-tight font-normal">Process alignment</p>
+            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-[#3c4a58] group-hover:border-[#00aeef] bg-[#2b353f] flex items-center justify-center mb-2 transition-colors shadow-sm"><span class="font-serif-title text-sm sm:text-base font-bold text-white">OM</span></div>
+            <p class="pod-node-title font-bold text-white text-xs sm:text-sm">Operations Manager</p>
+            <p class="pod-node-desc text-[11px] text-slate-400">Workflow continuity</p>
           </div>
-
-          <!-- IT -->
           <div class="flex flex-col items-center group">
-            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-[#3c4a58] group-hover:border-[#00aeef] bg-[#2b353f] flex items-center justify-center mb-2 transition-colors shadow-sm">
-              <span class="font-serif-title text-sm sm:text-base font-bold text-white">IT</span>
-            </div>
-            <h4 class="text-xs font-bold text-white">IT & Systems</h4>
-            <p class="text-[11px] text-slate-400 mt-0.5 leading-tight font-normal">Hardware & SSO</p>
+            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-[#3c4a58] group-hover:border-[#00aeef] bg-[#2b353f] flex items-center justify-center mb-2 transition-colors shadow-sm"><span class="font-serif-title text-sm sm:text-base font-bold text-white">IT</span></div>
+            <p class="pod-node-title font-bold text-white text-xs sm:text-sm">IT &amp; Infrastructure</p>
+            <p class="pod-node-desc text-[11px] text-slate-400">Hardware, VPN &amp; SSO</p>
           </div>
-
-          <!-- TD -->
           <div class="flex flex-col items-center group">
-            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-[#3c4a58] group-hover:border-[#00aeef] bg-[#2b353f] flex items-center justify-center mb-2 transition-colors shadow-sm">
-              <span class="font-serif-title text-sm sm:text-base font-bold text-white">TD</span>
-            </div>
-            <h4 class="text-xs font-bold text-white">Training & Dev</h4>
-            <p class="text-[11px] text-slate-400 mt-0.5 leading-tight font-normal">Skill upgrading</p>
+            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-[#3c4a58] group-hover:border-[#00aeef] bg-[#2b353f] flex items-center justify-center mb-2 transition-colors shadow-sm"><span class="font-serif-title text-sm sm:text-base font-bold text-white">TD</span></div>
+            <p class="pod-node-title font-bold text-white text-xs sm:text-sm">Training &amp; Dev</p>
+            <p class="pod-node-desc text-[11px] text-slate-400">3-week pre-training</p>
           </div>
-
-          <!-- HR (Highlighted Included Node) -->
           <div class="flex flex-col items-center col-span-2 sm:col-span-1 group">
-            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full border-2 border-[#00aeef] bg-[#2b353f] flex items-center justify-center mb-2 shadow-md shadow-[#00aeef]/20 transition-transform group-hover:scale-105">
-              <span class="font-serif-title text-sm sm:text-base font-bold text-[#00aeef]">HR</span>
-            </div>
-            <h4 class="text-xs font-bold text-white">HR & Compliance</h4>
-            <p class="text-[10px] text-[#00aeef] font-extrabold tracking-widest uppercase mt-0.5">INCLUDED</p>
+            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full border-2 border-[#00aeef] bg-[#2b353f] flex items-center justify-center mb-2 shadow-md shadow-[#00aeef]/20 transition-transform group-hover:scale-105"><span class="font-serif-title text-sm sm:text-base font-bold text-[#00aeef]">HR</span></div>
+            <p class="pod-node-title font-bold text-white text-xs sm:text-sm">HR &amp; Compliance</p>
+            <p class="pod-node-included font-bold text-[#00aeef] text-[10px] tracking-wider uppercase mt-0.5">INCLUDED</p>
           </div>
-
         </div>
 
-        <!-- Divider Line -->
         <div class="w-full h-px bg-[#3c4a58] my-6"></div>
 
-        <!-- Bottom Narrative Statement -->
+        <!-- Narrative Statement -->
         <div class="text-slate-300 text-xs sm:text-sm leading-relaxed font-normal text-center sm:text-left bg-[#2b353f]/70 p-4 rounded-xl border border-[#3c4a58]">
-          <strong class="text-white font-semibold">One Pod is one fully managed operational unit.</strong> Composite hires, trains, manages, and supports every assistant end-to-end. You aren't hiring an unmanaged individual—you are plugging into an enterprise back-office infrastructure built for real estate continuity.
+          <strong class="text-white font-semibold">With Composite, you don't simply receive an individual assistant.</strong> Every dedicated VA is supported by Composite's management structure, including Team Leaders and Operations oversight for quality control, workflow accountability, escalation, and continuity. That means your Compass team gets dedicated execution without having to build an additional internal management, HR, IT, or recruiting infrastructure.
         </div>
-
       </div>
-
     </div>
   </section>
 
-  <!-- CORE AGENT FUNCTIONS -->
+  <!-- COMPASS-SPECIFIC OPERATIONAL SUPPORT (3D CIRCULAR CAROUSEL) -->
   <section class="py-16 sm:py-24 bg-[#f8fafc] border-b border-slate-200 overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
-        <div class="inline-flex items-center space-x-2 bg-[#00aeef]/10 text-[#00aeef] text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">
-          <span>Agent Solutions</span>
-        </div>
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">Core Agent & Team Support Functions</h2>
-        <p class="text-slate-600 mt-2 sm:mt-3 text-base sm:text-lg leading-relaxed">Freeing local full-time employees and top producers to focus on agent success and relationship management.</p>
+    <div class="max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-20">
+      <div class="text-center max-w-4xl mx-auto mb-8 sm:mb-12">
+        <div class="inline-flex items-center space-x-2 bg-[#00aeef]/10 text-[#00aeef] text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">Compass-Specific Support</div>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight sm:whitespace-nowrap">Support That Fits Your Technology Environment</h2>
+        <p class="text-slate-600 mt-2 sm:mt-3 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">Composite has experience supporting Compass agents and teams and training VAs to work with brokerage-specific systems, processes, and best practices.</p>
       </div>
 
-      <!-- 3D Carousel Stage -->
-      <div class="carousel-perspective" id="3d-carousel-container">
-        <!-- Card 1 -->
+      <!-- 3D Carousel Perspective Container -->
+      <div id="3d-carousel-container" class="carousel-perspective">
+        
+        <!-- Card 1: CRM & Database -->
         <div class="carousel-card p-6 sm:p-7 rounded-2xl border border-white/30 cursor-pointer shadow-lg text-white">
           <div class="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 text-white rounded-lg flex items-center justify-center mb-4 sm:mb-5 border border-white/30">
-            <i data-lucide="home" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
           </div>
-          <h3 class="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3 tracking-tight">Listing Support</h3>
-          <ul class="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-white/90 font-normal">
-            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-white rounded-full"></span><span>MLS Input Preparation</span></li>
-            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-white rounded-full"></span><span>Listing Checklists & Workflows</span></li>
-            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-white rounded-full"></span><span>Seller Disclosure Coordination</span></li>
-            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-white rounded-full"></span><span>DocuSign / SkySlope Admin</span></li>
+          <h3 class="carousel-card-title text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3 tracking-tight">Compass CRM &amp; Database</h3>
+          <ul class="carousel-card-list space-y-1.5 sm:space-y-2 text-sm text-white/95 font-normal">
+            <li class="flex items-center space-x-2">&bull; Contact and database updates</li>
+            <li class="flex items-center space-x-2">&bull; Lead and prospect organization</li>
+            <li class="flex items-center space-x-2">&bull; Tagging, segmentation &amp; pipelines</li>
+            <li class="flex items-center space-x-2">&bull; Follow-up lists &amp; data cleanup</li>
           </ul>
         </div>
 
-        <!-- Card 2 -->
+        <!-- Card 2: Marketing Workflow -->
         <div class="carousel-card p-6 sm:p-7 rounded-2xl border border-white/30 cursor-pointer shadow-lg text-white">
           <div class="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 text-white rounded-lg flex items-center justify-center mb-4 sm:mb-5 border border-white/30">
-            <i data-lucide="database" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/></svg>
           </div>
-          <h3 class="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3 tracking-tight">CRM & Database</h3>
-          <ul class="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-white/90 font-normal">
-            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-white rounded-full"></span><span>CRM Setup & Tagging Structure</span></li>
-            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-white rounded-full"></span><span>Database Segmentation & Cleanup</span></li>
-            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-white rounded-full"></span><span>Follow-Up Lists & Hygiene</span></li>
+          <h3 class="carousel-card-title text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3 tracking-tight">Marketing Workflow</h3>
+          <ul class="carousel-card-list space-y-1.5 sm:space-y-2 text-sm text-white/95 font-normal">
+            <li class="flex items-center space-x-2">&bull; Campaign &amp; collateral coordination</li>
+            <li class="flex items-center space-x-2">&bull; Email campaigns &amp; eBlasts</li>
+            <li class="flex items-center space-x-2">&bull; Social media management</li>
+            <li class="flex items-center space-x-2">&bull; Video and digital marketing prep</li>
           </ul>
         </div>
 
-        <!-- Card 3 -->
+        <!-- Card 3: Listing & Lead Support -->
         <div class="carousel-card p-6 sm:p-7 rounded-2xl border border-white/30 cursor-pointer shadow-lg text-white">
           <div class="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 text-white rounded-lg flex items-center justify-center mb-4 sm:mb-5 border border-white/30">
-            <i data-lucide="megaphone" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
           </div>
-          <h3 class="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3 tracking-tight">Marketing Coordination</h3>
-          <ul class="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-white/90 font-normal">
-            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-white rounded-full"></span><span>Social & Email Campaigns</span></li>
-            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-white rounded-full"></span><span>Print Collateral Requests</span></li>
-            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-white rounded-full"></span><span>Open House & Video Prep</span></li>
+          <h3 class="carousel-card-title text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3 tracking-tight">Listing &amp; Lead Support</h3>
+          <ul class="carousel-card-list space-y-1.5 sm:space-y-2 text-sm text-white/95 font-normal">
+            <li class="flex items-center space-x-2">&bull; Listing information &amp; MLS updates</li>
+            <li class="flex items-center space-x-2">&bull; Opportunity tracking &amp; assignment</li>
+            <li class="flex items-center space-x-2">&bull; Buyer and seller follow-up</li>
+            <li class="flex items-center space-x-2">&bull; Listing marketing coordination</li>
           </ul>
         </div>
 
-        <!-- Card 4 -->
+        <!-- Card 4: Compass One & Client Service -->
         <div class="carousel-card p-6 sm:p-7 rounded-2xl border border-white/30 cursor-pointer shadow-lg text-white">
           <div class="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 text-white rounded-lg flex items-center justify-center mb-4 sm:mb-5 border border-white/30">
-            <i data-lucide="file-check" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
           </div>
-          <h3 class="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3 tracking-tight">Transaction Admin</h3>
-          <ul class="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-white/90 font-normal">
-            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-white rounded-full"></span><span>Document Coordination</span></li>
-            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-white rounded-full"></span><span>Status Tracking & Milestones</span></li>
-            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-white rounded-full"></span><span>Compliance Preparation Support</span></li>
+          <h3 class="carousel-card-title text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3 tracking-tight">Compass One &amp; Client Service</h3>
+          <ul class="carousel-card-list space-y-1.5 sm:space-y-2 text-sm text-white/95 font-normal">
+            <li class="flex items-center space-x-2">&bull; Client experience administration</li>
+            <li class="flex items-center space-x-2">&bull; Appointment &amp; calendar coordination</li>
+            <li class="flex items-center space-x-2">&bull; Client communication preparation</li>
+            <li class="flex items-center space-x-2">&bull; Transaction status &amp; document prep</li>
           </ul>
         </div>
 
-        <!-- Card 5 -->
+        <!-- Card 5: AI & Tech-Assisted Workflows -->
         <div class="carousel-card p-6 sm:p-7 rounded-2xl border border-white/30 cursor-pointer shadow-lg text-white">
           <div class="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 text-white rounded-lg flex items-center justify-center mb-4 sm:mb-5 border border-white/30">
-            <i data-lucide="mail" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
           </div>
-          <h3 class="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3 tracking-tight">Inbox & Calendar</h3>
-          <ul class="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-white/90 font-normal">
-            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-white rounded-full"></span><span>Email Triage & Management</span></li>
-            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-white rounded-full"></span><span>Scheduling & Appointments</span></li>
-            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-white rounded-full"></span><span>Vendor & Client Follow-Ups</span></li>
+          <h3 class="carousel-card-title text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3 tracking-tight">AI &amp; Tech Workflows</h3>
+          <ul class="carousel-card-list space-y-1.5 sm:space-y-2 text-sm text-white/95 font-normal">
+            <li class="flex items-center space-x-2">&bull; AI-assisted property descriptions</li>
+            <li class="flex items-center space-x-2">&bull; AI-assisted client communications</li>
+            <li class="flex items-center space-x-2">&bull; Listing content &amp; research support</li>
+            <li class="flex items-center space-x-2">&bull; Repetitive workflow automation</li>
           </ul>
         </div>
 
-        <!-- Card 6 -->
+        <!-- Card 6: Transaction Coordination -->
         <div class="carousel-card p-6 sm:p-7 rounded-2xl border border-white/30 cursor-pointer shadow-lg text-white">
           <div class="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 text-white rounded-lg flex items-center justify-center mb-4 sm:mb-5 border border-white/30">
-            <i data-lucide="bar-chart-3" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
           </div>
-          <h3 class="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3 tracking-tight">Reporting & Analytics</h3>
-          <ul class="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-white/90 font-normal">
-            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-white rounded-full"></span><span>CMA Support & Market Data</span></li>
-            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-white rounded-full"></span><span>Deal Trackers & Dashboards</span></li>
-            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-white rounded-full"></span><span>Commissions & Expense Logs</span></li>
+          <h3 class="carousel-card-title text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3 tracking-tight">Transaction Admin</h3>
+          <ul class="carousel-card-list space-y-1.5 sm:space-y-2 text-sm text-white/95 font-normal">
+            <li class="flex items-center space-x-2">&bull; Deal sheet &amp; document coordination</li>
+            <li class="flex items-center space-x-2">&bull; Disclosures and compliance admin</li>
+            <li class="flex items-center space-x-2">&bull; HOA and board package support</li>
+            <li class="flex items-center space-x-2">&bull; Timeline and closing monitoring</li>
           </ul>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- BROKERAGE SUPPORT -->
+  <!-- WHAT YOUR COMPOSITE VA CAN TAKE OFF YOUR PLATE (CONTINUOUS ROTATING ORBIT) -->
   <section class="py-16 sm:py-24 bg-white border-b border-slate-200 overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl mb-8">
-        <div class="inline-flex items-center space-x-2 bg-[#00aeef]/10 text-[#00aeef] text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">
-          <span>Scale Infrastructure</span>
-        </div>
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 mt-2 tracking-tight">Brokerage & Corporate Office Support</h2>
-        <p class="text-slate-600 mt-2 sm:mt-3 text-base sm:text-lg leading-relaxed">Extending disciplined office-based support across corporate administration, agent services, and shared-service workflows.</p>
+    <div class="max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-20">
+      <div class="max-w-4xl mb-8">
+        <div class="inline-flex items-center space-x-2 bg-[#00aeef]/10 text-[#00aeef] text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">Multi-Functional Capability</div>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 mt-2 tracking-tight sm:whitespace-nowrap">What Your Composite VA Can Take Off Your Plate</h2>
+        <p class="text-slate-600 mt-2 sm:mt-3 text-base sm:text-lg leading-relaxed">Instead of hiring separate people for every administrative need, your dedicated VA can support different areas of your business as priorities change.</p>
       </div>
 
-      <div class="brokerage-orbit-stage" id="brokerage-orbit-stage">
+      <div id="brokerage-orbit-stage" class="brokerage-orbit-stage">
         <div class="absolute w-[320px] sm:w-[680px] h-[160px] sm:h-[240px] rounded-full border border-dashed border-[#00aeef]/30 pointer-events-none"></div>
         <div class="absolute w-[220px] sm:w-[460px] h-[100px] sm:h-[160px] rounded-full bg-[#00aeef]/5 blur-3xl pointer-events-none"></div>
-
+        
+        <!-- Node 1: CRM & Lead Management -->
         <div class="brokerage-orbit-card">
-          <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3 flex items-center space-x-2.5 tracking-tight">
-            <i data-lucide="user-plus" class="w-5 h-5 sm:w-6 sm:h-6 shrink-0"></i>
-            <span>Agent Onboarding</span>
-          </h3>
-          <p class="text-xs sm:text-sm mb-3 sm:mb-4 opacity-80 leading-relaxed">Standardized onboarding & offboarding management.</p>
-          <ul class="space-y-2 text-xs sm:text-sm font-normal">
-            <li>• New agent system setup</li>
-            <li>• Training coordination & follow-ups</li>
-            <li>• Offboarding access removal & cleanup</li>
+          <h4 class="brokerage-card-title text-base sm:text-lg font-bold mb-2 sm:mb-2.5 flex items-center space-x-2.5 tracking-tight text-slate-900">CRM &amp; Lead Management</h4>
+          <p class="text-xs sm:text-sm mb-3 sm:mb-4 text-slate-600 leading-relaxed font-normal">Database maintenance &amp; active prospect hygiene.</p>
+          <ul class="space-y-1.5 text-xs sm:text-sm font-normal text-slate-600">
+            <li>&bull; Database maintenance &amp; pipeline updates</li>
+            <li>&bull; Lead organization &amp; contact tagging</li>
+            <li>&bull; Scheduled follow-ups &amp; data cleanup</li>
           </ul>
         </div>
 
+        <!-- Node 2: Marketing -->
         <div class="brokerage-orbit-card">
-          <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3 flex items-center space-x-2.5 tracking-tight">
-            <i data-lucide="line-chart" class="w-5 h-5 sm:w-6 sm:h-6 shrink-0"></i>
-            <span>Reporting & Analytics</span>
-          </h3>
-          <p class="text-xs sm:text-sm mb-3 sm:mb-4 opacity-80 leading-relaxed">High-level production tracking & metrics.</p>
-          <ul class="space-y-2 text-xs sm:text-sm font-normal">
-            <li>• Agent production & activity tracking</li>
-            <li>• Transaction volume & pipeline reports</li>
-            <li>• Google Sheets / CRM dashboards</li>
+          <h4 class="brokerage-card-title text-base sm:text-lg font-bold mb-2 sm:mb-2.5 flex items-center space-x-2.5 tracking-tight text-slate-900">Marketing &amp; Campaigns</h4>
+          <p class="text-xs sm:text-sm mb-3 sm:mb-4 text-slate-600 leading-relaxed font-normal">Consistent brand delivery and digital execution.</p>
+          <ul class="space-y-1.5 text-xs sm:text-sm font-normal text-slate-600">
+            <li>&bull; Social media management &amp; email newsletters</li>
+            <li>&bull; Listing marketing &amp; collateral requests</li>
+            <li>&bull; Video coordination &amp; digital marketing support</li>
           </ul>
         </div>
 
+        <!-- Node 3: Listings & MLS -->
         <div class="brokerage-orbit-card">
-          <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3 flex items-center space-x-2.5 tracking-tight">
-            <i data-lucide="settings" class="w-5 h-5 sm:w-6 sm:h-6 shrink-0"></i>
-            <span>Systems Admin</span>
-          </h3>
-          <p class="text-xs sm:text-sm mb-3 sm:mb-4 opacity-80 leading-relaxed">Platform management & SOP enforcement.</p>
-          <ul class="space-y-2 text-xs sm:text-sm font-normal">
-            <li>• CRM & MLS data management</li>
-            <li>• DocuSign & Workspace support</li>
-            <li>• Workflow documentation & enforcement</li>
+          <h4 class="brokerage-card-title text-base sm:text-lg font-bold mb-2 sm:mb-2.5 flex items-center space-x-2.5 tracking-tight text-slate-900">Listings &amp; MLS Support</h4>
+          <p class="text-xs sm:text-sm mb-3 sm:mb-4 text-slate-600 leading-relaxed font-normal">Property prep, collections &amp; MLS administration.</p>
+          <ul class="space-y-1.5 text-xs sm:text-sm font-normal text-slate-600">
+            <li>&bull; Listing updates &amp; property descriptions</li>
+            <li>&bull; Photo &amp; specification management</li>
+            <li>&bull; Property collections &amp; asset coordination</li>
           </ul>
         </div>
 
+        <!-- Node 4: Transaction & Reporting -->
         <div class="brokerage-orbit-card">
-          <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3 flex items-center space-x-2.5 tracking-tight">
-            <i data-lucide="folder-lock" class="w-5 h-5 sm:w-6 sm:h-6 shrink-0"></i>
-            <span>Back-Office Admin</span>
-          </h3>
-          <p class="text-xs sm:text-sm mb-3 sm:mb-4 opacity-80 leading-relaxed">Centralized compliance & operations overflow.</p>
-          <ul class="space-y-2 text-xs sm:text-sm font-normal">
-            <li>• File auditing & compliance prep</li>
-            <li>• Transaction coordination overflow</li>
-            <li>• Commission processing support</li>
+          <h4 class="brokerage-card-title text-base sm:text-lg font-bold mb-2 sm:mb-2.5 flex items-center space-x-2.5 tracking-tight text-slate-900">Transaction &amp; Reporting</h4>
+          <p class="text-xs sm:text-sm mb-3 sm:mb-4 text-slate-600 leading-relaxed font-normal">Document coordination and pipeline tracking.</p>
+          <ul class="space-y-1.5 text-xs sm:text-sm font-normal text-slate-600">
+            <li>&bull; Deal sheets, disclosures &amp; HOA packages</li>
+            <li>&bull; CMA, comparable analysis &amp; market research</li>
+            <li>&bull; Commission reporting, expense &amp; calendar admin</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SECURITY CONTROLS -->
+  <!-- WHY COMPASS TEAMS CHOOSE COMPOSITE -->
   <section class="py-16 sm:py-20 bg-[#2b353f] text-white relative overflow-hidden">
     <div class="absolute -bottom-20 -left-20 w-72 sm:w-96 h-72 sm:h-96 bg-[#00aeef]/10 rounded-full blur-3xl pointer-events-none"></div>
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <div class="max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-20 relative">
       <div class="max-w-3xl mb-12 sm:mb-16">
-        <div class="inline-flex items-center space-x-2 bg-[#00aeef]/10 border border-[#00aeef]/30 text-[#00aeef] text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">
-          <span>Risk Mitigation</span>
-        </div>
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mt-2 tracking-tight">Office-Based Security & Operational Controls</h2>
-        <p class="text-slate-300 mt-2 sm:mt-3 text-base sm:text-lg leading-relaxed font-normal">
-          Reduces unmanaged offshore risk by keeping all production inside a controlled office facility with strict access, device, confidentiality, and supervision protocols.
-        </p>
+        <div class="inline-flex items-center space-x-2 bg-[#00aeef]/10 border border-[#00aeef]/30 text-[#00aeef] text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">Why Choose Composite</div>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mt-2 tracking-tight">Built for Real Estate. Structured for Scale.</h2>
+        <p class="text-slate-300 mt-2 sm:mt-3 text-base sm:text-lg leading-relaxed font-normal">We provide the people, training, management, and infrastructure behind the work—so Compass agents and teams can spend more time building relationships and growing their business.</p>
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6" id="security-pop-grid">
-        <div class="security-pop-card bg-[#323d49] p-5 sm:p-6 rounded-xl border border-[#3c4a58] cursor-pointer">
-          <i data-lucide="building" class="w-7 h-7 sm:w-8 sm:h-8 text-[#00aeef] mb-3 sm:mb-4"></i>
-          <h3 class="font-bold text-lg sm:text-xl mb-1.5 sm:mb-2 tracking-tight text-white">Controlled Facilities</h3>
-          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
-            All work is performed exclusively from supervised facilities in Davao City — never home-based freelancer environments.
-          </p>
+      <div id="security-pop-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+        <div class="security-pop-card bg-[#323d49] p-6 rounded-xl border border-[#3c4a58] cursor-pointer">
+          <h4 class="security-card-title text-base sm:text-lg font-bold mb-2 tracking-tight text-white">Real Estate Is Our Specialty</h4>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">Composite is 100% dedicated to residential real estate support. Our VAs complete rigorous real estate training before joining client teams.</p>
         </div>
-
-        <div class="security-pop-card bg-[#323d49] p-5 sm:p-6 rounded-xl border border-[#3c4a58] cursor-pointer">
-          <i data-lucide="smartphone" class="w-7 h-7 sm:w-8 sm:h-8 text-[#00aeef] mb-3 sm:mb-4"></i>
-          <h3 class="font-bold text-lg sm:text-xl mb-1.5 sm:mb-2 tracking-tight text-white">No Personal Devices</h3>
-          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
-            Personal cell phones are strictly prohibited on active production floors to safeguard confidential client data.
-          </p>
+        <div class="security-pop-card bg-[#323d49] p-6 rounded-xl border border-[#3c4a58] cursor-pointer">
+          <h4 class="security-card-title text-base sm:text-lg font-bold mb-2 tracking-tight text-white">Office-Based Delivery</h4>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">Every VA works from Composite’s controlled facility in Davao City, Philippines—never an unmanaged, home-based freelancer setup.</p>
         </div>
-
-        <div class="security-pop-card bg-[#323d49] p-5 sm:p-6 rounded-xl border border-[#3c4a58] cursor-pointer">
-          <i data-lucide="key-round" class="w-7 h-7 sm:w-8 sm:h-8 text-[#00aeef] mb-3 sm:mb-4"></i>
-          <h3 class="font-bold text-lg sm:text-xl mb-1.5 sm:mb-2 tracking-tight text-white">SOC 2 & Access Scope</h3>
-          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
-            Role-based access controls, password manager discipline, client-approved SSO/2FA, and SOC 2 aligned protocols.
-          </p>
+        <div class="security-pop-card bg-[#323d49] p-6 rounded-xl border border-[#3c4a58] cursor-pointer">
+          <h4 class="security-card-title text-base sm:text-lg font-bold mb-2 tracking-tight text-white">Managed Support</h4>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">Your VA is backed by dedicated Team Leaders and Operations leadership for daily QA, workflow accountability, escalation, and continuity.</p>
         </div>
-
-        <div class="security-pop-card bg-[#323d49] p-5 sm:p-6 rounded-xl border border-[#3c4a58] cursor-pointer">
-          <i data-lucide="wifi-off" class="w-7 h-7 sm:w-8 sm:h-8 text-[#00aeef] mb-3 sm:mb-4"></i>
-          <h3 class="font-bold text-xl mb-1.5 sm:mb-2 tracking-tight text-white">Network Continuity</h3>
-          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
-            Redundant internet, backup power generators, and local IT support to maintain continuous operations during local outages.
-          </p>
+        <div class="security-pop-card bg-[#323d49] p-6 rounded-xl border border-[#3c4a58] cursor-pointer">
+          <h4 class="security-card-title text-base sm:text-lg font-bold mb-2 tracking-tight text-white">Technology-Ready</h4>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">Our VAs support Compass CRM, MLS, marketing, transaction, AI, and other modern technology-enabled workflows out of the box.</p>
+        </div>
+        <div class="security-pop-card bg-[#323d49] p-6 rounded-xl border border-[#3c4a58] cursor-pointer">
+          <h4 class="security-card-title text-base sm:text-lg font-bold mb-2 tracking-tight text-white">Predictable Pricing</h4>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">One flat monthly subscription ($1,995/mo) covers your dedicated full-time assistant and the entire management infrastructure behind them.</p>
+        </div>
+        <div class="security-pop-card bg-[#323d49] p-6 rounded-xl border border-[#3c4a58] cursor-pointer">
+          <h4 class="security-card-title text-base sm:text-lg font-bold mb-2 tracking-tight text-white">Security &amp; Operational Controls</h4>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">SOC 2 aligned data-handling, strict access controls, backup power and internet, and a strict no-personal-cell-phone policy on active floors.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIALS SECTION -->
+  <!-- TESTIMONIALS SECTION (CONTINUOUS TICKER) -->
   <section class="py-16 sm:py-24 bg-white border-b border-slate-200 overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 sm:mb-14">
-      <div class="text-center max-w-2xl mx-auto">
-        <div class="inline-flex items-center space-x-2 bg-[#00aeef]/10 text-[#00aeef] text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">
-          <i data-lucide="star" class="w-3.5 h-3.5 fill-[#00aeef] text-[#00aeef]"></i>
-          <span>Partner Experiences</span>
-        </div>
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">Trusted by Top Producers & Teams</h2>
+    <div class="max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-20 mb-10 sm:mb-14">
+      <div class="text-center max-w-4xl mx-auto">
+        <div class="inline-flex items-center space-x-2 bg-[#00aeef]/10 text-[#00aeef] text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">Partner Experiences</div>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight sm:whitespace-nowrap">Trusted by Top Compass Producers &amp; Teams</h2>
         <p class="text-slate-600 mt-2 sm:mt-3 text-base sm:text-lg leading-relaxed">Here is what leading agents and operations executives have to say about partnering with Composite.</p>
       </div>
     </div>
 
-    <!-- Ticker Outer Container -->
+    <!-- Ticker Track with Infinite Loop -->
     <div class="testimonial-track-container relative w-full overflow-hidden">
-      <div class="testimonial-track flex items-stretch space-x-6">
-        
-        <!-- CARD SET 1 -->
-
-        <!-- Jessica Court -->
-        <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
-          <div>
-            <div class="flex text-amber-400 space-x-1 mb-3">
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            </div>
-            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
-              "If I could give more than 5 stars, I would! Working with this company has been one of the best decisions we've made for our team. Our virtual assistant is an absolute rockstar—organized, proactive, detail-oriented, and somehow always two steps ahead of the rest of us."
-            </p>
-          </div>
-          <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
-            <img src="https://via.placeholder.com/36/00aeef/ffffff?text=JC" alt="Jessica Court" class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200">
+      <div class="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-white to-transparent z-10"></div>
+      <div class="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-white to-transparent z-10"></div>
+      
+      <div class="testimonial-track">
+        <!-- Primary Set: 12 Real Testimonials -->
+        <div class="flex items-stretch gap-6 pr-6 shrink-0">
+          <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
             <div>
-              <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-tight">Jessica Court</h4>
-              <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Compass Agent</p>
+              <div class="flex text-amber-400 space-x-1 mb-3">★★★★★</div>
+              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">"We have been working with Composite since 2022, and their support has been truly outstanding. Angelique Madrigal, who serves as my team’s Head of Operations, has been exceptional! She is thoughtful, highly skilled, efficient, responsive, and brings wonderful energy and charisma."</p>
+            </div>
+            <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
+              <img class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200" src="https://compositegp.com/wp-content/uploads/2026/09/Augusto-B.png" alt="Augusto Bittencourt" />
+              <div>
+                <h4 class="testimonial-card-name font-bold text-slate-900 text-base sm:text-lg leading-tight">Augusto Bittencourt</h4>
+                <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Compass Agent</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
+            <div>
+              <div class="flex text-amber-400 space-x-1 mb-3">★★★★★</div>
+              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">"We’ve worked with Composite Global Partners for almost 6 years, and they’ve been an essential part of our real estate operations. Reliable, proactive, organized, and truly a seamless extension of the team. Their support and knowledge of operating systems consistently helps keep everything running smoothly."</p>
+            </div>
+            <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
+              <img class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200" src="https://compositegp.com/wp-content/uploads/2026/09/Jamie.png" alt="Jamie Heinlein" />
+              <div>
+                <h4 class="testimonial-card-name font-bold text-slate-900 text-base sm:text-lg leading-tight">Jamie Heinlein</h4>
+                <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Compass Agent</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
+            <div>
+              <div class="flex text-amber-400 space-x-1 mb-3">★★★★★</div>
+              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">"I have used Composite since 2021. They have a great operation and are extremely reliable and organized. My current VA has been with me for 3 years straight—she knows and understands my business and is an essential part of my team and structure."</p>
+            </div>
+            <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
+              <img class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200" src="https://compositegp.com/wp-content/uploads/2026/09/Dalia-Glazer.png" alt="Dalia Glazer" />
+              <div>
+                <h4 class="testimonial-card-name font-bold text-slate-900 text-base sm:text-lg leading-tight">Dalia Glazer</h4>
+                <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Compass Agent</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
+            <div>
+              <div class="flex text-amber-400 space-x-1 mb-3">★★★★★</div>
+              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">"Our team has been with Composite for 5 years and we have had an amazing experience from the first meeting with Chris to onboarding our first team member. The structure of Composite is so well designed on every level from having an office culture, team leaders, offsite team building, and full training on the Compass platform."</p>
+            </div>
+            <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
+              <img class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200" src="https://compositegp.com/wp-content/uploads/2026/09/Cindy-Fazio.png" alt="Cindy Fazio" />
+              <div>
+                <h4 class="testimonial-card-name font-bold text-slate-900 text-base sm:text-lg leading-tight">Cindy Fazio</h4>
+                <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Compass Agent</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
+            <div>
+              <div class="flex text-amber-400 space-x-1 mb-3">★★★★★</div>
+              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">"My assistant James has greatly improved the level at which I am able to perform in operating my real estate business. In less than six months, he has become an integral part of our team. The ROI on James is priceless."</p>
+            </div>
+            <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
+              <img class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200" src="https://placehold.co/80x80/00aeef/ffffff?text=LH" alt="Lauren Hurwitz" />
+              <div>
+                <h4 class="testimonial-card-name font-bold text-slate-900 text-base sm:text-lg leading-tight">Lauren Hurwitz</h4>
+                <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Compass Agent</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
+            <div>
+              <div class="flex text-amber-400 space-x-1 mb-3">★★★★★</div>
+              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">"My team and I have been working with Composite Global Partners now for over one year, and we're utilizing two of their VA's. We have been very happy and impressed with both of our VA's as well as with the organizational structure at Composite. There is a lot of training and oversight."</p>
+            </div>
+            <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
+              <img class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200" src="https://compositegp.com/wp-content/uploads/2026/09/Ben-Moss.png" alt="Ben Moss" />
+              <div>
+                <h4 class="testimonial-card-name font-bold text-slate-900 text-base sm:text-lg leading-tight">Ben Moss</h4>
+                <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Compass Agent</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
+            <div>
+              <div class="flex text-amber-400 space-x-1 mb-3">★★★★★</div>
+              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">"Composite is a lifesaver! I run the SK Homes Team at Compass in CT. My VA, Fritz, quickly went from admin to transaction coordinator. His work ethic, reliability, and positive attitude are unmatched. I would be completely lost without them. Thank you, Composite, for being exactly what I needed!"</p>
+            </div>
+            <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
+              <img class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200" src="https://compositegp.com/wp-content/uploads/2026/09/Suzette.png" alt="Suzette Kraus" />
+              <div>
+                <h4 class="testimonial-card-name font-bold text-slate-900 text-base sm:text-lg leading-tight">Suzette Kraus</h4>
+                <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Compass Agent</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
+            <div>
+              <div class="flex text-amber-400 space-x-1 mb-3">★★★★★</div>
+              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">"I’ve been working with Composite since October 2024, and the experience has been excellent. They are professional, highly responsive, and communicate promptly. Their actions consistently show that they genuinely care about my business’s success."</p>
+            </div>
+            <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
+              <img class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200" src="https://placehold.co/80x80/00aeef/ffffff?text=DW" alt="Dana Williams" />
+              <div>
+                <h4 class="testimonial-card-name font-bold text-slate-900 text-base sm:text-lg leading-tight">Dana Williams</h4>
+                <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Compass Agent</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
+            <div>
+              <div class="flex text-amber-400 space-x-1 mb-3">★★★★★</div>
+              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">"If I could give more than 5 stars, I would! Working with this company has been one of the best decisions we've made for our team. Our virtual assistant is an absolute rockstar—organized, proactive, detail-oriented, and somehow always two steps ahead of the rest of us."</p>
+            </div>
+            <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
+              <img class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200" src="https://compositegp.com/wp-content/uploads/2026/09/Jessica-Court.png" alt="Jessica Court" />
+              <div>
+                <h4 class="testimonial-card-name font-bold text-slate-900 text-base sm:text-lg leading-tight">Jessica Court</h4>
+                <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Compass Agent</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
+            <div>
+              <div class="flex text-amber-400 space-x-1 mb-3">★★★★★</div>
+              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">"Thank you Joey, my personal VA, Chris Guerra, and the entire Composite family for all the work you do. I have worked with Composite for the past four years, and the professionalism, consistency, and support have been exceptional."</p>
+            </div>
+            <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
+              <img class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200" src="https://compositegp.com/wp-content/uploads/2026/09/Scott-Cogis.png" alt="Scott Kogos" />
+              <div>
+                <h4 class="testimonial-card-name font-bold text-slate-900 text-base sm:text-lg leading-tight">Scott Kogos</h4>
+                <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Howard Hanna</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
+            <div>
+              <div class="flex text-amber-400 space-x-1 mb-3">★★★★★</div>
+              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">"I’ve had the pleasure of working with Composite Global for nearly two years, and Celestino has been an absolute game-changer for our business. Over the years, he’s become a trusted partner and a key player in our success. Highly recommended!"</p>
+            </div>
+            <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
+              <img class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200" src="https://compositegp.com/wp-content/uploads/2026/09/Jeff-Pena.png" alt="Jeff Pena" />
+              <div>
+                <h4 class="testimonial-card-name font-bold text-slate-900 text-base sm:text-lg leading-tight">Jeff Pena</h4>
+                <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Pantiga Group</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
+            <div>
+              <div class="flex text-amber-400 space-x-1 mb-3">★★★★★</div>
+              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">"Composite Global Partners delivers top-tier virtual assistants, providing the most brilliant and high-performing VAs you could ever ask for. Their rigorous training and operational intuitiveness mean they seamlessly integrate into your workflow, significantly boosting your business's backend efficiency."</p>
+            </div>
+            <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
+              <img class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200" src="https://placehold.co/80x80/00aeef/ffffff?text=EF" alt="Esmeralda Fortuna" />
+              <div>
+                <h4 class="testimonial-card-name font-bold text-slate-900 text-base sm:text-lg leading-tight">Esmeralda Fortuna</h4>
+                <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Howard Hanna</p>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Cindy Fazio -->
-        <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
-          <div>
-            <div class="flex text-amber-400 space-x-1 mb-3">
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            </div>
-            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
-              "Our team has been with Composite for 5 years and we have had an amazing experience from the first meeting with Chris to onboarding our first team member. The structure of Composite is so well designed on every level from having an office culture, team leaders, offsite team building, and full training on the Compass platform."
-            </p>
-          </div>
-          <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
-            <img src="https://via.placeholder.com/36/00aeef/ffffff?text=CF" alt="Cindy Fazio" class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200">
+        <!-- Clone Set for Seamless Infinite Loop -->
+        <div class="flex items-stretch gap-6 pr-6 shrink-0" aria-hidden="true">
+          <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
             <div>
-              <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-tight">Cindy Fazio</h4>
-              <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Compass Agent</p>
+              <div class="flex text-amber-400 space-x-1 mb-3">★★★★★</div>
+              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">"We have been working with Composite since 2022, and their support has been truly outstanding. Angelique Madrigal, who serves as my team’s Head of Operations, has been exceptional! She is thoughtful, highly skilled, efficient, responsive, and brings wonderful energy and charisma."</p>
+            </div>
+            <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
+              <img class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200" src="https://compositegp.com/wp-content/uploads/2026/09/Augusto-B.png" alt="Augusto Bittencourt" />
+              <div>
+                <h4 class="testimonial-card-name font-bold text-slate-900 text-base sm:text-lg leading-tight">Augusto Bittencourt</h4>
+                <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Compass Agent</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
+            <div>
+              <div class="flex text-amber-400 space-x-1 mb-3">★★★★★</div>
+              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">"We’ve worked with Composite Global Partners for almost 6 years, and they’ve been an essential part of our real estate operations. Reliable, proactive, organized, and truly a seamless extension of the team. Their support and knowledge of operating systems consistently helps keep everything running smoothly."</p>
+            </div>
+            <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
+              <img class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200" src="https://compositegp.com/wp-content/uploads/2026/09/Jamie.png" alt="Jamie Heinlein" />
+              <div>
+                <h4 class="testimonial-card-name font-bold text-slate-900 text-base sm:text-lg leading-tight">Jamie Heinlein</h4>
+                <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Compass Agent</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
+            <div>
+              <div class="flex text-amber-400 space-x-1 mb-3">★★★★★</div>
+              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">"I have used Composite since 2021. They have a great operation and are extremely reliable and organized. My current VA has been with me for 3 years straight—she knows and understands my business and is an essential part of my team and structure."</p>
+            </div>
+            <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
+              <img class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200" src="https://compositegp.com/wp-content/uploads/2026/09/Dalia-Glazer.png" alt="Dalia Glazer" />
+              <div>
+                <h4 class="testimonial-card-name font-bold text-slate-900 text-base sm:text-lg leading-tight">Dalia Glazer</h4>
+                <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Compass Agent</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
+            <div>
+              <div class="flex text-amber-400 space-x-1 mb-3">★★★★★</div>
+              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">"Our team has been with Composite for 5 years and we have had an amazing experience from the first meeting with Chris to onboarding our first team member. The structure of Composite is so well designed on every level from having an office culture, team leaders, offsite team building, and full training on the Compass platform."</p>
+            </div>
+            <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
+              <img class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200" src="https://compositegp.com/wp-content/uploads/2026/09/Cindy-Fazio.png" alt="Cindy Fazio" />
+              <div>
+                <h4 class="testimonial-card-name font-bold text-slate-900 text-base sm:text-lg leading-tight">Cindy Fazio</h4>
+                <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Compass Agent</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
+            <div>
+              <div class="flex text-amber-400 space-x-1 mb-3">★★★★★</div>
+              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">"My assistant James has greatly improved the level at which I am able to perform in operating my real estate business. In less than six months, he has become an integral part of our team. The ROI on James is priceless."</p>
+            </div>
+            <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
+              <img class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200" src="https://placehold.co/80x80/00aeef/ffffff?text=LH" alt="Lauren Hurwitz" />
+              <div>
+                <h4 class="testimonial-card-name font-bold text-slate-900 text-base sm:text-lg leading-tight">Lauren Hurwitz</h4>
+                <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Compass Agent</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
+            <div>
+              <div class="flex text-amber-400 space-x-1 mb-3">★★★★★</div>
+              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">"My team and I have been working with Composite Global Partners now for over one year, and we're utilizing two of their VA's. We have been very happy and impressed with both of our VA's as well as with the organizational structure at Composite. There is a lot of training and oversight."</p>
+            </div>
+            <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
+              <img class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200" src="https://compositegp.com/wp-content/uploads/2026/09/Ben-Moss.png" alt="Ben Moss" />
+              <div>
+                <h4 class="testimonial-card-name font-bold text-slate-900 text-base sm:text-lg leading-tight">Ben Moss</h4>
+                <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Compass Agent</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
+            <div>
+              <div class="flex text-amber-400 space-x-1 mb-3">★★★★★</div>
+              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">"Composite is a lifesaver! I run the SK Homes Team at Compass in CT. My VA, Fritz, quickly went from admin to transaction coordinator. His work ethic, reliability, and positive attitude are unmatched. I would be completely lost without them. Thank you, Composite, for being exactly what I needed!"</p>
+            </div>
+            <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
+              <img class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200" src="https://compositegp.com/wp-content/uploads/2026/09/Suzette.png" alt="Suzette Kraus" />
+              <div>
+                <h4 class="testimonial-card-name font-bold text-slate-900 text-base sm:text-lg leading-tight">Suzette Kraus</h4>
+                <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Compass Agent</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
+            <div>
+              <div class="flex text-amber-400 space-x-1 mb-3">★★★★★</div>
+              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">"I’ve been working with Composite since October 2024, and the experience has been excellent. They are professional, highly responsive, and communicate promptly. Their actions consistently show that they genuinely care about my business’s success."</p>
+            </div>
+            <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
+              <img class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200" src="https://placehold.co/80x80/00aeef/ffffff?text=DW" alt="Dana Williams" />
+              <div>
+                <h4 class="testimonial-card-name font-bold text-slate-900 text-base sm:text-lg leading-tight">Dana Williams</h4>
+                <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Compass Agent</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
+            <div>
+              <div class="flex text-amber-400 space-x-1 mb-3">★★★★★</div>
+              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">"If I could give more than 5 stars, I would! Working with this company has been one of the best decisions we've made for our team. Our virtual assistant is an absolute rockstar—organized, proactive, detail-oriented, and somehow always two steps ahead of the rest of us."</p>
+            </div>
+            <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
+              <img class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200" src="https://compositegp.com/wp-content/uploads/2026/09/Jessica-Court.png" alt="Jessica Court" />
+              <div>
+                <h4 class="testimonial-card-name font-bold text-slate-900 text-base sm:text-lg leading-tight">Jessica Court</h4>
+                <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Compass Agent</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
+            <div>
+              <div class="flex text-amber-400 space-x-1 mb-3">★★★★★</div>
+              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">"Thank you Joey, my personal VA, Chris Guerra, and the entire Composite family for all the work you do. I have worked with Composite for the past four years, and the professionalism, consistency, and support have been exceptional."</p>
+            </div>
+            <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
+              <img class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200" src="https://compositegp.com/wp-content/uploads/2026/09/Scott-Cogis.png" alt="Scott Kogos" />
+              <div>
+                <h4 class="testimonial-card-name font-bold text-slate-900 text-base sm:text-lg leading-tight">Scott Kogos</h4>
+                <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Howard Hanna</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
+            <div>
+              <div class="flex text-amber-400 space-x-1 mb-3">★★★★★</div>
+              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">"I’ve had the pleasure of working with Composite Global for nearly two years, and Celestino has been an absolute game-changer for our business. Over the years, he’s become a trusted partner and a key player in our success. Highly recommended!"</p>
+            </div>
+            <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
+              <img class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200" src="https://compositegp.com/wp-content/uploads/2026/09/Jeff-Pena.png" alt="Jeff Pena" />
+              <div>
+                <h4 class="testimonial-card-name font-bold text-slate-900 text-base sm:text-lg leading-tight">Jeff Pena</h4>
+                <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Pantiga Group</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
+            <div>
+              <div class="flex text-amber-400 space-x-1 mb-3">★★★★★</div>
+              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">"Composite Global Partners delivers top-tier virtual assistants, providing the most brilliant and high-performing VAs you could ever ask for. Their rigorous training and operational intuitiveness mean they seamlessly integrate into your workflow, significantly boosting your business's backend efficiency."</p>
+            </div>
+            <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
+              <img class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200" src="https://placehold.co/80x80/00aeef/ffffff?text=EF" alt="Esmeralda Fortuna" />
+              <div>
+                <h4 class="testimonial-card-name font-bold text-slate-900 text-base sm:text-lg leading-tight">Esmeralda Fortuna</h4>
+                <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Howard Hanna</p>
+              </div>
             </div>
           </div>
         </div>
-
-        <!-- Esmeralda Fortuna -->
-        <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
-          <div>
-            <div class="flex text-amber-400 space-x-1 mb-3">
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            </div>
-            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
-              "Composite Global Partners delivers top-tier virtual assistants, providing the most brilliant and high-performing VAs you could ever ask for. Their rigorous training and operational intuitiveness mean they seamlessly integrate into your workflow, significantly boosting your business's backend efficiency."
-            </p>
-          </div>
-          <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
-            <img src="https://via.placeholder.com/36/00aeef/ffffff?text=EF" alt="Esmeralda Fortuna" class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200">
-            <div>
-              <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-tight">Esmeralda Fortuna</h4>
-              <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Howard Hanna</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Augusto Bittencourt -->
-        <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
-          <div>
-            <div class="flex text-amber-400 space-x-1 mb-3">
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            </div>
-            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
-              "We have been working with Composite since 2022, and their support has been truly outstanding. Angelique Madrigal, who serves as my team’s Head of Operations, has been exceptional! She is thoughtful, highly skilled, efficient, responsive, and brings wonderful energy and charisma."
-            </p>
-          </div>
-          <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
-            <img src="https://via.placeholder.com/36/00aeef/ffffff?text=AB" alt="Augusto Bittencourt" class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200">
-            <div>
-              <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-tight">Augusto Bittencourt</h4>
-              <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Compass Agent</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Jamie Heinlein -->
-        <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
-          <div>
-            <div class="flex text-amber-400 space-x-1 mb-3">
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            </div>
-            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
-              "We’ve worked with Composite Global Partners for almost 6 years, and they’ve been an essential part of our real estate operations. Reliable, proactive, organized, and truly a seamless extension of the team. Their support and knowledge of operating systems consistently helps keep everything running smoothly."
-            </p>
-          </div>
-          <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
-            <img src="https://via.placeholder.com/36/00aeef/ffffff?text=JH" alt="Jamie Heinlein" class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200">
-            <div>
-              <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-tight">Jamie Heinlein</h4>
-              <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Compass Agent</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Dalia Glazer -->
-        <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
-          <div>
-            <div class="flex text-amber-400 space-x-1 mb-3">
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            </div>
-            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
-              "I have used Composite since 2021. They have a great operation and are extremely reliable and organized. My current VA has been with me for 3 years straight—she knows and understands my business and is an essential part of my team and structure."
-            </p>
-          </div>
-          <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
-            <img src="https://via.placeholder.com/36/00aeef/ffffff?text=DG" alt="Dalia Glazer" class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200">
-            <div>
-              <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-tight">Dalia Glazer</h4>
-              <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Compass Agent</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Scott Kogos -->
-        <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
-          <div>
-            <div class="flex text-amber-400 space-x-1 mb-3">
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            </div>
-            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
-              "Thank you Joey, my personal VA, Chris Guerra, and the entire Composite family for all the work you do. I have worked with Composite for the past four years, and the professionalism, consistency, and support have been exceptional."
-            </p>
-          </div>
-          <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
-            <img src="https://via.placeholder.com/36/00aeef/ffffff?text=SK" alt="Scott Kogos" class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200">
-            <div>
-              <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-tight">Scott Kogos</h4>
-              <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Howard Hanna</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Lauren Hurwitz -->
-        <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
-          <div>
-            <div class="flex text-amber-400 space-x-1 mb-3">
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            </div>
-            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
-              "My assistant James has greatly improved the level at which I am able to perform in operating my real estate business. In less than six months, he has become an integral part of our team. The ROI on James is priceless."
-            </p>
-          </div>
-          <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
-            <img src="https://via.placeholder.com/36/00aeef/ffffff?text=LH" alt="Lauren Hurwitz" class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200">
-            <div>
-              <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-tight">Lauren Hurwitz</h4>
-              <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Compass Agent</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Ben Moss -->
-        <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
-          <div>
-            <div class="flex text-amber-400 space-x-1 mb-3">
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            </div>
-            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
-              "My team and I have been working with Composite Global Partners now for over one year, and we're utilizing two of their VA's. We have been very happy and impressed with both of our VA's as well as with the organizational structure at Composite. There is a lot of training and oversight."
-            </p>
-          </div>
-          <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
-            <img src="https://via.placeholder.com/36/00aeef/ffffff?text=BM" alt="Ben Moss" class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200">
-            <div>
-              <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-tight">Ben Moss</h4>
-              <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Compass Agent</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Suzette Kraus -->
-        <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
-          <div>
-            <div class="flex text-amber-400 space-x-1 mb-3">
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            </div>
-            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
-              "Composite is a lifesaver! I run the SK Homes Team at Compass in CT. My VA, Fritz, quickly went from admin to transaction coordinator. His work ethic, reliability, and positive attitude are unmatched. I would be completely lost without them. Thank you, Composite, for being exactly what I needed!"
-            </p>
-          </div>
-          <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
-            <img src="https://via.placeholder.com/36/00aeef/ffffff?text=SK" alt="Suzette Kraus" class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200">
-            <div>
-              <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-tight">Suzette Kraus</h4>
-              <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Compass Agent</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Dana Williams -->
-        <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
-          <div>
-            <div class="flex text-amber-400 space-x-1 mb-3">
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            </div>
-            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
-              "I’ve been working with Composite since October 2024, and the experience has been excellent. They are professional, highly responsive, and communicate promptly. Their actions consistently show that they genuinely care about my business’s success."
-            </p>
-          </div>
-          <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
-            <img src="https://via.placeholder.com/36/00aeef/ffffff?text=DW" alt="Dana Williams" class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200">
-            <div>
-              <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-tight">Dana Williams</h4>
-              <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Compass Agent</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Jeff Pena -->
-        <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
-          <div>
-            <div class="flex text-amber-400 space-x-1 mb-3">
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            </div>
-            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
-              "I’ve had the pleasure of working with Composite Global for nearly two years, and Celestino has been an absolute game-changer for our business. Over the years, he’s become a trusted partner and a key player in our success. Highly recommended!"
-            </p>
-          </div>
-          <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
-            <img src="https://via.placeholder.com/36/00aeef/ffffff?text=JP" alt="Jeff Pena" class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200">
-            <div>
-              <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-tight">Jeff Pena</h4>
-              <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Pantiga Group</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- DUPLICATED SET FOR SEAMLESS INFINITE LOOP -->
-
-        <!-- Jessica Court -->
-        <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
-          <div>
-            <div class="flex text-amber-400 space-x-1 mb-3">
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            </div>
-            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
-              "If I could give more than 5 stars, I would! Working with this company has been one of the best decisions we've made for our team. Our virtual assistant is an absolute rockstar—organized, proactive, detail-oriented, and somehow always two steps ahead of the rest of us."
-            </p>
-          </div>
-          <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
-            <img src="https://via.placeholder.com/36/00aeef/ffffff?text=JC" alt="Jessica Court" class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200">
-            <div>
-              <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-tight">Jessica Court</h4>
-              <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Compass Agent</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Cindy Fazio -->
-        <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
-          <div>
-            <div class="flex text-amber-400 space-x-1 mb-3">
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            </div>
-            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
-              "Our team has been with Composite for 5 years and we have had an amazing experience from the first meeting with Chris to onboarding our first team member. The structure of Composite is so well designed on every level from having an office culture, team leaders, offsite team building, and full training on the Compass platform."
-            </p>
-          </div>
-          <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
-            <img src="https://via.placeholder.com/36/00aeef/ffffff?text=CF" alt="Cindy Fazio" class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200">
-            <div>
-              <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-tight">Cindy Fazio</h4>
-              <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Compass Agent</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Esmeralda Fortuna -->
-        <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
-          <div>
-            <div class="flex text-amber-400 space-x-1 mb-3">
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            </div>
-            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
-              "Composite Global Partners delivers top-tier virtual assistants, providing the most brilliant and high-performing VAs you could ever ask for. Their rigorous training and operational intuitiveness mean they seamlessly integrate into your workflow, significantly boosting your business's backend efficiency."
-            </p>
-          </div>
-          <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
-            <img src="https://via.placeholder.com/36/00aeef/ffffff?text=EF" alt="Esmeralda Fortuna" class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200">
-            <div>
-              <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-tight">Esmeralda Fortuna</h4>
-              <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Howard Hanna</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Augusto Bittencourt -->
-        <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
-          <div>
-            <div class="flex text-amber-400 space-x-1 mb-3">
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            </div>
-            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
-              "We have been working with Composite since 2022, and their support has been truly outstanding. Angelique Madrigal, who serves as my team’s Head of Operations, has been exceptional! She is thoughtful, highly skilled, efficient, responsive, and brings wonderful energy and charisma."
-            </p>
-          </div>
-          <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
-            <img src="https://via.placeholder.com/36/00aeef/ffffff?text=AB" alt="Augusto Bittencourt" class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200">
-            <div>
-              <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-tight">Augusto Bittencourt</h4>
-              <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Compass Agent</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Jamie Heinlein -->
-        <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
-          <div>
-            <div class="flex text-amber-400 space-x-1 mb-3">
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            </div>
-            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
-              "We’ve worked with Composite Global Partners for almost 6 years, and they’ve been an essential part of our real estate operations. Reliable, proactive, organized, and truly a seamless extension of the team. Their support and knowledge of operating systems consistently helps keep everything running smoothly."
-            </p>
-          </div>
-          <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
-            <img src="https://via.placeholder.com/36/00aeef/ffffff?text=JH" alt="Jamie Heinlein" class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200">
-            <div>
-              <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-tight">Jamie Heinlein</h4>
-              <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Compass Agent</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Dalia Glazer -->
-        <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
-          <div>
-            <div class="flex text-amber-400 space-x-1 mb-3">
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            </div>
-            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
-              "I have used Composite since 2021. They have a great operation and are extremely reliable and organized. My current VA has been with me for 3 years straight—she knows and understands my business and is an essential part of my team and structure."
-            </p>
-          </div>
-          <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
-            <img src="https://via.placeholder.com/36/00aeef/ffffff?text=DG" alt="Dalia Glazer" class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200">
-            <div>
-              <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-tight">Dalia Glazer</h4>
-              <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Compass Agent</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Scott Kogos -->
-        <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
-          <div>
-            <div class="flex text-amber-400 space-x-1 mb-3">
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            </div>
-            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
-              "Thank you Joey, my personal VA, Chris Guerra, and the entire Composite family for all the work you do. I have worked with Composite for the past four years, and the professionalism, consistency, and support have been exceptional."
-            </p>
-          </div>
-          <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
-            <img src="https://via.placeholder.com/36/00aeef/ffffff?text=SK" alt="Scott Kogos" class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200">
-            <div>
-              <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-tight">Scott Kogos</h4>
-              <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Howard Hanna</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Lauren Hurwitz -->
-        <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
-          <div>
-            <div class="flex text-amber-400 space-x-1 mb-3">
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            </div>
-            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
-              "My assistant James has greatly improved the level at which I am able to perform in operating my real estate business. In less than six months, he has become an integral part of our team. The ROI on James is priceless."
-            </p>
-          </div>
-          <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
-            <img src="https://via.placeholder.com/36/00aeef/ffffff?text=LH" alt="Lauren Hurwitz" class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200">
-            <div>
-              <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-tight">Lauren Hurwitz</h4>
-              <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Compass Agent</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Ben Moss -->
-        <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
-          <div>
-            <div class="flex text-amber-400 space-x-1 mb-3">
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            </div>
-            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
-              "My team and I have been working with Composite Global Partners now for over one year, and we're utilizing two of their VA's. We have been very happy and impressed with both of our VA's as well as with the organizational structure at Composite. There is a lot of training and oversight."
-            </p>
-          </div>
-          <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
-            <img src="https://via.placeholder.com/36/00aeef/ffffff?text=BM" alt="Ben Moss" class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200">
-            <div>
-              <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-tight">Ben Moss</h4>
-              <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Compass Agent</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Suzette Kraus -->
-        <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
-          <div>
-            <div class="flex text-amber-400 space-x-1 mb-3">
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            </div>
-            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
-              "Composite is a lifesaver! I run the SK Homes Team at Compass in CT. My VA, Fritz, quickly went from admin to transaction coordinator. His work ethic, reliability, and positive attitude are unmatched. I would be completely lost without them. Thank you, Composite, for being exactly what I needed!"
-            </p>
-          </div>
-          <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
-            <img src="https://via.placeholder.com/36/00aeef/ffffff?text=SK" alt="Suzette Kraus" class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200">
-            <div>
-              <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-tight">Suzette Kraus</h4>
-              <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Compass Agent</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Dana Williams -->
-        <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
-          <div>
-            <div class="flex text-amber-400 space-x-1 mb-3">
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            </div>
-            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
-              "I’ve been working with Composite since October 2024, and the experience has been excellent. They are professional, highly responsive, and communicate promptly. Their actions consistently show that they genuinely care about my business’s success."
-            </p>
-          </div>
-          <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
-            <img src="https://via.placeholder.com/36/00aeef/ffffff?text=DW" alt="Dana Williams" class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200">
-            <div>
-              <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-tight">Dana Williams</h4>
-              <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Compass Agent</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Jeff Pena -->
-        <div class="w-[300px] sm:w-[380px] shrink-0 bg-slate-50 border border-slate-200/80 p-6 rounded-2xl flex flex-col justify-between shadow-xs">
-          <div>
-            <div class="flex text-amber-400 space-x-1 mb-3">
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            </div>
-            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
-              "I’ve had the pleasure of working with Composite Global for nearly two years, and Celestino has been an absolute game-changer for our business. Over the years, he’s become a trusted partner and a key player in our success. Highly recommended!"
-            </p>
-          </div>
-          <div class="pt-4 border-t border-slate-200/60 flex items-center space-x-3">
-            <img src="https://via.placeholder.com/36/00aeef/ffffff?text=JP" alt="Jeff Pena" class="w-9 h-9 rounded-full object-cover shrink-0 border border-slate-200">
-            <div>
-              <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-tight">Jeff Pena</h4>
-              <p class="text-xs text-[#00aeef] font-semibold mt-0.5">Pantiga Group</p>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
 
   <!-- COMMERCIAL MODEL & CTA FORM -->
   <section id="contact" class="py-16 sm:py-24 bg-[#f8fafc]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-20">
       <div class="bg-gradient-to-br from-[#00aeef] via-[#009bd5] to-[#0081cf] rounded-2xl sm:rounded-3xl p-6 sm:p-12 lg:p-16 text-white grid lg:grid-cols-2 gap-8 lg:gap-12 items-center border border-[#ffffff]/20 shadow-2xl relative overflow-hidden">
         <div class="absolute -bottom-10 -left-10 w-80 h-80 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
         <div class="relative">
-          <div class="inline-flex items-center space-x-2 bg-white/20 border border-white/30 text-white text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3 backdrop-blur-sm">
-            <span>Commercial Model</span>
-          </div>
-          <h2 class="text-2xl sm:text-4xl font-extrabold mt-2 mb-4 sm:mb-6 tracking-tight text-white">Simple, Predictable Subscription Pricing</h2>
-          <p class="text-base sm:text-lg text-white/95 mb-6 sm:mb-8 leading-relaxed font-normal">
-            Flat monthly rate of <strong>$1,995/mo</strong> per full-time dedicated assistant. Eliminate recruitment fees, local HR burden, payroll setup, equipment acquisition, and employee benefits.
-          </p>
+          <div class="inline-flex items-center space-x-2 bg-white/20 border border-white/30 text-white text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3 backdrop-blur-sm">Commercial Model</div>
+          <h2 class="text-2xl sm:text-4xl font-extrabold mt-2 mb-4 sm:mb-6 tracking-tight text-white">Your Office-Based Real Estate Operations Partner</h2>
+          <p class="text-base sm:text-lg text-white/95 mb-6 sm:mb-8 leading-relaxed font-normal">Flat monthly rate of <strong>$1,995/mo</strong> per full-time dedicated assistant. Eliminate recruitment fees, local HR burden, payroll setup, equipment acquisition, and employee benefits.</p>
 
           <div class="space-y-3 sm:space-y-4">
             <div class="flex items-center space-x-3">
               <div class="w-5 h-5 sm:w-6 sm:h-6 bg-white/20 rounded-full flex items-center justify-center border border-white/40 shrink-0">
-                <i data-lucide="check" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white"></i>
+                <svg class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
               </div>
-              <span class="text-sm sm:text-base text-white font-medium">Flexible scaling by agent, team, office, or centralized function</span>
+              <span class="text-sm sm:text-base text-white font-medium">One dedicated, full-time VA supported by 2 dedicated managers</span>
             </div>
             <div class="flex items-center space-x-3">
               <div class="w-5 h-5 sm:w-6 sm:h-6 bg-white/20 rounded-full flex items-center justify-center border border-white/40 shrink-0">
-                <i data-lucide="check" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white"></i>
+                <svg class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
               </div>
-              <span class="text-sm sm:text-base text-white font-medium">Management Pod (Team Leader & Operations Oversight) included</span>
+              <span class="text-sm sm:text-base text-white font-medium">3 weeks of structured pre-training on Compass systems</span>
             </div>
             <div class="flex items-center space-x-3">
               <div class="w-5 h-5 sm:w-6 sm:h-6 bg-white/20 rounded-full flex items-center justify-center border border-white/40 shrink-0">
-                <i data-lucide="check" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white"></i>
+                <svg class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
               </div>
-              <span class="text-sm sm:text-base text-white font-medium">Zero replacement-search burden or turnover exposure</span>
+              <span class="text-sm sm:text-base text-white font-medium">Full IT, hardware, payroll, healthcare &amp; SOC 2 security included</span>
+            </div>
+            <div class="flex items-center space-x-3">
+              <div class="w-5 h-5 sm:w-6 sm:h-6 bg-white/20 rounded-full flex items-center justify-center border border-white/40 shrink-0">
+                <svg class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <span class="text-sm sm:text-base text-white font-medium">Zero recruiting burden or replacement-search exposure</span>
             </div>
           </div>
         </div>
 
         <div class="bg-white text-slate-900 p-6 sm:p-8 rounded-xl sm:rounded-2xl border border-slate-100 shadow-2xl relative">
-          <h3 class="text-xl sm:text-2xl font-bold text-slate-900 mb-1.5 sm:mb-2 tracking-tight">Tailor a Deployment Plan</h3>
-          <p class="text-xs sm:text-sm text-slate-500 mb-5 sm:mb-6 font-normal">Schedule an operational scoping call for your brokerage or team.</p>
+          <h3 class="text-xl sm:text-2xl font-bold text-slate-900 mb-1.5 sm:mb-2 tracking-tight">Ready to Build Your Compass Support Team?</h3>
+          <p class="text-xs sm:text-sm text-slate-500 mb-5 sm:mb-6 font-normal">Tell us where your team is spending the most time—and we'll show you what can be delegated and systematized.</p>
 
-          <!-- RESTORED VISIBLE FORM FIELDS -->
           <form id="composite-lead-form" class="space-y-3 sm:space-y-3.5">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
                 <label class="block text-xs font-semibold text-slate-700 mb-1 tracking-wide">First Name *</label>
-                <input type="text" id="lead-firstname" placeholder="Jane" required class="w-full px-3.5 py-2.5 text-base sm:text-sm bg-slate-50 border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#00aeef] focus:border-transparent font-normal transition">
+                <input id="lead-firstname" class="w-full px-3.5 py-2.5 text-base sm:text-sm bg-slate-50 border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#00aeef] focus:border-transparent font-normal transition" required type="text" placeholder="Jane" />
               </div>
               <div>
                 <label class="block text-xs font-semibold text-slate-700 mb-1 tracking-wide">Last Name *</label>
-                <input type="text" id="lead-lastname" placeholder="Doe" required class="w-full px-3.5 py-2.5 text-base sm:text-sm bg-slate-50 border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#00aeef] focus:border-transparent font-normal transition">
+                <input id="lead-lastname" class="w-full px-3.5 py-2.5 text-base sm:text-sm bg-slate-50 border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#00aeef] focus:border-transparent font-normal transition" required type="text" placeholder="Doe" />
               </div>
             </div>
-
             <div>
               <label class="block text-xs font-semibold text-slate-700 mb-1 tracking-wide">Business Email Address *</label>
-              <input type="email" id="lead-email" inputmode="email" autocomplete="email" placeholder="jane@sothebysrealty.com" required class="w-full px-3.5 py-2.5 text-base sm:text-sm bg-slate-50 border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#00aeef] focus:border-transparent font-normal transition">
+              <input id="lead-email" class="w-full px-3.5 py-2.5 text-base sm:text-sm bg-slate-50 border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#00aeef] focus:border-transparent font-normal transition" autocomplete="email" required type="email" placeholder="jane@compass.com" />
             </div>
-
             <div>
               <label class="block text-xs font-semibold text-slate-700 mb-1 tracking-wide">Phone Number</label>
-              <input type="tel" id="lead-phone" inputmode="tel" autocomplete="tel" pattern="[0-9+*#,\- .()]{7,}" placeholder="(555) 000-0000" class="w-full px-3.5 py-2.5 text-base sm:text-sm bg-slate-50 border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#00aeef] focus:border-transparent font-normal transition">
+              <input id="lead-phone" class="w-full px-3.5 py-2.5 text-base sm:text-sm bg-slate-50 border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#00aeef] focus:border-transparent font-normal transition" autocomplete="tel" pattern="[0-9+*#,\- .()]{7,}" type="tel" placeholder="(555) 000-0000" />
             </div>
-
             <div>
               <label class="block text-xs font-semibold text-slate-700 mb-1 tracking-wide">Team Name</label>
-              <input type="text" id="lead-company" placeholder="e.g. Team Name" class="w-full px-3.5 py-2.5 text-base sm:text-sm bg-slate-50 border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#00aeef] focus:border-transparent font-normal transition">
+              <input id="lead-company" class="w-full px-3.5 py-2.5 text-base sm:text-sm bg-slate-50 border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#00aeef] focus:border-transparent font-normal transition" type="text" placeholder="e.g. Compass Team Name" />
             </div>
-
-            <button type="submit" id="lead-submit-btn" class="w-full mt-2 py-3 px-4 text-sm sm:text-base font-semibold tracking-wide text-white bg-[#2b353f] hover:bg-[#1f2730] rounded-lg transition shadow-lg shadow-[#2b353f]/30 active:scale-[0.99]">
-              Submit Consultation Request
-            </button>
-
-            <!-- Submission Status Message -->
+            <div class="pt-2 flex justify-center w-full text-center">
+              <button id="lead-submit-btn" class="w-auto px-7 py-3 text-sm sm:text-base font-semibold tracking-normal text-white bg-[#2b353f] hover:bg-[#1e262f] rounded-lg transition shadow-lg shadow-[#2b353f]/30 active:scale-[0.99]" style="background-color: #2b353f !important; background-image: none !important; color: #ffffff !important; width: auto !important; border-radius: 10px !important; padding: 12px 28px !important; text-transform: none !important; border: 1px solid #2b353f !important; display: inline-flex !important; justify-content: center !important;" type="submit">
+                Book A Strategy Call
+              </button>
+            </div>
             <p id="lead-status-msg" class="text-xs text-center font-medium mt-2 hidden"></p>
           </form>
-
-          <script>
-            document.addEventListener('DOMContentLoaded', () => {
-              const form = document.getElementById('composite-lead-form');
-              const submitBtn = document.getElementById('lead-submit-btn');
-              const statusMsg = document.getElementById('lead-status-msg');
-
-              if (form) {
-                form.addEventListener('submit', async (e) => {
-                  e.preventDefault();
-
-                  const firstname = document.getElementById('lead-firstname').value.trim();
-                  const lastname = document.getElementById('lead-lastname').value.trim();
-                  const email = document.getElementById('lead-email').value.trim();
-                  const phone = document.getElementById('lead-phone').value.trim();
-                  const company = document.getElementById('lead-company').value.trim();
-
-                  submitBtn.disabled = true;
-                  submitBtn.innerText = 'Submitting...';
-                  statusMsg.classList.add('hidden');
-
-                  const payload = {
-                    fields: [
-                      { name: 'firstname', value: firstname },
-                      { name: 'lastname', value: lastname },
-                      { name: 'email', value: email },
-                      { name: 'phone', value: phone },
-                      { name: 'company', value: company }
-                    ],
-                    context: {
-                      pageUri: window.location.href,
-                      pageName: document.title
-                    }
-                  };
-
-                  try {
-                    // Direct API transmission to your HubSpot Portal & Form
-                    await fetch('https://api-na2.hsforms.com/submissions/v3/integration/submit/47228807/1MoTBhzHPQqyQFafX3QM-dg', {
-                      method: 'POST',
-                      headers: { 'Content-Type': 'application/json' },
-                      body: JSON.stringify(payload)
-                    });
-
-                    statusMsg.innerText = 'Thank you! Your request has been received. Our team will contact you shortly.';
-                    statusMsg.className = 'text-xs text-center font-semibold mt-2 text-emerald-600';
-                    statusMsg.classList.remove('hidden');
-                    form.reset();
-                  } catch (err) {
-                    statusMsg.innerText = 'Thank you! Your request has been received. Our team will contact you shortly.';
-                    statusMsg.className = 'text-xs text-center font-semibold mt-2 text-emerald-600';
-                    statusMsg.classList.remove('hidden');
-                    form.reset();
-                  } finally {
-                    submitBtn.disabled = false;
-                    submitBtn.innerText = 'Submit Consultation Request';
-                  }
-                });
-              }
-            });
-          </script>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER WITH LOGO PLACEHOLDER & UPDATED COPYRIGHT -->
+  <!-- FOOTER -->
   <footer class="bg-white border-t border-slate-200 py-8">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center space-y-4">
-      
-      <!-- Footer Logo Placeholder -->
+    <div class="max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-20 flex flex-col items-center justify-center space-y-4">
       <div>
-        <!-- REPLACE src WITH YOUR FOOTER LOGO URL -->
-        <img src="https://via.placeholder.com/150x36/ffffff/2b353f?text=COMPOSITE" alt="Composite Footer Logo" class="h-8 w-auto object-contain">
+        <img class="composite-footer-logo h-6 sm:h-7 w-auto object-contain" style="height: 28px !important; max-height: 28px !important; width: auto !important; max-width: 150px !important; object-fit: contain !important;" src="https://compositegp.com/wp-content/uploads/2025/08/logo_big.png" alt="Composite Footer Logo" />
       </div>
-
-      <!-- Updated Copyright Statement -->
-      <div class="text-xs sm:text-sm text-slate-500 font-normal">
-        &copy; 2026 Composite Global Partners.
-      </div>
-
+      <div class="text-xs sm:text-sm text-slate-500 font-normal">&copy; 2026 Composite Global Partners.</div>
     </div>
   </footer>
+</div>
 
-  <script>
-    lucide.createIcons();
+<script>
+  (function() {
+    function unboxElementorWrappers() {
+      const root = document.getElementById('composite-landing-root');
+      if (!root) return;
+      let el = root.parentElement;
+      while (el && el !== document.body && el !== document.documentElement) {
+        el.style.setProperty('max-width', '100vw', 'important');
+        el.style.setProperty('width', '100%', 'important');
+        el.style.setProperty('padding-left', '0px', 'important');
+        el.style.setProperty('padding-right', '0px', 'important');
+        el.style.setProperty('margin-left', '0px', 'important');
+        el.style.setProperty('margin-right', '0px', 'important');
+        el = el.parentElement;
+      }
+    }
 
     function lerp(start, end, amt) {
       return (1 - amt) * start + amt * end;
@@ -1484,46 +1249,46 @@
       return `rgba(${r}, ${g}, ${b}, ${a})`;
     }
 
-    // 1. HERO ORBITAL CARDS SCRIPT
-    document.addEventListener('DOMContentLoaded', () => {
-      const iconCards = document.querySelectorAll('.orbit-icon-card');
+    function initHeroOrbit() {
+      const stage = document.getElementById('hero-orbit-stage');
+      if (!stage || stage.dataset.orbitInit === 'true') return;
+      stage.dataset.orbitInit = 'true';
+
+      const iconCards = stage.querySelectorAll('.orbit-icon-card');
       const totalNodes = iconCards.length;
-      let targetAngle = -(2 * Math.PI) / totalNodes;
-      let currentAngle = 0; 
+      if (!totalNodes) return;
+
+      let targetAngle = 0;
+      let currentAngle = 0;
+      let isPaused = false;
+      let resumeTimer = null;
 
       function getHeroRadii() {
-        const stageEl = document.getElementById('hero-orbit-stage');
-        const stageW = stageEl ? stageEl.clientWidth : window.innerWidth;
-        if (stageW < 360) {
-          return { x: 112, y: 104 };
-        } else if (stageW < 480) {
-          return { x: 135, y: 122 };
-        } else if (stageW < 640) {
-          return { x: 155, y: 138 };
-        }
-        return { x: 185, y: 165 };
+        const stageW = stage.clientWidth || window.innerWidth;
+        if (stageW < 360) return { x: 96, y: 92 };
+        if (stageW < 420) return { x: 114, y: 105 };
+        if (stageW < 640) return { x: 135, y: 122 };
+        if (stageW < 1024) return { x: 155, y: 140 };
+        return { x: 170, y: 160 };
       }
 
-      const slateStart = { r: 50, g: 61, b: 73, a: 1 };   
-      const slateEnd   = { r: 41, g: 50, b: 60, a: 1 };   
-      const cyanStart  = { r: 0,  g: 174, b: 239, a: 1 }; 
-      const cyanEnd    = { r: 0,  g: 129, b: 207, a: 1 }; 
+      const slateStart = { r: 50, g: 61, b: 73, a: 1 };
+      const slateEnd   = { r: 41, g: 50, b: 60, a: 1 };
+      const cyanStart  = { r: 0,   g: 174, b: 239, a: 1 };
+      const cyanEnd    = { r: 0,   g: 129, b: 207, a: 1 };
 
-      const slateBorder = { r: 60, g: 74, b: 88, a: 1 };  
-      const cyanBorder  = { r: 255, g: 255, b: 255, a: 1 }; 
+      const slateBorder = { r: 60, g: 74, b: 88, a: 1 };
+      const cyanBorder  = { r: 255, g: 255, b: 255, a: 1 };
 
-      const slateIcon   = { r: 0, g: 174, b: 239, a: 1 };  
-      const cyanIcon    = { r: 255, g: 255, b: 255, a: 1 }; 
-
-      const slateText   = { r: 148, g: 163, b: 184, a: 1 }; 
-      const cyanText    = { r: 255, g: 255, b: 255, a: 1 }; 
+      const slateText   = { r: 148, g: 163, b: 184, a: 1 };
+      const cyanText    = { r: 255, g: 255, b: 255, a: 1 };
 
       function stepOrbit() {
+        if (document.hidden || isPaused) return;
         targetAngle -= (2 * Math.PI) / totalNodes;
       }
 
-      function animateHeroOrbit() {
-        currentAngle += (targetAngle - currentAngle) * 0.012; 
+      function renderPositions() {
         const angleStep = (2 * Math.PI) / totalNodes;
         const radii = getHeroRadii();
 
@@ -1532,260 +1297,300 @@
           const x = Math.sin(nodeAngle) * radii.x;
           const y = Math.cos(nodeAngle) * radii.y;
 
-          const normalizedY = (y + radii.y) / (2 * radii.y); 
-          
+          const normalizedY = (y + radii.y) / (2 * radii.y);
           let highlightRatio = 0;
           if (normalizedY > 0.70) {
             highlightRatio = (normalizedY - 0.70) / 0.30;
             highlightRatio = Math.pow(highlightRatio, 2) * (3 - 2 * highlightRatio);
           }
 
-          const scale = 0.76 + (normalizedY * 0.28); 
+          const scale = 0.76 + (normalizedY * 0.28);
           const opacity = 0.5 + (normalizedY * 0.5);
 
-          const bgGradStart = lerpColor(slateStart, cyanStart, highlightRatio);
-          const bgGradEnd   = lerpColor(slateEnd, cyanEnd, highlightRatio);
-          const borderCol   = lerpColor(slateBorder, cyanBorder, highlightRatio);
-          const iconCol     = lerpColor(slateIcon, cyanIcon, highlightRatio);
-          const textCol     = lerpColor(slateText, cyanText, highlightRatio);
+          const bgStart = lerpColor(slateStart, cyanStart, highlightRatio);
+          const bgEnd   = lerpColor(slateEnd, cyanEnd, highlightRatio);
+          const bCol    = lerpColor(slateBorder, cyanBorder, highlightRatio);
+          const tCol    = lerpColor(slateText, cyanText, highlightRatio);
 
-          const glowAlpha   = (highlightRatio * 0.75).toFixed(2);
-          const shadowAlpha = (0.15 + highlightRatio * 0.20).toFixed(2);
-
-          card.style.transform = `translate3d(${x}px, ${y}px, 0) scale(${scale})`;
-          card.style.opacity = opacity;
+          card.style.transform = `translate3d(${x.toFixed(2)}px, ${y.toFixed(2)}px, 0) scale(${scale.toFixed(3)})`;
+          card.style.opacity = opacity.toFixed(2);
           card.style.zIndex = Math.round(normalizedY * 100);
 
-          card.style.background = `linear-gradient(135deg, ${bgGradStart} 0%, ${bgGradEnd} 100%)`;
-          card.style.borderColor = borderCol;
-          card.style.color = iconCol;
-          card.style.boxShadow = `0 0 ${Math.round(highlightRatio * 35)}px rgba(0, 174, 239, ${glowAlpha}), 0 10px 25px rgba(0, 0, 0, ${shadowAlpha})`;
+          card.style.background = `linear-gradient(135deg, ${bgStart} 0%, ${bgEnd} 100%)`;
+          card.style.borderColor = bCol;
+          card.style.boxShadow = `0 0 ${Math.round(highlightRatio * 35)}px rgba(0, 174, 239, ${(highlightRatio * 0.75).toFixed(2)}), 0 10px 25px rgba(0, 0, 0, ${(0.15 + highlightRatio * 0.2).toFixed(2)})`;
 
-          const titleEl = card.querySelector('.orbit-card-title');
-          if (titleEl) {
-            titleEl.style.color = textCol;
-            titleEl.style.fontWeight = highlightRatio > 0.5 ? '700' : '600';
+          const title = card.querySelector('.orbit-card-title');
+          if (title) {
+            title.style.color = tCol;
+            title.style.fontWeight = highlightRatio > 0.5 ? '700' : '600';
           }
         });
+      }
 
+      function animateHeroOrbit() {
+        currentAngle += (targetAngle - currentAngle) * 0.012;
+        renderPositions();
         requestAnimationFrame(animateHeroOrbit);
       }
 
+      // Touch Swipe Gesture for Hero Orbit on Mobile/Tablet
+      let touchStartX = 0;
+      let touchStartY = 0;
+      stage.addEventListener('touchstart', (e) => {
+        if (!e.touches.length) return;
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        isPaused = true;
+      }, { passive: true });
+
+      stage.addEventListener('touchend', (e) => {
+        if (!e.changedTouches.length) return;
+        const diffX = e.changedTouches[0].clientX - touchStartX;
+        const diffY = e.changedTouches[0].clientY - touchStartY;
+        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 35) {
+          if (diffX < 0) {
+            targetAngle -= (2 * Math.PI) / totalNodes;
+          } else {
+            targetAngle += (2 * Math.PI) / totalNodes;
+          }
+        }
+        clearTimeout(resumeTimer);
+        resumeTimer = setTimeout(() => { isPaused = false; }, 3500);
+      }, { passive: true });
+
+      iconCards.forEach((card, index) => {
+        card.addEventListener('mouseenter', () => { isPaused = true; });
+        card.addEventListener('mouseleave', () => { isPaused = false; });
+        card.addEventListener('click', () => {
+          isPaused = true;
+          const angleStep = (2 * Math.PI) / totalNodes;
+          const targetRad = -index * angleStep;
+          let diff = (targetRad - (targetAngle % (2 * Math.PI))) % (2 * Math.PI);
+          if (diff < -Math.PI) diff += 2 * Math.PI;
+          if (diff > Math.PI) diff -= 2 * Math.PI;
+          targetAngle += diff;
+          clearTimeout(resumeTimer);
+          resumeTimer = setTimeout(() => { isPaused = false; }, 4000);
+        });
+      });
+
+      renderPositions();
       setInterval(stepOrbit, 3200);
       animateHeroOrbit();
-    });
+    }
 
-    // 2. HERO STATS BAR SUBTLE POP-UP SCRIPT
-    document.addEventListener('DOMContentLoaded', () => {
+    function initStatsSequence() {
       const statCards = document.querySelectorAll('.hero-stat-card');
-      let currentStatIndex = 0;
-      let statInterval = null;
+      if (!statCards.length || statCards[0].dataset.statsInit === 'true') return;
+      statCards[0].dataset.statsInit = 'true';
 
-      function highlightStatCard(index) {
+      let currentIndex = 0;
+      let timer = null;
+
+      function highlight(idx) {
         statCards.forEach((card, i) => {
-          if (i === index) {
-            card.classList.add('active-stat');
-          } else {
-            card.classList.remove('active-stat');
-          }
+          if (i === idx) card.classList.add('active-stat');
+          else card.classList.remove('active-stat');
         });
       }
 
-      function startStatSequence() {
-        highlightStatCard(currentStatIndex);
-        statInterval = setInterval(() => {
-          currentStatIndex = (currentStatIndex + 1) % statCards.length;
-          highlightStatCard(currentStatIndex);
-        }, 4500); 
+      function start() {
+        clearInterval(timer);
+        timer = setInterval(() => {
+          if (!document.hidden) {
+            currentIndex = (currentIndex + 1) % statCards.length;
+            highlight(currentIndex);
+          }
+        }, 4500);
       }
 
-      startStatSequence();
+      start();
 
       statCards.forEach((card, i) => {
-        const handleEnter = () => {
-          clearInterval(statInterval);
-          currentStatIndex = i;
-          highlightStatCard(currentStatIndex);
-        };
-
-        const handleLeave = () => {
-          clearInterval(statInterval);
-          startStatSequence();
-        };
-
-        card.addEventListener('mouseenter', handleEnter);
-        card.addEventListener('mouseleave', handleLeave);
-        card.addEventListener('touchstart', handleEnter, { passive: true });
+        card.addEventListener('mouseenter', () => { clearInterval(timer); currentIndex = i; highlight(i); });
+        card.addEventListener('mouseleave', () => { start(); });
+        card.addEventListener('touchstart', () => { clearInterval(timer); currentIndex = i; highlight(i); }, { passive: true });
       });
-    });
+    }
 
-    // 3. BROKERAGE SECTION ORBIT
-    document.addEventListener('DOMContentLoaded', () => {
-      const bCards = document.querySelectorAll('.brokerage-orbit-card');
-      const bTotal = bCards.length;
-      let bTargetAngle = 0;
-      let bCurrentAngle = 0;
-      let isBPaused = false;
-      let lastBStepTime = performance.now();
+    function initBrokerageOrbit() {
+      const stage = document.getElementById('brokerage-orbit-stage');
+      if (!stage || stage.dataset.bOrbitInit === 'true') return;
+      stage.dataset.bOrbitInit = 'true';
+
+      const bCards = stage.querySelectorAll('.brokerage-orbit-card');
+      const total = bCards.length;
+      if (!total) return;
+
+      let targetAngle = -(2 * Math.PI) / total;
+      let currentAngle = 0;
+      let isPaused = false;
+      let resumeTimer = null;
 
       function getBrokerageRadii() {
-        const stageEl = document.getElementById('brokerage-orbit-stage');
-        const stageW = stageEl ? stageEl.clientWidth : window.innerWidth;
-        if (stageW < 380) {
-          return { x: 100, y: 48 };
-        } else if (stageW < 640) {
-          return { x: 130, y: 58 };
-        }
-        return { x: 380, y: 90 };
+        const stageW = stage.clientWidth || window.innerWidth;
+        if (stageW < 380) return { x: 92, y: 44 };
+        if (stageW < 480) return { x: 114, y: 50 };
+        if (stageW < 640) return { x: 135, y: 56 };
+        if (stageW < 768) return { x: 175, y: 64 };
+        if (stageW < 1024) return { x: 220, y: 72 };
+        return { x: 335, y: 84 };
       }
 
       const defaultBorder = { r: 0, g: 174, b: 239, a: 0.35 };
       const activeBorder  = { r: 0, g: 174, b: 239, a: 1.00 };
 
-      function animateBrokerageOrbit(now) {
-        if (!isBPaused && now - lastBStepTime > 3200) {
-          bTargetAngle -= (2 * Math.PI) / bTotal;
-          lastBStepTime = now;
-        }
+      function stepBrokerage() {
+        if (document.hidden || isPaused) return;
+        targetAngle -= (2 * Math.PI) / total;
+      }
 
-        bCurrentAngle += (bTargetAngle - bCurrentAngle) * 0.008;
-        const angleStep = (2 * Math.PI) / bTotal;
+      function animateBrokerage() {
+        currentAngle += (targetAngle - currentAngle) * 0.009;
+        const angleStep = (2 * Math.PI) / total;
         const radii = getBrokerageRadii();
 
         bCards.forEach((card, index) => {
-          const nodeAngle = bCurrentAngle + (index * angleStep);
+          const nodeAngle = currentAngle + (index * angleStep);
           const x = Math.sin(nodeAngle) * radii.x;
           const y = Math.cos(nodeAngle) * radii.y;
 
-          const normalizedY = (y + radii.y) / (2 * radii.y); 
-          
+          const normalizedY = (y + radii.y) / (2 * radii.y);
           let highlightRatio = 0;
           if (normalizedY > 0.65) {
             highlightRatio = (normalizedY - 0.65) / 0.35;
             highlightRatio = Math.pow(highlightRatio, 2) * (3 - 2 * highlightRatio);
           }
 
-          const scale = 0.85 + (normalizedY * 0.25); 
-          const opacity = 0.65 + (normalizedY * 0.35); 
-
+          const scale = 0.85 + (normalizedY * 0.25);
+          const opacity = 0.65 + (normalizedY * 0.35);
           const borderCol = lerpColor(defaultBorder, activeBorder, highlightRatio);
-          const glowAlpha = (highlightRatio * 0.45).toFixed(2);
 
-          card.style.transform = `translate3d(${x}px, ${y}px, 0) scale(${scale})`;
-          card.style.opacity = opacity;
+          card.style.transform = `translate3d(${x.toFixed(2)}px, ${y.toFixed(2)}px, 0) scale(${scale.toFixed(3)})`;
+          card.style.opacity = opacity.toFixed(2);
           card.style.zIndex = Math.round(normalizedY * 100);
 
           card.style.backgroundColor = highlightRatio > 0.5 ? '#ffffff' : '#f8fafc';
           card.style.borderColor = borderCol;
-          card.style.boxShadow = `0 ${Math.round(highlightRatio * 18)}px ${Math.round(highlightRatio * 35)}px rgba(0, 174, 239, ${glowAlpha}), 0 4px 12px rgba(0, 0, 0, 0.04)`;
-
-          const iconEl = card.querySelector('i');
-          if (iconEl) iconEl.style.color = '#00aeef';
+          card.style.boxShadow = `0 ${Math.round(highlightRatio * 18)}px ${Math.round(highlightRatio * 35)}px rgba(0, 174, 239, ${(highlightRatio * 0.45).toFixed(2)}), 0 4px 12px rgba(0, 0, 0, 0.04)`;
         });
 
-        requestAnimationFrame(animateBrokerageOrbit);
+        requestAnimationFrame(animateBrokerage);
       }
 
+      // Touch Swipe for Brokerage Orbit on Mobile/Tablet
+      let bStartX = 0;
+      let bStartY = 0;
+      stage.addEventListener('touchstart', (e) => {
+        if (!e.touches.length) return;
+        bStartX = e.touches[0].clientX;
+        bStartY = e.touches[0].clientY;
+        isPaused = true;
+      }, { passive: true });
+
+      stage.addEventListener('touchend', (e) => {
+        if (!e.changedTouches.length) return;
+        const diffX = e.changedTouches[0].clientX - bStartX;
+        const diffY = e.changedTouches[0].clientY - bStartY;
+        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 35) {
+          if (diffX < 0) {
+            targetAngle -= (2 * Math.PI) / total;
+          } else {
+            targetAngle += (2 * Math.PI) / total;
+          }
+        }
+        clearTimeout(resumeTimer);
+        resumeTimer = setTimeout(() => { isPaused = false; }, 3500);
+      }, { passive: true });
+
       bCards.forEach((card, index) => {
-        const togglePauseOn = () => { isBPaused = true; };
-        const togglePauseOff = () => { isBPaused = false; lastBStepTime = performance.now(); };
-
-        card.addEventListener('mouseenter', togglePauseOn);
-        card.addEventListener('mouseleave', togglePauseOff);
-        card.addEventListener('touchstart', togglePauseOn, { passive: true });
-        card.addEventListener('touchend', togglePauseOff, { passive: true });
-
+        card.addEventListener('mouseenter', () => { isPaused = true; });
+        card.addEventListener('mouseleave', () => { isPaused = false; });
         card.addEventListener('click', () => {
-          isBPaused = true;
-          const angleStep = (2 * Math.PI) / bTotal;
-          const cardTargetRad = -index * angleStep;
-          
-          let diff = (cardTargetRad - (bCurrentAngle % (2 * Math.PI))) % (2 * Math.PI);
+          isPaused = true;
+          const angleStep = (2 * Math.PI) / total;
+          const targetRad = -index * angleStep;
+          let diff = (targetRad - (targetAngle % (2 * Math.PI))) % (2 * Math.PI);
           if (diff < -Math.PI) diff += 2 * Math.PI;
           if (diff > Math.PI) diff -= 2 * Math.PI;
-
-          bTargetAngle = bCurrentAngle + diff;
-          lastBStepTime = performance.now();
+          targetAngle += diff;
+          clearTimeout(resumeTimer);
+          resumeTimer = setTimeout(() => { isPaused = false; }, 4000);
         });
       });
 
-      requestAnimationFrame(animateBrokerageOrbit);
-    });
+      setInterval(stepBrokerage, 3200);
+      animateBrokerage();
+    }
 
-    // 4. RISK MITIGATION POP-UP SCRIPT
-    document.addEventListener('DOMContentLoaded', () => {
+    function initRiskMitigation() {
       const popCards = document.querySelectorAll('.security-pop-card');
-      let currentPopIndex = 0;
-      let popInterval = null;
+      if (!popCards.length || popCards[0].dataset.secInit === 'true') return;
+      popCards[0].dataset.secInit = 'true';
 
-      function highlightPopCard(index) {
+      let currentIndex = 0;
+      let timer = null;
+
+      function highlight(idx) {
         popCards.forEach((card, i) => {
-          if (i === index) {
-            card.classList.add('active-pop');
-          } else {
-            card.classList.remove('active-pop');
-          }
+          if (i === idx) card.classList.add('active-pop');
+          else card.classList.remove('active-pop');
         });
       }
 
-      function startPopSequence() {
-        highlightPopCard(currentPopIndex);
-        popInterval = setInterval(() => {
-          currentPopIndex = (currentPopIndex + 1) % popCards.length;
-          highlightPopCard(currentPopIndex);
+      function start() {
+        highlight(currentIndex);
+        clearInterval(timer);
+        timer = setInterval(() => {
+          if (!document.hidden) {
+            currentIndex = (currentIndex + 1) % popCards.length;
+            highlight(currentIndex);
+          }
         }, 2800);
       }
 
-      startPopSequence();
+      start();
 
       popCards.forEach((card, i) => {
-        const handleEnter = () => {
-          clearInterval(popInterval);
-          currentPopIndex = i;
-          highlightPopCard(currentPopIndex);
-        };
-
-        const handleLeave = () => {
-          clearInterval(popInterval);
-          startPopSequence();
-        };
-
-        card.addEventListener('mouseenter', handleEnter);
-        card.addEventListener('mouseleave', handleLeave);
-        card.addEventListener('touchstart', handleEnter, { passive: true });
+        card.addEventListener('mouseenter', () => { clearInterval(timer); currentIndex = i; highlight(i); });
+        card.addEventListener('mouseleave', () => { start(); });
+        card.addEventListener('touchstart', () => { clearInterval(timer); currentIndex = i; highlight(i); }, { passive: true });
       });
-    });
+    }
 
-    // 5. CORE AGENT FUNCTIONS - RESPONSIVE 3D CAROUSEL SCRIPT
-    document.addEventListener('DOMContentLoaded', () => {
-      const cards = document.querySelectorAll('.carousel-card');
-      const totalCards = cards.length;
+    function init3DCarousel() {
+      const container = document.getElementById('3d-carousel-container');
+      if (!container || container.dataset.carouselInit === 'true') return;
+      container.dataset.carouselInit = 'true';
+
+      const cards = container.querySelectorAll('.carousel-card');
+      const total = cards.length;
+      if (!total) return;
 
       let rotationAngle = 0;
       let targetAngle = 0;
       let isPaused = false;
-      let lastStepTime = performance.now();
+      let resumeTimer = null;
 
       function getRadius() {
-        const container = document.getElementById('3d-carousel-container');
-        const width = container ? container.clientWidth : window.innerWidth;
-        if (width < 380) {
-          return 145;
-        } else if (width < 640) {
-          return 185;
-        }
-        return 380;
+        const w = container.clientWidth || window.innerWidth;
+        if (w < 380) return 135;
+        if (w < 480) return 155;
+        if (w < 768) return 215;
+        if (w < 1024) return 285;
+        return 370;
       }
 
-      function updatePositions(now) {
-        if (!isPaused && now - lastStepTime > 2800) {
-          targetAngle -= 60;
-          lastStepTime = now;
-        }
+      function stepCarousel() {
+        if (document.hidden || isPaused) return;
+        targetAngle -= 60;
+      }
 
-        rotationAngle += (targetAngle - rotationAngle) * 0.12; 
+      function updatePositions() {
+        rotationAngle += (targetAngle - rotationAngle) * 0.10;
         const radius = getRadius();
-        const angleStep = 360 / totalCards;
+        const angleStep = 360 / total;
 
         cards.forEach((card, index) => {
           const cardAngle = rotationAngle + (index * angleStep);
@@ -1802,44 +1607,197 @@
           card.style.opacity = opacity.toFixed(2);
           card.style.zIndex = Math.round(normalizedZ * 100);
 
-          if (normalizedZ > 0.90) {
-            card.classList.add('highlighted-front');
-          } else {
-            card.classList.remove('highlighted-front');
-          }
+          if (normalizedZ > 0.90) card.classList.add('highlighted-front');
+          else card.classList.remove('highlighted-front');
         });
 
         requestAnimationFrame(updatePositions);
       }
 
+      // Touch Swipe for 3D Carousel on Mobile/Tablet
+      let cStartX = 0;
+      let cStartY = 0;
+      container.addEventListener('touchstart', (e) => {
+        if (!e.touches.length) return;
+        cStartX = e.touches[0].clientX;
+        cStartY = e.touches[0].clientY;
+        isPaused = true;
+      }, { passive: true });
+
+      container.addEventListener('touchend', (e) => {
+        if (!e.changedTouches.length) return;
+        const diffX = e.changedTouches[0].clientX - cStartX;
+        const diffY = e.changedTouches[0].clientY - cStartY;
+        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 30) {
+          if (diffX < 0) {
+            targetAngle -= 60;
+          } else {
+            targetAngle += 60;
+          }
+        }
+        clearTimeout(resumeTimer);
+        resumeTimer = setTimeout(() => { isPaused = false; }, 3500);
+      }, { passive: true });
+
       cards.forEach((card, index) => {
-        const togglePauseOn = () => { isPaused = true; };
-        const togglePauseOff = () => { isPaused = false; lastStepTime = performance.now(); };
-
-        card.addEventListener('mouseenter', togglePauseOn);
-        card.addEventListener('mouseleave', togglePauseOff);
-        card.addEventListener('touchstart', togglePauseOn, { passive: true });
-        card.addEventListener('touchend', togglePauseOff, { passive: true });
-
+        card.addEventListener('mouseenter', () => { isPaused = true; });
+        card.addEventListener('mouseleave', () => { isPaused = false; });
         card.addEventListener('click', () => {
           isPaused = true;
-          
-          const currentModuloAngle = rotationAngle % 360;
-          const cardTargetModulo = -index * 60;
-          
-          let diff = (cardTargetModulo - currentModuloAngle) % 360;
+          const currentModulo = rotationAngle % 360;
+          const targetModulo = -index * 60;
+          let diff = (targetModulo - currentModulo) % 360;
           if (diff < -180) diff += 360;
           if (diff > 180) diff -= 360;
-
           targetAngle = rotationAngle + diff;
-          lastStepTime = performance.now();
+          clearTimeout(resumeTimer);
+          resumeTimer = setTimeout(() => { isPaused = false; }, 4000);
         });
       });
 
-      requestAnimationFrame(updatePositions);
+      setInterval(stepCarousel, 2800);
+      updatePositions();
+    }
 
-      window.addEventListener('resize', () => { updatePositions(performance.now()); });
-    });
-  </script>
+    // Touch Pause & Interaction on Testimonials
+    function initTestimonialTouch() {
+      const tickerBox = document.getElementById('testimonial-ticker-box');
+      if (!tickerBox || tickerBox.dataset.touchInit === 'true') return;
+      tickerBox.dataset.touchInit = 'true';
+
+      tickerBox.addEventListener('touchstart', () => {
+        tickerBox.classList.add('paused');
+      }, { passive: true });
+
+      tickerBox.addEventListener('touchend', () => {
+        setTimeout(() => { tickerBox.classList.remove('paused'); }, 2000);
+      }, { passive: true });
+    }
+
+    function initFormSubmission() {
+      const form = document.getElementById('composite-lead-form');
+      const submitBtn = document.getElementById('lead-submit-btn');
+      const statusMsg = document.getElementById('lead-status-msg');
+
+      if (!form || form.dataset.listenerBound === 'true') return;
+      form.dataset.listenerBound = 'true';
+
+      const HUBSPOT_PORTAL_ID = '14538095';
+      const HUBSPOT_FORM_GUID = '3284c187-31cf-42ac-9015-a7d7dd033e76';
+      const NOTIFICATION_EMAIL = 'hello@compositegp.com';
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const firstname = document.getElementById('lead-firstname').value.trim();
+        const lastname = document.getElementById('lead-lastname').value.trim();
+        const email = document.getElementById('lead-email').value.trim();
+        const phone = document.getElementById('lead-phone').value.trim();
+        const company = document.getElementById('lead-company').value.trim();
+
+        submitBtn.disabled = true;
+        submitBtn.innerText = 'Submitting...';
+        statusMsg.classList.add('hidden');
+
+        let hutk = null;
+        const match = document.cookie.match(/(?:^|;\s*)hubspotutk=([^;]*)/);
+        if (match) hutk = match[1];
+
+        const hsPayload = {
+          submittedAt: Date.now(),
+          fields: [
+            { name: "firstname", value: firstname },
+            { name: "lastname", value: lastname },
+            { name: "email", value: email },
+            { name: "phone", value: phone },
+            { name: "company", value: company }
+          ],
+          context: {
+            hutk: hutk,
+            pageUri: window.location.href,
+            pageName: document.title
+          }
+        };
+
+        const emailPayload = {
+          _subject: "New Compass Real Estate Operations Consultation Lead",
+          _template: "table",
+          "Source": "Composite + Compass Landing Page",
+          "First Name": firstname,
+          "Last Name": lastname,
+          "Business Email": email,
+          "Phone Number": phone || "Not Provided",
+          "Team Name": company || "Not Provided",
+          "Submitted At": new Date().toLocaleString()
+        };
+
+        try {
+          const na2Endpoint = `https://api-na2.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_GUID}`;
+          const globalEndpoint = `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_GUID}`;
+
+          const submitToHubSpot = async (url) => {
+            return fetch(url, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+              body: JSON.stringify(hsPayload)
+            });
+          };
+
+          await Promise.allSettled([
+            submitToHubSpot(na2Endpoint).then(res => {
+              if (!res.ok) return submitToHubSpot(globalEndpoint);
+            }),
+            fetch(`https://formsubmit.co/ajax/${NOTIFICATION_EMAIL}`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+              body: JSON.stringify(emailPayload)
+            })
+          ]);
+
+          statusMsg.innerText = 'Thank you! Your request has been received. Our team will contact you shortly.';
+          statusMsg.className = 'text-xs text-center font-semibold mt-2 text-emerald-600';
+          statusMsg.classList.remove('hidden');
+          form.reset();
+        } catch (err) {
+          statusMsg.innerText = 'Thank you! Your request has been received. Our team will contact you shortly.';
+          statusMsg.className = 'text-xs text-center font-semibold mt-2 text-emerald-600';
+          statusMsg.classList.remove('hidden');
+          form.reset();
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.innerText = 'Book A Strategy Call';
+        }
+      });
+    }
+
+    function runAll() {
+      unboxElementorWrappers();
+      initHeroOrbit();
+      initStatsSequence();
+      initBrokerageOrbit();
+      initRiskMitigation();
+      init3DCarousel();
+      initTestimonialTouch();
+      initFormSubmission();
+    }
+
+    runAll();
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', runAll);
+    }
+    window.addEventListener('load', runAll);
+    window.addEventListener('resize', unboxElementorWrappers);
+    window.addEventListener('elementor/frontend/init', runAll);
+
+    let pollCount = 0;
+    const pollInterval = setInterval(() => {
+      runAll();
+      pollCount++;
+      if (pollCount > 10) clearInterval(pollInterval);
+    }, 300);
+
+  })();
+</script>
+
 </body>
 </html>
