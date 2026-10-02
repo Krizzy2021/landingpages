@@ -434,6 +434,56 @@
       box-shadow: 0 20px 40px -5px rgba(0, 174, 239, 0.45), 0 10px 20px -5px rgba(0, 0, 0, 0.15);
     }
 
+    /* Continuous Rotating Electric Diamond White & Icy Cyan Light Border Animation for Pricing Box */
+    @keyframes borderGlowSpin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .pricing-glow-border-wrap {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      padding: 2.5px;
+      display: inline-block;
+      width: 100%;
+      max-width: 530px;
+      box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 255, 255, 0.12);
+    }
+
+    /* Dual-comet laser beam: Diamond white head cutting sharply against the blue background */
+    .pricing-glow-border-wrap::before {
+      content: '';
+      position: absolute;
+      top: -65%;
+      left: -65%;
+      width: 230%;
+      height: 230%;
+      background: conic-gradient(
+        from 0deg,
+        transparent 0%,
+        rgba(255, 255, 255, 1) 14%,
+        rgba(56, 189, 248, 0.9) 24%,
+        rgba(0, 174, 239, 0.4) 34%,
+        transparent 44%,
+        transparent 56%,
+        rgba(255, 255, 255, 1) 64%,
+        rgba(56, 189, 248, 0.9) 74%,
+        rgba(0, 174, 239, 0.4) 84%,
+        transparent 94%,
+        transparent 100%
+      );
+      animation: borderGlowSpin 4s linear infinite;
+      z-index: 0;
+    }
+
+    .pricing-glow-inner {
+      position: relative;
+      background-color: #1e293b;
+      border-radius: 17.5px;
+      z-index: 1;
+    }
+
     /* Lead Form Submit Button Theme Override Shield */
     #composite-landing-root #lead-submit-btn,
     #composite-landing-root button#lead-submit-btn,
@@ -1604,105 +1654,129 @@
           <h2 class="text-2xl sm:text-4xl font-extrabold mt-2 mb-4 tracking-tight text-white">Your Office-Based Real Estate Operations Partner</h2>
           <p class="text-base sm:text-lg text-white/95 mb-6 leading-relaxed font-normal">Eliminate recruitment fees, local HR burden, payroll setup, equipment acquisition, and employee benefits with a predictable, fully managed team model.</p>
 
-          <!-- High-Contrast $1,995/mo Pop-Up Card -->
-          <div class="mb-6 bg-[#1e293b]/95 border-2 border-white/80 rounded-2xl p-4 sm:p-5 shadow-2xl backdrop-blur-md flex flex-wrap items-center justify-between gap-4">
-            <div>
-              <span class="inline-block text-[11px] font-extrabold uppercase tracking-wider text-[#00aeef] bg-[#00aeef]/15 px-2.5 py-0.5 rounded-full mb-1">Full-Time Dedicated VA</span>
-              <div class="flex items-baseline space-x-1.5">
-                <span class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">$1,995</span>
-                <span class="text-base sm:text-lg text-slate-300 font-bold">/ Month</span>
+          <!-- Sleek Dark Pricing Card with Continuous Moving Dark-Cyan Light Border -->
+          <div class="mb-7">
+            <div class="pricing-glow-border-wrap">
+              <div class="pricing-glow-inner p-5 sm:p-6 flex flex-wrap items-center gap-5 sm:gap-7">
+                <div>
+                  <span class="inline-block text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider text-[#00aeef] bg-[#00aeef]/15 border border-[#00aeef]/30 px-2.5 py-0.5 rounded-md mb-1.5">
+                    FULL-TIME DEDICATED VA
+                  </span>
+                  <div class="flex items-baseline space-x-1.5 sm:space-x-2">
+                    <span class="text-4xl sm:text-5xl font-black text-white tracking-tight">$1,995</span>
+                    <span class="text-sm sm:text-base text-slate-300 font-semibold">/ Month</span>
+                  </div>
+                </div>
+
+                <!-- Vertical Divider Line Closer to Price -->
+                <div class="hidden sm:block w-px h-11 bg-slate-700/80"></div>
+
+                <!-- Flat Subscription Info Closer to Price -->
+                <div class="text-xs sm:text-sm text-slate-300">
+                  <span class="text-white font-bold block text-sm sm:text-base leading-snug">Flat Subscription</span>
+                  <span class="text-slate-300/90 font-medium">No hidden fees &bull; Simple setup</span>
+                </div>
               </div>
-            </div>
-            <div class="text-xs sm:text-sm text-slate-300 font-medium border-l border-slate-700/80 pl-4 py-1">
-              <span class="text-white font-bold block">Flat Subscription</span>
-              No hidden fees &bull; Simple setup
             </div>
           </div>
 
-          <!-- 12-Item Checklist (2-Column Grid on sm+) -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
-            <div class="flex items-center space-x-2.5">
-              <div class="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center border border-white/40 shrink-0">
-                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              </div>
-              <span class="text-xs sm:text-sm text-white font-medium">Fully Dedicated VA (not shared)</span>
+          <!-- Structured 12-Item Checklist Matching Screenshot -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 sm:gap-y-3.5">
+            <!-- Left Column Items -->
+            <div class="flex items-center space-x-2.5 text-xs sm:text-sm font-medium text-white">
+              <svg class="w-4 h-4 sm:w-5 sm:h-5 text-white/85 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 12l2.5 2.5L16 9.5" />
+              </svg>
+              <span>Fully Dedicated VA (not shared)</span>
             </div>
 
-            <div class="flex items-center space-x-2.5">
-              <div class="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center border border-white/40 shrink-0">
-                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              </div>
-              <span class="text-xs sm:text-sm text-white font-medium">2 Dedicated Support Managers</span>
+            <div class="flex items-center space-x-2.5 text-xs sm:text-sm font-medium text-white">
+              <svg class="w-4 h-4 sm:w-5 sm:h-5 text-white/85 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 12l2.5 2.5L16 9.5" />
+              </svg>
+              <span>2 Dedicated Support Managers</span>
             </div>
 
-            <div class="flex items-center space-x-2.5">
-              <div class="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center border border-white/40 shrink-0">
-                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              </div>
-              <span class="text-xs sm:text-sm text-white font-medium">9am-6pm (USA), Mon-Fri</span>
+            <div class="flex items-center space-x-2.5 text-xs sm:text-sm font-medium text-white">
+              <svg class="w-4 h-4 sm:w-5 sm:h-5 text-white/85 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 12l2.5 2.5L16 9.5" />
+              </svg>
+              <span>9am-6pm (USA), Mon-Fri</span>
             </div>
 
-            <div class="flex items-center space-x-2.5">
-              <div class="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center border border-white/40 shrink-0">
-                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              </div>
-              <span class="text-xs sm:text-sm text-white font-medium">100% Office-Based Company</span>
+            <div class="flex items-center space-x-2.5 text-xs sm:text-sm font-medium text-white">
+              <svg class="w-4 h-4 sm:w-5 sm:h-5 text-white/85 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 12l2.5 2.5L16 9.5" />
+              </svg>
+              <span>100% Office-Based Company</span>
             </div>
 
-            <div class="flex items-center space-x-2.5">
-              <div class="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center border border-white/40 shrink-0">
-                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              </div>
-              <span class="text-xs sm:text-sm text-white font-medium">State-of-the-Art Facilities</span>
+            <div class="flex items-center space-x-2.5 text-xs sm:text-sm font-medium text-white">
+              <svg class="w-4 h-4 sm:w-5 sm:h-5 text-white/85 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 12l2.5 2.5L16 9.5" />
+              </svg>
+              <span>State-of-the-Art Facilities</span>
             </div>
 
-            <div class="flex items-center space-x-2.5">
-              <div class="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center border border-white/40 shrink-0">
-                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              </div>
-              <span class="text-xs sm:text-sm text-white font-medium">Strict Data Security Protocols</span>
+            <div class="flex items-center space-x-2.5 text-xs sm:text-sm font-medium text-white">
+              <svg class="w-4 h-4 sm:w-5 sm:h-5 text-white/85 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 12l2.5 2.5L16 9.5" />
+              </svg>
+              <span>Strict Data Security Protocols</span>
             </div>
 
-            <div class="flex items-center space-x-2.5">
-              <div class="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center border border-white/40 shrink-0">
-                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              </div>
-              <span class="text-xs sm:text-sm text-white font-medium">3 Weeks of Training before VA Begins</span>
+            <div class="flex items-center space-x-2.5 text-xs sm:text-sm font-medium text-white">
+              <svg class="w-4 h-4 sm:w-5 sm:h-5 text-white/85 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 12l2.5 2.5L16 9.5" />
+              </svg>
+              <span>3 Weeks of Training before VA Begins</span>
             </div>
 
-            <div class="flex items-center space-x-2.5">
-              <div class="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center border border-white/40 shrink-0">
-                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              </div>
-              <span class="text-xs sm:text-sm text-white font-medium">Rigorous Quality Control &amp; Supervision</span>
+            <div class="flex items-center space-x-2.5 text-xs sm:text-sm font-medium text-white">
+              <svg class="w-4 h-4 sm:w-5 sm:h-5 text-white/85 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 12l2.5 2.5L16 9.5" />
+              </svg>
+              <span>Rigorous Quality Control &amp; Supervision</span>
             </div>
 
-            <div class="flex items-center space-x-2.5">
-              <div class="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center border border-white/40 shrink-0">
-                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              </div>
-              <span class="text-xs sm:text-sm text-white font-medium">Healthcare and Payroll included</span>
+            <div class="flex items-center space-x-2.5 text-xs sm:text-sm font-medium text-white">
+              <svg class="w-4 h-4 sm:w-5 sm:h-5 text-white/85 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 12l2.5 2.5L16 9.5" />
+              </svg>
+              <span>Healthcare and Payroll included</span>
             </div>
 
-            <div class="flex items-center space-x-2.5">
-              <div class="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center border border-white/40 shrink-0">
-                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              </div>
-              <span class="text-xs sm:text-sm text-white font-medium">Simple Credit Card Payment</span>
+            <div class="flex items-center space-x-2.5 text-xs sm:text-sm font-medium text-white">
+              <svg class="w-4 h-4 sm:w-5 sm:h-5 text-white/85 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 12l2.5 2.5L16 9.5" />
+              </svg>
+              <span>Simple Credit Card Payment</span>
             </div>
 
-            <div class="flex items-center space-x-2.5">
-              <div class="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center border border-white/40 shrink-0">
-                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              </div>
-              <span class="text-xs sm:text-sm text-white font-medium">Computer &amp; Office Supplies Included</span>
+            <div class="flex items-center space-x-2.5 text-xs sm:text-sm font-medium text-white">
+              <svg class="w-4 h-4 sm:w-5 sm:h-5 text-white/85 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 12l2.5 2.5L16 9.5" />
+              </svg>
+              <span>Computer &amp; Office Supplies Included</span>
             </div>
 
-            <div class="flex items-center space-x-2.5">
-              <div class="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center border border-white/40 shrink-0">
-                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              </div>
-              <span class="text-xs sm:text-sm text-white font-medium">Fully AI-Enabled Across Platforms</span>
+            <div class="flex items-center space-x-2.5 text-xs sm:text-sm font-medium text-white">
+              <svg class="w-4 h-4 sm:w-5 sm:h-5 text-white/85 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 12l2.5 2.5L16 9.5" />
+              </svg>
+              <span>Fully AI-Enabled Across Platforms</span>
             </div>
           </div>
         </div>
