@@ -518,6 +518,15 @@
     }
 
     /* Testimonials Interactive Ticker Styling */
+    .testimonial-track-container {
+      touch-action: pan-y;
+      -webkit-user-select: none;
+      user-select: none;
+      overflow: hidden;
+      width: 100%;
+      position: relative;
+    }
+
     .testimonial-track {
       display: flex !important;
       width: max-content !important;
@@ -525,6 +534,7 @@
       cursor: grab;
       user-select: none;
       -webkit-user-select: none;
+      touch-action: pan-y;
     }
 
     .testimonial-track.is-dragging {
@@ -1958,34 +1968,57 @@
         requestAnimationFrame(animateHeroOrbit);
       }
 
-      // Touch Swipe Gesture for Hero Orbit on Mobile/Tablet
+      function scheduleResume(delay = 2500) {
+        clearTimeout(resumeTimer);
+        resumeTimer = setTimeout(() => {
+          isPaused = false;
+        }, delay);
+      }
+
+      // Touch Swipe Gesture & Mobile Scroll Protection for Hero Orbit
       let touchStartX = 0;
       let touchStartY = 0;
       stage.addEventListener('touchstart', (e) => {
         if (!e.touches.length) return;
         touchStartX = e.touches[0].clientX;
         touchStartY = e.touches[0].clientY;
+        clearTimeout(resumeTimer);
         isPaused = true;
       }, { passive: true });
 
-      stage.addEventListener('touchend', (e) => {
-        if (!e.changedTouches.length) return;
-        const diffX = e.changedTouches[0].clientX - touchStartX;
-        const diffY = e.changedTouches[0].clientY - touchStartY;
-        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 35) {
-          if (diffX < 0) {
-            targetAngle -= (2 * Math.PI) / totalNodes;
-          } else {
-            targetAngle += (2 * Math.PI) / totalNodes;
+      function handleTouchEndOrCancel(e) {
+        if (e.changedTouches && e.changedTouches.length) {
+          const diffX = e.changedTouches[0].clientX - touchStartX;
+          const diffY = e.changedTouches[0].clientY - touchStartY;
+          if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 35) {
+            if (diffX < 0) {
+              targetAngle -= (2 * Math.PI) / totalNodes;
+            } else {
+              targetAngle += (2 * Math.PI) / totalNodes;
+            }
           }
         }
-        clearTimeout(resumeTimer);
-        resumeTimer = setTimeout(() => { isPaused = false; }, 3500);
+        scheduleResume(2200);
+      }
+
+      stage.addEventListener('touchend', handleTouchEndOrCancel, { passive: true });
+      stage.addEventListener('touchcancel', handleTouchEndOrCancel, { passive: true });
+
+      // Automatically unfreeze if the user is scrolling the page back and forth
+      window.addEventListener('scroll', () => {
+        if (isPaused) {
+          scheduleResume(2000);
+        }
       }, { passive: true });
 
+      // Only attach mouse hover on real mouse pointers (never on mobile touchscreens)
+      const isFinePointer = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
       iconCards.forEach((card, index) => {
-        card.addEventListener('mouseenter', () => { isPaused = true; });
-        card.addEventListener('mouseleave', () => { isPaused = false; });
+        if (isFinePointer) {
+          card.addEventListener('mouseenter', () => { isPaused = true; });
+          card.addEventListener('mouseleave', () => { isPaused = false; });
+        }
         card.addEventListener('click', () => {
           isPaused = true;
           const angleStep = (2 * Math.PI) / totalNodes;
@@ -1994,8 +2027,7 @@
           if (diff < -Math.PI) diff += 2 * Math.PI;
           if (diff > Math.PI) diff -= 2 * Math.PI;
           targetAngle += diff;
-          clearTimeout(resumeTimer);
-          resumeTimer = setTimeout(() => { isPaused = false; }, 4000);
+          scheduleResume(3000);
         });
       });
 
@@ -2350,6 +2382,13 @@
       let lastTime = performance.now();
       const speed = 0.055; // Pixels per millisecond (~55px/sec)
 
+      // Mobile Touch Gesture Axis-Lock variables
+      let isTouchActive = false;
+      let isHorizontalLocked = false;
+      let isVerticalLocked = false;
+      let touchStartX = 0;
+      let touchStartY = 0;
+
       function getHalfWidth() {
         return track.scrollWidth / 2;
       }
@@ -2364,108 +2403,121 @@
         track.style.transform = `translate3d(${currentX.toFixed(2)}px, 0, 0)`;
       }
 
-      function tick(now) {
-        const delta = Math.min(now - lastTime, 100);
+      function step(now) {
+        const dt = now - lastTime;
         lastTime = now;
 
-        if (!isPaused && !isDragging) {
-          currentX -= speed * delta;
+        if (!isPaused && !isDragging && !isTouchActive && !document.hidden) {
+          currentX -= speed * dt;
           updateTransform();
         }
-        requestAnimationFrame(tick);
+        requestAnimationFrame(step);
       }
 
-      function scheduleResume(delayMs = 2500) {
+      function scheduleResume(delay = 2200) {
         clearTimeout(resumeTimer);
         resumeTimer = setTimeout(() => {
           isPaused = false;
-        }, delayMs);
+        }, delay);
       }
 
-      function pauseAndHold() {
-        clearTimeout(resumeTimer);
-        isPaused = true;
-      }
-
-      // Pointer / Touch / Mouse unified drag handlers
-      function handleDragStart(clientX) {
+      // Mouse drag events (Desktop)
+      container.addEventListener('mousedown', (e) => {
         isDragging = true;
-        pauseAndHold();
-        startX = clientX;
+        isPaused = true;
+        startX = e.clientX;
         dragStartX = currentX;
         track.classList.add('is-dragging');
-      }
-
-      function handleDragMove(clientX) {
-        if (!isDragging) return;
-        const diffX = clientX - startX;
-        currentX = dragStartX + diffX;
-        updateTransform();
-      }
-
-      function handleDragEnd() {
-        if (!isDragging) return;
-        isDragging = false;
-        track.classList.remove('is-dragging');
-        scheduleResume(2400);
-      }
-
-      // Mouse Events
-      container.addEventListener('mousedown', (e) => {
-        handleDragStart(e.clientX);
+        clearTimeout(resumeTimer);
       });
 
       window.addEventListener('mousemove', (e) => {
-        if (isDragging) {
-          e.preventDefault();
-          handleDragMove(e.clientX);
-        }
+        if (!isDragging) return;
+        const diffX = e.clientX - startX;
+        currentX = dragStartX + diffX;
+        updateTransform();
       });
 
       window.addEventListener('mouseup', () => {
-        if (isDragging) handleDragEnd();
+        if (isDragging) {
+          isDragging = false;
+          track.classList.remove('is-dragging');
+          scheduleResume(2200);
+        }
       });
 
-      // Touch Events (Mobile & Tablet)
+      // Hover controls on desktop
+      const isFinePointer = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+      if (isFinePointer) {
+        container.addEventListener('mouseenter', () => {
+          if (!isDragging) isPaused = true;
+        });
+        container.addEventListener('mouseleave', () => {
+          if (!isDragging) isPaused = false;
+        });
+      }
+
+      // Wheel controls
+      container.addEventListener('wheel', (e) => {
+        if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+          e.preventDefault();
+          currentX -= e.deltaX;
+          updateTransform();
+          isPaused = true;
+          scheduleResume(1800);
+        }
+      }, { passive: false });
+
+      // Touch events with directional axis-lock (Mobile & Tablet)
       container.addEventListener('touchstart', (e) => {
         if (!e.touches.length) return;
-        handleDragStart(e.touches[0].clientX);
+        isTouchActive = true;
+        isHorizontalLocked = false;
+        isVerticalLocked = false;
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        dragStartX = currentX;
+        clearTimeout(resumeTimer);
+        isPaused = true;
       }, { passive: true });
 
       container.addEventListener('touchmove', (e) => {
-        if (!isDragging || !e.touches.length) return;
-        handleDragMove(e.touches[0].clientX);
-      }, { passive: true });
+        if (!isTouchActive || !e.touches.length) return;
+        const currentTouchX = e.touches[0].clientX;
+        const currentTouchY = e.touches[0].clientY;
+        const diffX = currentTouchX - touchStartX;
+        const diffY = currentTouchY - touchStartY;
 
-      container.addEventListener('touchend', () => {
-        handleDragEnd();
-      }, { passive: true });
+        if (!isHorizontalLocked && !isVerticalLocked) {
+          if (Math.abs(diffX) > 7 || Math.abs(diffY) > 7) {
+            if (Math.abs(diffX) >= Math.abs(diffY)) {
+              isHorizontalLocked = true;
+            } else {
+              isVerticalLocked = true;
+            }
+          }
+        }
 
-      container.addEventListener('touchcancel', () => {
-        handleDragEnd();
-      }, { passive: true });
-
-      // Desktop Hover pause
-      container.addEventListener('mouseenter', () => {
-        if (!isDragging) pauseAndHold();
-      });
-
-      container.addEventListener('mouseleave', () => {
-        if (!isDragging) scheduleResume(1200);
-      });
-
-      // Horizontal Mouse Wheel support for fast review
-      container.addEventListener('wheel', (e) => {
-        const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
-        if (Math.abs(delta) > 2) {
-          pauseAndHold();
-          currentX -= delta * 0.8;
+        if (isHorizontalLocked) {
+          if (e.cancelable) e.preventDefault();
+          currentX = dragStartX + diffX;
           updateTransform();
+        }
+      }, { passive: false });
+
+      function endTouch() {
+        if (isTouchActive) {
+          isTouchActive = false;
+          isHorizontalLocked = false;
+          isVerticalLocked = false;
           scheduleResume(2200);
         }
-      }, { passive: true });
+      }
 
-      requestAnimationFrame(tick);
+      container.addEventListener('touchend', endTouch, { passive: true });
+      container.addEventListener('touchcancel', endTouch, { passive: true });
+
+      requestAnimationFrame(step);
     }
 
     function initHubspotForm() {
@@ -2489,7 +2541,6 @@
               }
             });
 
-            // Fallback hide loader after 2.5s
             setTimeout(() => {
               const loader = document.getElementById('hubspot-form-loading');
               if (loader) loader.style.display = 'none';
@@ -2558,6 +2609,5 @@
 
   })();
 </script>
-
 </body>
 </html>
