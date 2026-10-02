@@ -56,8 +56,11 @@
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
+  <!-- Official HubSpot Embed Script (Region: na2) -->
+  <script charset="utf-8" type="text/javascript" src="https://js-na2.hsforms.net/forms/embed/v2.js" data-nitro-no-defer="true" data-cfasync="false"></script>
+
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:wght@600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap');
     
     html, body {
       margin: 0 !important;
@@ -83,13 +86,43 @@
       pointer-events: none !important;
     }
 
-    body { 
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+    /* Inherit WordPress & Elementor Brand Font */
+    body,
+    #composite-landing-root,
+    #composite-landing-root input,
+    #composite-landing-root button,
+    #composite-landing-root textarea { 
+      font-family: inherit !important;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       letter-spacing: -0.011em;
+    }
+
+    body,
+    #composite-landing-root {
       background-color: #2b353f !important;
       color: #1e293b;
+    }
+
+    /* Form Input Protection Shield - Ensures Crisp Light Inputs */
+    #composite-landing-root form input,
+    #composite-landing-root form textarea {
+      background-color: #f8fafc !important;
+      color: #0f172a !important;
+      border: 1px solid #cbd5e1 !important;
+      border-radius: 8px !important;
+    }
+
+    #composite-landing-root form input:focus,
+    #composite-landing-root form textarea:focus {
+      background-color: #ffffff !important;
+      border-color: #00aeef !important;
+      box-shadow: 0 0 0 2px rgba(0, 174, 239, 0.25) !important;
+    }
+
+    #composite-landing-root form input::placeholder,
+    #composite-landing-root form textarea::placeholder {
+      color: #94a3b8 !important;
     }
 
     h1, h2, h3, h4 {
@@ -98,6 +131,37 @@
 
     .font-serif-title {
       font-family: 'Playfair Display', Georgia, serif;
+    }
+
+    /* Elementor & Theme Bold Text Protection Shield - Enforces Weights On Theme Font */
+    #composite-landing-root strong,
+    #composite-landing-root b {
+      font-weight: 700 !important;
+    }
+
+    #composite-landing-root h1,
+    #composite-landing-root h2 {
+      font-weight: 800 !important;
+    }
+
+    #composite-landing-root h3,
+    #composite-landing-root h4 {
+      font-weight: 700 !important;
+    }
+
+    #composite-landing-root .font-extrabold,
+    #composite-landing-root [class*="font-extrabold"] {
+      font-weight: 800 !important;
+    }
+
+    #composite-landing-root .font-bold,
+    #composite-landing-root [class*="font-bold"] {
+      font-weight: 700 !important;
+    }
+
+    #composite-landing-root .font-semibold,
+    #composite-landing-root [class*="font-semibold"] {
+      font-weight: 600 !important;
     }
 
     /* Hero H1 Responsive Typography & Balanced Multi-Device Breakout */
@@ -403,34 +467,123 @@
       transform: translateY(-1px) !important;
     }
 
-    /* Testimonials Continuous Ticker Animation */
-    @-webkit-keyframes testimonialTicker {
-      0% { -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
-      100% { -webkit-transform: translate3d(-50%, 0, 0); transform: translate3d(-50%, 0, 0); }
-    }
-
-    @keyframes testimonialTicker {
-      0% { -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
-      100% { -webkit-transform: translate3d(-50%, 0, 0); transform: translate3d(-50%, 0, 0); }
-    }
-
+    /* Testimonials Interactive Ticker Styling */
     .testimonial-track {
       display: flex !important;
       width: max-content !important;
-      -webkit-animation: testimonialTicker 45s linear infinite !important;
-      animation: testimonialTicker 45s linear infinite !important;
       will-change: transform;
+      cursor: grab;
+      user-select: none;
+      -webkit-user-select: none;
     }
 
-    .testimonial-track-container:hover .testimonial-track {
-      -webkit-animation-play-state: paused !important;
-      animation-play-state: paused !important;
+    .testimonial-track.is-dragging {
+      cursor: grabbing;
+    }
+
+    /* HubSpot Form Wrapper & Responsive Iframe */
+    #hubspot-official-form-wrapper {
+      width: 100% !important;
+      min-height: 360px !important;
+      position: relative !important;
+    }
+
+    #hubspot-form-target {
+      width: 100% !important;
+      min-height: 360px !important;
+    }
+
+    #hubspot-form-target iframe {
+      width: 100% !important;
+      max-width: 100% !important;
+      min-height: 380px !important;
+      border: none !important;
+      display: block !important;
+      background: transparent !important;
+    }
+
+    /* Styling Fallbacks for Non-iframe Rendered HubSpot Forms */
+    .hs-form fieldset {
+      max-width: 100% !important;
+      border: none !important;
+      padding: 0 !important;
+      margin-bottom: 0.75rem !important;
+    }
+
+    .hs-form label {
+      display: block !important;
+      font-size: 0.75rem !important;
+      font-weight: 600 !important;
+      color: #334155 !important;
+      margin-bottom: 0.25rem !important;
+      text-transform: capitalize !important;
+    }
+
+    .hs-form input[type="text"],
+    .hs-form input[type="email"],
+    .hs-form input[type="tel"],
+    .hs-form select,
+    .hs-form textarea {
+      width: 100% !important;
+      padding: 0.625rem 0.875rem !important;
+      font-size: 1rem !important;
+      background-color: #f8fafc !important;
+      border: 1px solid #cbd5e1 !important;
+      border-radius: 0.5rem !important;
+      color: #0f172a !important;
+      outline: none !important;
+      transition: all 0.2s ease !important;
+      box-sizing: border-box !important;
+    }
+
+    @media (min-width: 640px) {
+      .hs-form input[type="text"],
+      .hs-form input[type="email"],
+      .hs-form input[type="tel"],
+      .hs-form select,
+      .hs-form textarea {
+        font-size: 0.875rem !important;
+      }
+    }
+
+    .hs-form input:focus,
+    .hs-form select:focus,
+    .hs-form textarea:focus {
+      border-color: #00aeef !important;
+      box-shadow: 0 0 0 2px rgba(0, 174, 239, 0.2) !important;
+      background-color: #ffffff !important;
+    }
+
+    .hs-form .hs-button,
+    .hs-form input[type="submit"] {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      background-color: #2b353f !important;
+      color: #ffffff !important;
+      border-radius: 0.5rem !important;
+      padding: 0.75rem 1.75rem !important;
+      font-size: 0.925rem !important;
+      font-weight: 600 !important;
+      border: none !important;
+      cursor: pointer !important;
+      transition: all 0.2s ease !important;
+      box-shadow: 0 8px 20px rgba(43, 53, 63, 0.25) !important;
+      width: auto !important;
+      margin-top: 0.5rem !important;
+    }
+
+    .hs-form .hs-button:hover,
+    .hs-form input[type="submit"]:hover {
+      background-color: #1e262f !important;
+      transform: translateY(-1px) !important;
+      box-shadow: 0 10px 24px rgba(43, 53, 63, 0.35) !important;
     }
   </style>
 </head>
-<body style="background-color: #2b353f !important; margin: 0 !important; padding: 0 !important; color: #1e293b; font-family: 'Inter', system-ui, -apple-system, sans-serif !important;">
+<body style="background-color: #2b353f !important; margin: 0 !important; padding: 0 !important; color: #1e293b; font-family: inherit !important;">
 
-<div id="composite-landing-root" style="background-color: #2b353f !important;">
+<div id="composite-landing-root" style="background-color: #2b353f !important; font-family: inherit !important;">
 
   <!-- HEADER NAV BAR WITH LOGO -->
   <header style="background-color: #2b353f; border-bottom: 1px solid #36424e; padding: 16px 0;">
@@ -456,15 +609,15 @@
             COMPOSITE GLOBAL PARTNERS + COMPASS
           </div>
 
-          <!-- Hero H1 Title: Natural balanced flow on mobile/tablet, structured 3-line layout on desktop -->
-          <h1 class="hero-h1-title" style="font-family: 'Inter', system-ui, -apple-system, sans-serif !important; font-weight: 800; color: #ffffff !important; margin: 0 0 24px 0;">
+          <!-- Hero H1 Title: Inherits theme font with bold styling -->
+          <h1 class="hero-h1-title" style="font-weight: 800; color: #ffffff !important; margin: 0 0 24px 0; font-family: inherit !important;">
             Technology-Enabled<br class="desktop-br hidden lg:inline">
             Real Estate Support for<br class="desktop-br hidden lg:inline">
             Compass Agents &amp; Teams
           </h1>
 
           <!-- Hero Subtitle -->
-          <p style="font-family: 'Inter', system-ui, -apple-system, sans-serif !important; font-size: clamp(1rem, 1.8vw, 1.125rem); color: #cbd5e1 !important; line-height: 1.65; font-weight: 400; margin: 0 0 32px 0;">
+          <p style="font-size: clamp(1rem, 1.8vw, 1.125rem); color: #cbd5e1 !important; line-height: 1.65; font-weight: 400; margin: 0 0 32px 0; font-family: inherit !important;">
             Compass has built a technology-driven platform designed to help real estate professionals manage their businesses from contact to close. Composite adds a dedicated, office-based operational layer to help agents and teams manage the work that happens around those systems.
           </p>
 
@@ -589,58 +742,289 @@
 
   <!-- ANATOMY OF ONE POD (MORE THAN A VA) -->
   <section class="py-16 sm:py-20 bg-[#2b353f] text-white border-b border-[#36424e] relative overflow-hidden">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="bg-[#323d49] border border-[#3c4a58] rounded-2xl p-6 sm:p-8 shadow-2xl relative overflow-hidden backdrop-blur-md">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="bg-[#323d49] border border-[#3c4a58] rounded-2xl p-6 sm:p-8 lg:p-10 shadow-2xl relative overflow-hidden backdrop-blur-md">
 
         <!-- Header Bar -->
-        <div class="flex items-center justify-between text-[10px] sm:text-xs lg:text-sm tracking-wider sm:tracking-widest uppercase font-bold mb-6 sm:mb-8 border-b border-[#3c4a58] pb-4">
-          <span class="text-[#00aeef] flex items-center space-x-1.5 sm:space-x-2 shrink-0">ANATOMY OF ONE POD</span>
+        <div class="flex items-center justify-between text-[10px] sm:text-xs lg:text-sm tracking-wider sm:tracking-widest uppercase font-bold mb-8 border-b border-[#3c4a58] pb-4">
+          <span class="text-[#00aeef] flex items-center space-x-1.5 sm:space-x-2 shrink-0">
+            <svg class="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#00aeef]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.2">
+              <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+              <rect x="9" y="9" width="6" height="6"></rect>
+              <path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 15h3M1 9h3M1 15h3"></path>
+            </svg>
+            <span>ANATOMY OF ONE POD</span>
+          </span>
           <span class="text-slate-300 font-semibold tracking-wider text-right shrink-0">VA + MANAGED SUPPORT</span>
         </div>
 
-        <!-- Center Focal Badge -->
-        <div class="text-center mb-6 sm:mb-8">
-          <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-2 border-[#00aeef] p-1 mx-auto mb-3 flex items-center justify-center bg-[#2b353f] shadow-lg shadow-[#00aeef]/20 transition-transform duration-300 hover:scale-105">
-            <div class="w-full h-full rounded-full border border-[#00aeef]/40 flex flex-col items-center justify-center bg-[#323d49]">
-              <span class="font-serif-title text-xl sm:text-2xl font-bold text-[#00aeef] tracking-wide">VA</span>
+        <!-- POD ORGANIZATIONAL CONNECTION TREE CONTAINER -->
+        <div class="relative w-full py-2">
+
+          <!-- Desktop SVG Wiring Connectors Layer -->
+          <svg class="hidden lg:block absolute inset-0 w-full h-full pointer-events-none z-0" viewBox="0 0 1000 640" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="podWireCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#00aeef" stop-opacity="0.95" />
+                <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.95" />
+              </linearGradient>
+              <linearGradient id="podWireCoral" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#f87171" stop-opacity="1" />
+                <stop offset="100%" stop-color="#fb923c" stop-opacity="1" />
+              </linearGradient>
+              <!-- Explicit userSpaceOnUse gradient to guarantee 100% visibility on horizontal lines -->
+              <linearGradient id="podWireCoralH" gradientUnits="userSpaceOnUse" x1="510" y1="450" x2="700" y2="450">
+                <stop offset="0%" stop-color="#f87171" stop-opacity="1" />
+                <stop offset="100%" stop-color="#fb923c" stop-opacity="1" />
+              </linearGradient>
+            </defs>
+
+            <!-- 1. VA to TL 1 & TL 2 (White / Slate Bracket) -->
+            <path d="M 330 75 L 330 98 L 165 98 L 165 118" fill="none" stroke="#cbd5e1" stroke-width="2" stroke-linecap="round" />
+            <path d="M 330 98 L 495 98 L 495 118" fill="none" stroke="#cbd5e1" stroke-width="2" stroke-linecap="round" />
+
+            <!-- 2. TL 1 to TL 2 Direct Bridge (White / Slate) -->
+            <line x1="310" y1="210" x2="350" y2="210" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4 4" />
+
+            <!-- 3. TL 1 & TL 2 down to OM (Cyan) -->
+            <path d="M 165 305 L 165 328 L 330 328 L 330 350" fill="none" stroke="url(#podWireCyan)" stroke-width="2.5" stroke-linecap="round" />
+            <path d="M 495 305 L 495 328 L 330 328" fill="none" stroke="url(#podWireCyan)" stroke-width="2.5" stroke-linecap="round" />
+
+            <!-- 4. TL 1 to IT (White / Slate matching VA-to-TL) -->
+            <path d="M 110 305 L 110 520" fill="none" stroke="#cbd5e1" stroke-width="2" stroke-linecap="round" />
+
+            <!-- 5. TL 2 to TD (White / Slate matching VA-to-TL) -->
+            <path d="M 550 305 L 550 520" fill="none" stroke="#cbd5e1" stroke-width="2" stroke-linecap="round" />
+
+            <!-- 6. OM down to TD (Cyan Branch) -->
+            <path d="M 330 475 L 330 545 L 440 545" fill="none" stroke="url(#podWireCyan)" stroke-width="2.5" stroke-linecap="round" />
+
+            <!-- 7. IT to TD Horizontal Foundation Line -->
+            <line x1="240" y1="570" x2="440" y2="570" stroke="#64748b" stroke-width="1.5" stroke-dasharray="3 3" />
+
+            <!-- 8. Coral / Orange Culture Loop Connections (VA -> Culture, TL 2 -> Culture, OM -> Culture) -->
+            <!-- A. Dedicated Composite VA to Culture (Outer Track entering top-right of Culture card) -->
+            <path d="M 500 50 L 830 50 Q 850 50 850 70 L 850 410" fill="none" stroke="url(#podWireCoral)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+            <circle cx="500" cy="50" r="3.5" fill="#f87171" />
+            <circle cx="850" cy="410" r="3.5" fill="#fb923c" />
+
+            <!-- B. TL 2 to Culture (Inner Track entering top-left of Culture card) -->
+            <path d="M 605 240 L 780 240 Q 800 240 800 260 L 800 410" fill="none" stroke="url(#podWireCoral)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+            <circle cx="605" cy="240" r="3.5" fill="#f87171" />
+            <circle cx="800" cy="410" r="3.5" fill="#fb923c" />
+
+            <!-- C. Operations Manager (OM) to Culture (Direct horizontal straight into left edge of Culture card) -->
+            <line x1="510" y1="450" x2="700" y2="450" stroke="url(#podWireCoralH)" stroke-width="2.5" stroke-linecap="round" />
+            <circle cx="510" cy="450" r="3.5" fill="#f87171" />
+            <circle cx="700" cy="450" r="3.5" fill="#fb923c" />
+          </svg>
+
+          <!-- Main Layout Grid (2 Columns on Desktop: Left Tree System [cols 1-8], Right Culture Node [cols 9-12]) -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative z-10">
+
+            <!-- LEFT 8-COLUMN HIERARCHY TREE -->
+            <div class="lg:col-span-8 flex flex-col items-center space-y-6 sm:space-y-8">
+
+              <!-- TOP NODE: DEDICATED COMPOSITE VA -->
+              <div class="relative w-full max-w-[340px] group">
+                <div class="absolute -top-3 left-1/2 -translate-x-1/2 z-20">
+                  <span class="inline-flex items-center justify-center px-3.5 py-0.5 rounded-full text-xs font-extrabold bg-[#00aeef] text-white shadow-md shadow-[#00aeef]/40 border border-white/40 tracking-wider">
+                    VA
+                  </span>
+                </div>
+                <div class="bg-[#252e37] border-2 border-[#00aeef] rounded-xl p-4 pt-5 text-center shadow-lg shadow-[#00aeef]/15 hover:border-white transition-colors duration-300">
+                  <h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Dedicated Composite VA</h3>
+                  <p class="text-xs text-slate-300 mt-1 font-normal">Your single point of Compass execution</p>
+                </div>
+              </div>
+
+              <!-- LEVEL 2: TWO TEAM LEADERS (TL 1 & TL 2) -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 w-full">
+
+                <!-- TL 1 -->
+                <div class="relative group">
+                  <div class="absolute -top-3 left-1/2 -translate-x-1/2 z-20">
+                    <span class="inline-flex items-center justify-center px-3 py-0.5 rounded-full text-[11px] font-extrabold bg-[#2b353f] text-[#00aeef] border border-[#00aeef] shadow-sm tracking-wider">
+                      TL 1
+                    </span>
+                  </div>
+                  <div class="h-full bg-[#252e37] border border-[#00aeef]/70 group-hover:border-[#00aeef] rounded-xl p-4 sm:p-5 pt-5 shadow-md transition-all duration-300">
+                    <h4 class="text-sm sm:text-base font-bold text-white text-center mb-2.5 tracking-tight">Team Leader</h4>
+                    <ul class="space-y-1.5 text-xs text-slate-300 font-normal">
+                      <li class="flex items-start space-x-1.5">
+                        <span class="text-[#00aeef] font-bold shrink-0">&bull;</span>
+                        <span>3+ years experience as a Rockstar VA for Compass agents</span>
+                      </li>
+                      <li class="flex items-start space-x-1.5">
+                        <span class="text-[#00aeef] font-bold shrink-0">&bull;</span>
+                        <span>Know the platform</span>
+                      </li>
+                      <li class="flex items-start space-x-1.5">
+                        <span class="text-[#00aeef] font-bold shrink-0">&bull;</span>
+                        <span>On-the-ground management</span>
+                      </li>
+                      <li class="flex items-start space-x-1.5">
+                        <span class="text-[#00aeef] font-bold shrink-0">&bull;</span>
+                        <span>Daily QA, escalation support</span>
+                      </li>
+                      <li class="flex items-start space-x-1.5">
+                        <span class="text-[#00aeef] font-bold shrink-0">&bull;</span>
+                        <span>Shadows your VA on every call</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- TL 2 -->
+                <div class="relative group">
+                  <div class="absolute -top-3 left-1/2 -translate-x-1/2 z-20">
+                    <span class="inline-flex items-center justify-center px-3 py-0.5 rounded-full text-[11px] font-extrabold bg-[#2b353f] text-[#00aeef] border border-[#00aeef] shadow-sm tracking-wider">
+                      TL 2
+                    </span>
+                  </div>
+                  <div class="h-full bg-[#252e37] border border-[#00aeef]/70 group-hover:border-[#00aeef] rounded-xl p-4 sm:p-5 pt-5 shadow-md transition-all duration-300">
+                    <h4 class="text-sm sm:text-base font-bold text-white text-center mb-2.5 tracking-tight">Team Leader</h4>
+                    <ul class="space-y-1.5 text-xs text-slate-300 font-normal">
+                      <li class="flex items-start space-x-1.5">
+                        <span class="text-[#00aeef] font-bold shrink-0">&bull;</span>
+                        <span>3+ years experience as a Rockstar VA for Compass agents</span>
+                      </li>
+                      <li class="flex items-start space-x-1.5">
+                        <span class="text-[#00aeef] font-bold shrink-0">&bull;</span>
+                        <span>Know the platform</span>
+                      </li>
+                      <li class="flex items-start space-x-1.5">
+                        <span class="text-[#00aeef] font-bold shrink-0">&bull;</span>
+                        <span>On-the-ground management</span>
+                      </li>
+                      <li class="flex items-start space-x-1.5">
+                        <span class="text-[#00aeef] font-bold shrink-0">&bull;</span>
+                        <span>Daily QA, escalation support</span>
+                      </li>
+                      <li class="flex items-start space-x-1.5">
+                        <span class="text-[#00aeef] font-bold shrink-0">&bull;</span>
+                        <span>Shadows your VA on every call</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- LEVEL 3: OPERATIONS MANAGER (OM) -->
+              <div class="relative w-full max-w-[360px] group">
+                <div class="absolute -top-3 left-1/2 -translate-x-1/2 z-20">
+                  <span class="inline-flex items-center justify-center px-3 py-0.5 rounded-full text-[11px] font-extrabold bg-[#2b353f] text-[#00aeef] border border-[#00aeef] shadow-sm tracking-wider">
+                    OM
+                  </span>
+                </div>
+                <div class="bg-[#252e37] border border-[#00aeef]/70 group-hover:border-[#00aeef] rounded-xl p-4 sm:p-5 pt-5 shadow-lg transition-colors duration-300">
+                  <h4 class="text-sm sm:text-base font-bold text-white text-center mb-2 tracking-tight">Operations Manager</h4>
+                  <ul class="space-y-1.5 text-xs text-slate-300 font-normal">
+                    <li class="flex items-start space-x-1.5">
+                      <span class="text-[#00aeef] font-bold shrink-0">&bull;</span>
+                      <span>Workflow continuity</span>
+                    </li>
+                    <li class="flex items-start space-x-1.5">
+                      <span class="text-[#00aeef] font-bold shrink-0">&bull;</span>
+                      <span>High-level escalations</span>
+                    </li>
+                    <li class="flex items-start space-x-1.5">
+                      <span class="text-[#00aeef] font-bold shrink-0">&bull;</span>
+                      <span>Oversees team leaders</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- LEVEL 4: IT & INFRASTRUCTURE (LEFT) + TRAINING & DEV (RIGHT) -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 w-full">
+
+                <!-- IT & INFRASTRUCTURE -->
+                <div class="relative group">
+                  <div class="absolute -top-3 left-1/2 -translate-x-1/2 z-20">
+                    <span class="inline-flex items-center justify-center px-3 py-0.5 rounded-full text-[11px] font-extrabold bg-[#2b353f] text-[#00aeef] border border-[#00aeef] shadow-sm tracking-wider">
+                      IT
+                    </span>
+                  </div>
+                  <div class="h-full bg-[#252e37] border border-[#00aeef]/70 group-hover:border-[#00aeef] rounded-xl p-4 sm:p-5 pt-5 shadow-md transition-all duration-300">
+                    <h4 class="text-sm sm:text-base font-bold text-white text-center mb-2 tracking-tight">IT &amp; Infrastructure</h4>
+                    <ul class="space-y-1 text-xs text-slate-300 font-normal">
+                      <li class="flex items-start space-x-1.5">
+                        <span class="text-[#00aeef] font-bold shrink-0">&bull;</span>
+                        <span>Hardware, VPN, SSO</span>
+                      </li>
+                      <li class="flex items-start space-x-1.5">
+                        <span class="text-[#00aeef] font-bold shrink-0">&bull;</span>
+                        <span>Security protocols</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- TRAINING & DEV -->
+                <div class="relative group">
+                  <div class="absolute -top-3 left-1/2 -translate-x-1/2 z-20">
+                    <span class="inline-flex items-center justify-center px-3 py-0.5 rounded-full text-[11px] font-extrabold bg-[#2b353f] text-[#00aeef] border border-[#00aeef] shadow-sm tracking-wider">
+                      TD
+                    </span>
+                  </div>
+                  <div class="h-full bg-[#252e37] border border-[#00aeef]/70 group-hover:border-[#00aeef] rounded-xl p-4 sm:p-5 pt-5 shadow-md transition-all duration-300">
+                    <h4 class="text-sm sm:text-base font-bold text-white text-center mb-2 tracking-tight">Training &amp; Dev</h4>
+                    <ul class="space-y-1 text-xs text-slate-300 font-normal">
+                      <li class="flex items-start space-x-1.5">
+                        <span class="text-[#00aeef] font-bold shrink-0">&bull;</span>
+                        <span>3-week pre-training</span>
+                      </li>
+                      <li class="flex items-start space-x-1.5">
+                        <span class="text-[#00aeef] font-bold shrink-0">&bull;</span>
+                        <span>Ongoing upskilling</span>
+                      </li>
+                      <li class="flex items-start space-x-1.5">
+                        <span class="text-[#00aeef] font-bold shrink-0">&bull;</span>
+                        <span>Introduction Compass tools</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+              </div>
+
             </div>
+
+            <!-- RIGHT 4-COLUMN NODE: VA ENGAGEMENT, HAPPINESS (CULTURE & RETENTION) -->
+            <div class="lg:col-span-4 flex flex-col justify-start h-full pt-4 lg:pt-[345px]">
+              <div class="relative group">
+                <div class="absolute -top-3 left-1/2 -translate-x-1/2 z-20">
+                  <span class="inline-flex items-center justify-center px-3.5 py-0.5 rounded-full text-[11px] font-extrabold bg-[#ef4444] text-white shadow-md shadow-red-500/30 border border-white/40 tracking-wider">
+                    CULTURE
+                  </span>
+                </div>
+                <div class="bg-[#252e37] border-2 border-[#f87171] group-hover:border-white rounded-xl p-5 sm:p-6 pt-5 shadow-xl transition-all duration-300">
+                  <h4 class="text-sm sm:text-base font-bold text-white mb-2 tracking-tight text-center sm:text-left">VA Engagement, Happiness</h4>
+                  <ul class="space-y-1.5 text-xs text-slate-300 font-normal">
+                    <li class="flex items-start space-x-1.5">
+                      <span class="text-[#f87171] font-bold shrink-0">&bull;</span>
+                      <span>Office events</span>
+                    </li>
+                    <li class="flex items-start space-x-1.5">
+                      <span class="text-[#f87171] font-bold shrink-0">&bull;</span>
+                      <span>Team building</span>
+                    </li>
+                    <li class="flex items-start space-x-1.5">
+                      <span class="text-[#f87171] font-bold shrink-0">&bull;</span>
+                      <span>Off-site activities</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
           </div>
-          <p class="pod-main-title font-bold text-white text-xl sm:text-2xl">Dedicated Composite VA</p>
-          <p class="pod-main-subtitle text-xs sm:text-sm text-slate-400 mt-1">Your single point of Compass execution</p>
+
         </div>
 
-        <div class="w-full h-px bg-[#3c4a58] my-6"></div>
-
-        <!-- Horizontal Support Nodes -->
-        <div class="grid grid-cols-2 sm:grid-cols-5 gap-4 text-center my-6">
-          <div class="flex flex-col items-center group">
-            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-[#3c4a58] group-hover:border-[#00aeef] bg-[#2b353f] flex items-center justify-center mb-2 transition-colors shadow-sm"><span class="font-serif-title text-sm sm:text-base font-bold text-white">TL</span></div>
-            <p class="pod-node-title font-bold text-white text-xs sm:text-sm">Team Leader</p>
-            <p class="pod-node-desc text-[11px] text-slate-400">Daily QA &amp; escalation</p>
-          </div>
-          <div class="flex flex-col items-center group">
-            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-[#3c4a58] group-hover:border-[#00aeef] bg-[#2b353f] flex items-center justify-center mb-2 transition-colors shadow-sm"><span class="font-serif-title text-sm sm:text-base font-bold text-white">OM</span></div>
-            <p class="pod-node-title font-bold text-white text-xs sm:text-sm">Operations Manager</p>
-            <p class="pod-node-desc text-[11px] text-slate-400">Workflow continuity</p>
-          </div>
-          <div class="flex flex-col items-center group">
-            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-[#3c4a58] group-hover:border-[#00aeef] bg-[#2b353f] flex items-center justify-center mb-2 transition-colors shadow-sm"><span class="font-serif-title text-sm sm:text-base font-bold text-white">IT</span></div>
-            <p class="pod-node-title font-bold text-white text-xs sm:text-sm">IT &amp; Infrastructure</p>
-            <p class="pod-node-desc text-[11px] text-slate-400">Hardware, VPN &amp; SSO</p>
-          </div>
-          <div class="flex flex-col items-center group">
-            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-[#3c4a58] group-hover:border-[#00aeef] bg-[#2b353f] flex items-center justify-center mb-2 transition-colors shadow-sm"><span class="font-serif-title text-sm sm:text-base font-bold text-white">TD</span></div>
-            <p class="pod-node-title font-bold text-white text-xs sm:text-sm">Training &amp; Dev</p>
-            <p class="pod-node-desc text-[11px] text-slate-400">3-week pre-training</p>
-          </div>
-          <div class="flex flex-col items-center col-span-2 sm:col-span-1 group">
-            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full border-2 border-[#00aeef] bg-[#2b353f] flex items-center justify-center mb-2 shadow-md shadow-[#00aeef]/20 transition-transform group-hover:scale-105"><span class="font-serif-title text-sm sm:text-base font-bold text-[#00aeef]">HR</span></div>
-            <p class="pod-node-title font-bold text-white text-xs sm:text-sm">HR &amp; Compliance</p>
-            <p class="pod-node-included font-bold text-[#00aeef] text-[10px] tracking-wider uppercase mt-0.5">INCLUDED</p>
-          </div>
-        </div>
-
-        <div class="w-full h-px bg-[#3c4a58] my-6"></div>
+        <div class="w-full h-px bg-[#3c4a58] my-8"></div>
 
         <!-- Narrative Statement -->
         <div class="text-slate-300 text-xs sm:text-sm leading-relaxed font-normal text-center sm:text-left bg-[#2b353f]/70 p-4 rounded-xl border border-[#3c4a58]">
@@ -1217,79 +1601,130 @@
         <div class="absolute -bottom-10 -left-10 w-80 h-80 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
         <div class="relative">
           <div class="inline-flex items-center space-x-2 bg-white/20 border border-white/30 text-white text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3 backdrop-blur-sm">Commercial Model</div>
-          <h2 class="text-2xl sm:text-4xl font-extrabold mt-2 mb-4 sm:mb-6 tracking-tight text-white">Your Office-Based Real Estate Operations Partner</h2>
-          <p class="text-base sm:text-lg text-white/95 mb-6 sm:mb-8 leading-relaxed font-normal">Flat monthly rate of <strong>$1,995/mo</strong> per full-time dedicated assistant. Eliminate recruitment fees, local HR burden, payroll setup, equipment acquisition, and employee benefits.</p>
+          <h2 class="text-2xl sm:text-4xl font-extrabold mt-2 mb-4 tracking-tight text-white">Your Office-Based Real Estate Operations Partner</h2>
+          <p class="text-base sm:text-lg text-white/95 mb-6 leading-relaxed font-normal">Eliminate recruitment fees, local HR burden, payroll setup, equipment acquisition, and employee benefits with a predictable, fully managed team model.</p>
 
-          <div class="space-y-3 sm:space-y-4">
-            <div class="flex items-center space-x-3">
-              <div class="w-5 h-5 sm:w-6 sm:h-6 bg-white/20 rounded-full flex items-center justify-center border border-white/40 shrink-0">
-                <svg class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
+          <!-- High-Contrast $1,995/mo Pop-Up Card -->
+          <div class="mb-6 bg-[#1e293b]/95 border-2 border-white/80 rounded-2xl p-4 sm:p-5 shadow-2xl backdrop-blur-md flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <span class="inline-block text-[11px] font-extrabold uppercase tracking-wider text-[#00aeef] bg-[#00aeef]/15 px-2.5 py-0.5 rounded-full mb-1">Full-Time Dedicated VA</span>
+              <div class="flex items-baseline space-x-1.5">
+                <span class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">$1,995</span>
+                <span class="text-base sm:text-lg text-slate-300 font-bold">/ Month</span>
               </div>
-              <span class="text-sm sm:text-base text-white font-medium">One dedicated, full-time VA supported by 2 dedicated managers</span>
             </div>
-            <div class="flex items-center space-x-3">
-              <div class="w-5 h-5 sm:w-6 sm:h-6 bg-white/20 rounded-full flex items-center justify-center border border-white/40 shrink-0">
-                <svg class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-              </div>
-              <span class="text-sm sm:text-base text-white font-medium">3 weeks of structured pre-training on Compass systems</span>
+            <div class="text-xs sm:text-sm text-slate-300 font-medium border-l border-slate-700/80 pl-4 py-1">
+              <span class="text-white font-bold block">Flat Subscription</span>
+              No hidden fees &bull; Simple setup
             </div>
-            <div class="flex items-center space-x-3">
-              <div class="w-5 h-5 sm:w-6 sm:h-6 bg-white/20 rounded-full flex items-center justify-center border border-white/40 shrink-0">
-                <svg class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
+          </div>
+
+          <!-- 12-Item Checklist (2-Column Grid on sm+) -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
+            <div class="flex items-center space-x-2.5">
+              <div class="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center border border-white/40 shrink-0">
+                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
               </div>
-              <span class="text-sm sm:text-base text-white font-medium">Full IT, hardware, payroll, healthcare &amp; SOC 2 security included</span>
+              <span class="text-xs sm:text-sm text-white font-medium">Fully Dedicated VA (not shared)</span>
             </div>
-            <div class="flex items-center space-x-3">
-              <div class="w-5 h-5 sm:w-6 sm:h-6 bg-white/20 rounded-full flex items-center justify-center border border-white/40 shrink-0">
-                <svg class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
+
+            <div class="flex items-center space-x-2.5">
+              <div class="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center border border-white/40 shrink-0">
+                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
               </div>
-              <span class="text-sm sm:text-base text-white font-medium">Zero recruiting burden or replacement-search exposure</span>
+              <span class="text-xs sm:text-sm text-white font-medium">2 Dedicated Support Managers</span>
+            </div>
+
+            <div class="flex items-center space-x-2.5">
+              <div class="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center border border-white/40 shrink-0">
+                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              </div>
+              <span class="text-xs sm:text-sm text-white font-medium">9am-6pm (USA), Mon-Fri</span>
+            </div>
+
+            <div class="flex items-center space-x-2.5">
+              <div class="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center border border-white/40 shrink-0">
+                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              </div>
+              <span class="text-xs sm:text-sm text-white font-medium">100% Office-Based Company</span>
+            </div>
+
+            <div class="flex items-center space-x-2.5">
+              <div class="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center border border-white/40 shrink-0">
+                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              </div>
+              <span class="text-xs sm:text-sm text-white font-medium">State-of-the-Art Facilities</span>
+            </div>
+
+            <div class="flex items-center space-x-2.5">
+              <div class="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center border border-white/40 shrink-0">
+                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              </div>
+              <span class="text-xs sm:text-sm text-white font-medium">Strict Data Security Protocols</span>
+            </div>
+
+            <div class="flex items-center space-x-2.5">
+              <div class="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center border border-white/40 shrink-0">
+                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              </div>
+              <span class="text-xs sm:text-sm text-white font-medium">3 Weeks of Training before VA Begins</span>
+            </div>
+
+            <div class="flex items-center space-x-2.5">
+              <div class="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center border border-white/40 shrink-0">
+                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              </div>
+              <span class="text-xs sm:text-sm text-white font-medium">Rigorous Quality Control &amp; Supervision</span>
+            </div>
+
+            <div class="flex items-center space-x-2.5">
+              <div class="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center border border-white/40 shrink-0">
+                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              </div>
+              <span class="text-xs sm:text-sm text-white font-medium">Healthcare and Payroll included</span>
+            </div>
+
+            <div class="flex items-center space-x-2.5">
+              <div class="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center border border-white/40 shrink-0">
+                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              </div>
+              <span class="text-xs sm:text-sm text-white font-medium">Simple Credit Card Payment</span>
+            </div>
+
+            <div class="flex items-center space-x-2.5">
+              <div class="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center border border-white/40 shrink-0">
+                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              </div>
+              <span class="text-xs sm:text-sm text-white font-medium">Computer &amp; Office Supplies Included</span>
+            </div>
+
+            <div class="flex items-center space-x-2.5">
+              <div class="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center border border-white/40 shrink-0">
+                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              </div>
+              <span class="text-xs sm:text-sm text-white font-medium">Fully AI-Enabled Across Platforms</span>
             </div>
           </div>
         </div>
 
-        <div class="bg-white text-slate-900 p-6 sm:p-8 rounded-xl sm:rounded-2xl border border-slate-100 shadow-2xl relative">
+        <!-- Form Container Card with controlled max-width -->
+        <div class="bg-white text-slate-900 p-6 sm:p-8 rounded-xl sm:rounded-2xl border border-slate-100 shadow-2xl relative max-w-[490px] w-full mx-auto lg:ml-auto">
           <h3 class="text-xl sm:text-2xl font-bold text-slate-900 mb-1.5 sm:mb-2 tracking-tight">Ready to Build Your Compass Support Team?</h3>
           <p class="text-xs sm:text-sm text-slate-500 mb-5 sm:mb-6 font-normal">Tell us where your team is spending the most time—and we'll show you what can be delegated and systematized.</p>
 
-          <form id="composite-lead-form" class="space-y-3 sm:space-y-3.5">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div>
-                <label class="block text-xs font-semibold text-slate-700 mb-1 tracking-wide">First Name *</label>
-                <input id="lead-firstname" class="w-full px-3.5 py-2.5 text-base sm:text-sm bg-slate-50 border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#00aeef] focus:border-transparent font-normal transition" required type="text" placeholder="Jane" />
+          <!-- Official HubSpot Form Target -->
+          <div id="hubspot-official-form-wrapper" class="w-full min-h-[360px]">
+            <div id="hubspot-form-target" class="w-full">
+              <!-- Loading indicator while HubSpot script mounts iframe -->
+              <div id="hubspot-form-loading" class="flex flex-col items-center justify-center py-16 text-slate-400 space-y-3">
+                <svg class="animate-spin h-7 w-7 text-[#00aeef]" fill="none" viewBox="0 0 24 24">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+                </svg>
+                <span class="text-xs font-semibold text-slate-600">Loading HubSpot form...</span>
               </div>
-              <div>
-                <label class="block text-xs font-semibold text-slate-700 mb-1 tracking-wide">Last Name *</label>
-                <input id="lead-lastname" class="w-full px-3.5 py-2.5 text-base sm:text-sm bg-slate-50 border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#00aeef] focus:border-transparent font-normal transition" required type="text" placeholder="Doe" />
-              </div>
             </div>
-            <div>
-              <label class="block text-xs font-semibold text-slate-700 mb-1 tracking-wide">Business Email Address *</label>
-              <input id="lead-email" class="w-full px-3.5 py-2.5 text-base sm:text-sm bg-slate-50 border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#00aeef] focus:border-transparent font-normal transition" autocomplete="email" required type="email" placeholder="jane@compass.com" />
-            </div>
-            <div>
-              <label class="block text-xs font-semibold text-slate-700 mb-1 tracking-wide">Phone Number</label>
-              <input id="lead-phone" class="w-full px-3.5 py-2.5 text-base sm:text-sm bg-slate-50 border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#00aeef] focus:border-transparent font-normal transition" autocomplete="tel" pattern="[0-9+*#,\- .()]{7,}" type="tel" placeholder="(555) 000-0000" />
-            </div>
-            <div>
-              <label class="block text-xs font-semibold text-slate-700 mb-1 tracking-wide">Team Name</label>
-              <input id="lead-company" class="w-full px-3.5 py-2.5 text-base sm:text-sm bg-slate-50 border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#00aeef] focus:border-transparent font-normal transition" type="text" placeholder="e.g. Compass Team Name" />
-            </div>
-            <div class="pt-2 flex justify-center w-full text-center">
-              <button id="lead-submit-btn" class="w-auto px-7 py-3 text-sm sm:text-base font-semibold tracking-normal text-white bg-[#2b353f] hover:bg-[#1e262f] rounded-lg transition shadow-lg shadow-[#2b353f]/30 active:scale-[0.99]" style="background-color: #2b353f !important; background-image: none !important; color: #ffffff !important; width: auto !important; border-radius: 10px !important; padding: 12px 28px !important; text-transform: none !important; border: 1px solid #2b353f !important; display: inline-flex !important; justify-content: center !important;" type="submit">
-                Book A Strategy Call
-              </button>
-            </div>
-            <p id="lead-status-msg" class="text-xs text-center font-medium mt-2 hidden"></p>
-          </form>
+          </div>
         </div>
       </div>
     </div>
@@ -1825,115 +2260,200 @@
       updatePositions();
     }
 
-    // Touch Pause & Interaction on Testimonials
-    function initTestimonialTouch() {
-      const tickerBox = document.getElementById('testimonial-ticker-box');
-      if (!tickerBox || tickerBox.dataset.touchInit === 'true') return;
-      tickerBox.dataset.touchInit = 'true';
+    // Interactive Drag-to-Scroll & Auto-Resuming Testimonial Marquee (Mobile, Tablet, Desktop)
+    function initTestimonialsInteractive() {
+      const container = document.querySelector('.testimonial-track-container');
+      const track = document.querySelector('.testimonial-track');
+      if (!container || !track || track.dataset.tickerInit === 'true') return;
+      track.dataset.tickerInit = 'true';
 
-      tickerBox.addEventListener('touchstart', () => {
-        tickerBox.classList.add('paused');
-      }, { passive: true });
+      let currentX = 0;
+      let isDragging = false;
+      let startX = 0;
+      let dragStartX = 0;
+      let resumeTimer = null;
+      let isPaused = false;
+      let lastTime = performance.now();
+      const speed = 0.055; // Pixels per millisecond (~55px/sec)
 
-      tickerBox.addEventListener('touchend', () => {
-        setTimeout(() => { tickerBox.classList.remove('paused'); }, 2000);
-      }, { passive: true });
-    }
+      function getHalfWidth() {
+        return track.scrollWidth / 2;
+      }
 
-    function initFormSubmission() {
-      const form = document.getElementById('composite-lead-form');
-      const submitBtn = document.getElementById('lead-submit-btn');
-      const statusMsg = document.getElementById('lead-status-msg');
+      function updateTransform() {
+        const halfWidth = getHalfWidth();
+        if (halfWidth > 0) {
+          // Normalize so it always loops seamlessly in either direction
+          while (currentX <= -halfWidth) currentX += halfWidth;
+          while (currentX > 0) currentX -= halfWidth;
+        }
+        track.style.transform = `translate3d(${currentX.toFixed(2)}px, 0, 0)`;
+      }
 
-      if (!form || form.dataset.listenerBound === 'true') return;
-      form.dataset.listenerBound = 'true';
+      function tick(now) {
+        const delta = Math.min(now - lastTime, 100);
+        lastTime = now;
 
-      const HUBSPOT_PORTAL_ID = '14538095';
-      const HUBSPOT_FORM_GUID = '3284c187-31cf-42ac-9015-a7d7dd033e76';
-      const NOTIFICATION_EMAIL = 'hello@compositegp.com';
+        if (!isPaused && !isDragging) {
+          currentX -= speed * delta;
+          updateTransform();
+        }
+        requestAnimationFrame(tick);
+      }
 
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
+      function scheduleResume(delayMs = 2500) {
+        clearTimeout(resumeTimer);
+        resumeTimer = setTimeout(() => {
+          isPaused = false;
+        }, delayMs);
+      }
 
-        const firstname = document.getElementById('lead-firstname').value.trim();
-        const lastname = document.getElementById('lead-lastname').value.trim();
-        const email = document.getElementById('lead-email').value.trim();
-        const phone = document.getElementById('lead-phone').value.trim();
-        const company = document.getElementById('lead-company').value.trim();
+      function pauseAndHold() {
+        clearTimeout(resumeTimer);
+        isPaused = true;
+      }
 
-        submitBtn.disabled = true;
-        submitBtn.innerText = 'Submitting...';
-        statusMsg.classList.add('hidden');
+      // Pointer / Touch / Mouse unified drag handlers
+      function handleDragStart(clientX) {
+        isDragging = true;
+        pauseAndHold();
+        startX = clientX;
+        dragStartX = currentX;
+        track.classList.add('is-dragging');
+      }
 
-        let hutk = null;
-        const match = document.cookie.match(/(?:^|;\s*)hubspotutk=([^;]*)/);
-        if (match) hutk = match[1];
+      function handleDragMove(clientX) {
+        if (!isDragging) return;
+        const diffX = clientX - startX;
+        currentX = dragStartX + diffX;
+        updateTransform();
+      }
 
-        const hsPayload = {
-          submittedAt: Date.now(),
-          fields: [
-            { name: "firstname", value: firstname },
-            { name: "lastname", value: lastname },
-            { name: "email", value: email },
-            { name: "phone", value: phone },
-            { name: "company", value: company }
-          ],
-          context: {
-            hutk: hutk,
-            pageUri: window.location.href,
-            pageName: document.title
-          }
-        };
+      function handleDragEnd() {
+        if (!isDragging) return;
+        isDragging = false;
+        track.classList.remove('is-dragging');
+        scheduleResume(2400);
+      }
 
-        const emailPayload = {
-          _subject: "New Compass Real Estate Operations Consultation Lead",
-          _template: "table",
-          "Source": "Composite + Compass Landing Page",
-          "First Name": firstname,
-          "Last Name": lastname,
-          "Business Email": email,
-          "Phone Number": phone || "Not Provided",
-          "Team Name": company || "Not Provided",
-          "Submitted At": new Date().toLocaleString()
-        };
+      // Mouse Events
+      container.addEventListener('mousedown', (e) => {
+        handleDragStart(e.clientX);
+      });
 
-        try {
-          const na2Endpoint = `https://api-na2.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_GUID}`;
-          const globalEndpoint = `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_GUID}`;
-
-          const submitToHubSpot = async (url) => {
-            return fetch(url, {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-              body: JSON.stringify(hsPayload)
-            });
-          };
-
-          await Promise.allSettled([
-            submitToHubSpot(na2Endpoint).then(res => {
-              if (!res.ok) return submitToHubSpot(globalEndpoint);
-            }),
-            fetch(`https://formsubmit.co/ajax/${NOTIFICATION_EMAIL}`, {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-              body: JSON.stringify(emailPayload)
-            })
-          ]);
-
-          statusMsg.innerText = 'Thank you! Your request has been received. Our team will contact you shortly.';
-          statusMsg.className = 'text-xs text-center font-semibold mt-2 text-emerald-600';
-          statusMsg.classList.remove('hidden');
-          form.reset();
-        } catch (err) {
-          statusMsg.innerText = 'Thank you! Your request has been received. Our team will contact you shortly.';
-          statusMsg.className = 'text-xs text-center font-semibold mt-2 text-emerald-600';
-          statusMsg.classList.remove('hidden');
-          form.reset();
-        } finally {
-          submitBtn.disabled = false;
-          submitBtn.innerText = 'Book A Strategy Call';
+      window.addEventListener('mousemove', (e) => {
+        if (isDragging) {
+          e.preventDefault();
+          handleDragMove(e.clientX);
         }
       });
+
+      window.addEventListener('mouseup', () => {
+        if (isDragging) handleDragEnd();
+      });
+
+      // Touch Events (Mobile & Tablet)
+      container.addEventListener('touchstart', (e) => {
+        if (!e.touches.length) return;
+        handleDragStart(e.touches[0].clientX);
+      }, { passive: true });
+
+      container.addEventListener('touchmove', (e) => {
+        if (!isDragging || !e.touches.length) return;
+        handleDragMove(e.touches[0].clientX);
+      }, { passive: true });
+
+      container.addEventListener('touchend', () => {
+        handleDragEnd();
+      }, { passive: true });
+
+      container.addEventListener('touchcancel', () => {
+        handleDragEnd();
+      }, { passive: true });
+
+      // Desktop Hover pause
+      container.addEventListener('mouseenter', () => {
+        if (!isDragging) pauseAndHold();
+      });
+
+      container.addEventListener('mouseleave', () => {
+        if (!isDragging) scheduleResume(1200);
+      });
+
+      // Horizontal Mouse Wheel support for fast review
+      container.addEventListener('wheel', (e) => {
+        const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+        if (Math.abs(delta) > 2) {
+          pauseAndHold();
+          currentX -= delta * 0.8;
+          updateTransform();
+          scheduleResume(2200);
+        }
+      }, { passive: true });
+
+      requestAnimationFrame(tick);
+    }
+
+    function initHubspotForm() {
+      const target = document.getElementById('hubspot-form-target');
+      if (!target || target.dataset.hsMounted === 'true') return;
+
+      function mountHubspot() {
+        if (typeof window.hbspt !== 'undefined' && window.hbspt.forms && typeof window.hbspt.forms.create === 'function') {
+          if (target.dataset.hsMounted === 'true') return;
+          target.dataset.hsMounted = 'true';
+
+          try {
+            window.hbspt.forms.create({
+              region: "na2",
+              portalId: "14538095",
+              formId: "3284c187-31cf-42ac-9015-a7d7dd033e76",
+              target: "#hubspot-form-target",
+              onFormReady: function() {
+                const loader = document.getElementById('hubspot-form-loading');
+                if (loader) loader.style.display = 'none';
+              }
+            });
+
+            // Fallback hide loader after 2.5s
+            setTimeout(() => {
+              const loader = document.getElementById('hubspot-form-loading');
+              if (loader) loader.style.display = 'none';
+            }, 2500);
+          } catch (err) {
+            console.warn('HubSpot forms.create error:', err);
+          }
+        }
+      }
+
+      if (typeof window.hbspt !== 'undefined' && window.hbspt.forms) {
+        mountHubspot();
+      } else {
+        let hsScript = document.querySelector('script[src*="js-na2.hsforms.net"]') || document.querySelector('script[src*="hsforms.net"]');
+        if (!hsScript) {
+          hsScript = document.createElement('script');
+          hsScript.src = 'https://js-na2.hsforms.net/forms/embed/v2.js';
+          hsScript.charset = 'utf-8';
+          hsScript.type = 'text/javascript';
+          hsScript.setAttribute('data-nitro-no-defer', 'true');
+          hsScript.setAttribute('data-cfasync', 'false');
+          document.head.appendChild(hsScript);
+        }
+
+        hsScript.addEventListener('load', mountHubspot);
+
+        let attempts = 0;
+        const pollInterval = setInterval(() => {
+          attempts++;
+          if (typeof window.hbspt !== 'undefined' && window.hbspt.forms) {
+            clearInterval(pollInterval);
+            mountHubspot();
+          }
+          if (attempts > 50) {
+            clearInterval(pollInterval);
+          }
+        }, 200);
+      }
     }
 
     function runAll() {
@@ -1943,8 +2463,8 @@
       initBrokerageOrbit();
       initRiskMitigation();
       init3DCarousel();
-      initTestimonialTouch();
-      initFormSubmission();
+      initTestimonialsInteractive();
+      initHubspotForm();
     }
 
     runAll();
